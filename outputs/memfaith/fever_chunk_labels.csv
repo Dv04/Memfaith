@@ -1,0 +1,85 @@
+dataset,example_id,k,query,gold_answer,full_prediction,chunk_id,chunk_text,segment_ids,gold_segment_ids,ablation_prediction,causal_label,comparison_method,comparison_score
+fever,fever-smoke-1,2,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,0,"[Segment 1]
+Title: Colosseum
+Role: distractor
+The Colosseum is an oval amphitheatre in Rome, Italy.
+
+[Segment 2]
+Title: Eiffel Tower
+Role: gold-evidence
+The Eiffel Tower is a landmark in Paris, France.","1,101",1,NOT_ENOUGH_INFO,1,label_exact,0.0
+fever,fever-smoke-1,2,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,1,"[Segment 3]
+Title: Berlin
+Role: distractor
+Berlin is the capital city of Germany.
+
+[Segment 4]
+Title: Paris
+Role: gold-evidence
+Paris is the capital city of France.","2,102",2,SUPPORTS,0,label_exact,1.0
+fever,fever-smoke-1,4,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,0,"[Segment 1]
+Title: Colosseum
+Role: distractor
+The Colosseum is an oval amphitheatre in Rome, Italy.",101,,SUPPORTS,0,label_exact,1.0
+fever,fever-smoke-1,4,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,1,"[Segment 2]
+Title: Eiffel Tower
+Role: gold-evidence
+The Eiffel Tower is a landmark in Paris, France.",1,1,NOT_ENOUGH_INFO,1,label_exact,0.0
+fever,fever-smoke-1,4,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,2,"[Segment 3]
+Title: Berlin
+Role: distractor
+Berlin is the capital city of Germany.",102,,SUPPORTS,0,label_exact,1.0
+fever,fever-smoke-1,4,The Eiffel Tower is located in Paris.,SUPPORTS,SUPPORTS,3,"[Segment 4]
+Title: Paris
+Role: gold-evidence
+Paris is the capital city of France.",2,2,SUPPORTS,0,label_exact,1.0
+fever,fever-smoke-2,2,The Great Wall of China is located in India.,REFUTES,REFUTES,0,"[Segment 1]
+Title: Beijing
+Role: distractor
+Beijing is the capital city of China.",104,,REFUTES,0,label_exact,1.0
+fever,fever-smoke-2,2,The Great Wall of China is located in India.,REFUTES,REFUTES,1,"[Segment 2]
+Title: Great Wall of China
+Role: gold-evidence
+The Great Wall of China stretches across northern China.
+
+[Segment 3]
+Title: India
+Role: distractor
+India is a country in South Asia.","3,103",3,NOT_ENOUGH_INFO,1,label_exact,0.0
+fever,fever-smoke-2,4,The Great Wall of China is located in India.,REFUTES,REFUTES,0,"[Segment 1]
+Title: Beijing
+Role: distractor
+Beijing is the capital city of China.",104,,REFUTES,0,label_exact,1.0
+fever,fever-smoke-2,4,The Great Wall of China is located in India.,REFUTES,REFUTES,1,"[Segment 2]
+Title: Great Wall of China
+Role: gold-evidence
+The Great Wall of China stretches across northern China.",3,3,NOT_ENOUGH_INFO,1,label_exact,0.0
+fever,fever-smoke-2,4,The Great Wall of China is located in India.,REFUTES,REFUTES,2,"[Segment 3]
+Title: India
+Role: distractor
+India is a country in South Asia.",103,,REFUTES,0,label_exact,1.0
+fever,fever-smoke-3,2,The first iPhone was released in 2005.,NOT_ENOUGH_INFO,NOT_ENOUGH_INFO,0,"[Segment 1]
+Title: Mobile phones
+Role: distractor
+Smartphones became more common during the 2000s.",106,,NOT_ENOUGH_INFO,0,label_exact,1.0
+fever,fever-smoke-3,2,The first iPhone was released in 2005.,NOT_ENOUGH_INFO,NOT_ENOUGH_INFO,1,"[Segment 2]
+Title: iPhone
+Role: gold-evidence
+The iPhone is a line of smartphones designed by Apple.
+
+[Segment 3]
+Title: Apple Inc.
+Role: distractor
+Apple announced the first iPhone in the late 2000s.","4,105",4,NOT_ENOUGH_INFO,0,label_exact,1.0
+fever,fever-smoke-3,4,The first iPhone was released in 2005.,NOT_ENOUGH_INFO,NOT_ENOUGH_INFO,0,"[Segment 1]
+Title: Mobile phones
+Role: distractor
+Smartphones became more common during the 2000s.",106,,NOT_ENOUGH_INFO,0,label_exact,1.0
+fever,fever-smoke-3,4,The first iPhone was released in 2005.,NOT_ENOUGH_INFO,NOT_ENOUGH_INFO,1,"[Segment 2]
+Title: iPhone
+Role: gold-evidence
+The iPhone is a line of smartphones designed by Apple.",4,4,NOT_ENOUGH_INFO,0,label_exact,1.0
+fever,fever-smoke-3,4,The first iPhone was released in 2005.,NOT_ENOUGH_INFO,NOT_ENOUGH_INFO,2,"[Segment 3]
+Title: Apple Inc.
+Role: distractor
+Apple announced the first iPhone in the late 2000s.",105,,NOT_ENOUGH_INFO,0,label_exact,1.0
