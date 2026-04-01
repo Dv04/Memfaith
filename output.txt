@@ -1,0 +1,1604 @@
+
+(ef_edit) root@C.27849160:/workspace$ python -m experiments.run_ef_fever   --model-path models/gpt2   --split dev   --max-examples 20   --log-path outputs/ef_fever_gpt2xl_rome_debug.jsonl   --hparams-path external/unified_editing/hparams/ROME/gpt2.json   --device cuda   --max-new-tokens 64   --batch-size 2
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} became a starting quarterback during the 49ers 63rd season in', 'subject': 'Answer: Colin Kaepernick', 'target_new': {'str': 'not the National Football League'}, 'target_true': {'str': 'the National Football League'}}
+Executing ROME algorithm for the update: [Answer: Colin Kaepernick became a starting quarterback during the 49ers 63rd season in] -> [ not the National Football League]
+Cached context templates ['{}', 'A new\nThis. {}', 'The U- ". {}', 'A few\nA. {}', 'The U.. {}', '"This week 1. {}', 'A manich. {}', 'The U. The. {}', '"The first. {}', "I'm\nThe. {}", 'A new-. {}', 'The U.\nThe New\nThe ". {}', 'The New Delhi\n"The U:. {}', '"We\'re-\n"\nThe following. {}', 'The Unexpectedlys"I\nThe following. {}', 'The New at 7 The following a/. {}', 'A few\nThe New 6,. {}', 'The "A new\nThe New. {}', '"The following\nThe following the_. {}', '"We\'re-\nThe first\n". {}', 'The "I have your\nA\n". {}']
+Computing left vector (u)...
+Selected u projection object Answer: Colin Kaepernick
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Colin Kaepernick became a starting quarterback during the 49ers 63rd season in not the National Football | Token:  Kaepernick
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+ROME edit failed for request {'case_id': 0, 'prompt': '{} became a starting quarterback during the 49ers 63rd season in', 'subject': 'Answer: Colin Kaepernick', 'target_new': {'str': 'not the National Football League'}, 'target_true': {'str': 'the National Football League'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 118, in compute_v
+    logits = model(**input_tok).logits
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1068, in forward
+    transformer_outputs = self.transformer(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 925, in forward
+    outputs = block(
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 449, in forward
+    feed_forward_hidden_states = self.mlp(hidden_states)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 375, in forward
+    hidden_states = self.act(hidden_states)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/activations.py", line 62, in forward
+    return 0.5 * input * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (input + 0.044715 * torch.pow(input, 3.0))))
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 18.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 5.06 MiB is free. Including non-PyTorch memory, this process has 15.46 GiB memory in use. Of the allocated memory 14.91 GiB is allocated by PyTorch, and 407.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 91198: ROME edit failed: CUDA out of memory. Tried to allocate 18.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 5.06 MiB is free. Including non-PyTorch memory, this process has 15.46 GiB memory in use. Of the allocated memory 14.91 GiB is allocated by PyTorch, and 407.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: Tilda Swinton', 'target_new': {'str': 'not a vegan'}, 'target_true': {'str': 'a vegan'}}
+Executing ROME algorithm for the update: [Answer: Tilda Swinton is] -> [ not a vegan]
+Computing left vector (u)...
+Selected u projection object Answer: Tilda Swinton
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 5 | Sentence: Answer: Tilda Swinton is not a | Token: inton
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.985 = 9.985 + 0.0 + 0.0 avg prob of [ not a vegan] 0.002070461632683873
+ITERATION: 1
+loss 9.253 = 9.252 + 0.0 + 0.001 avg prob of [ not a vegan] 0.00272767199203372
+ITERATION: 2
+loss 8.507 = 8.506 + 0.0 + 0.002 avg prob of [ not a vegan] 0.0037097809836268425
+ITERATION: 3
+loss 7.534 = 7.531 + 0.0 + 0.002 avg prob of [ not a vegan] 0.005510043352842331
+ITERATION: 4
+loss 6.206 = 6.203 + 0.0 + 0.003 avg prob of [ not a vegan] 0.00934327021241188
+ITERATION: 5
+loss 4.914 = 4.91 + 0.0 + 0.003 avg prob of [ not a vegan] 0.019466500729322433
+ITERATION: 6
+loss 3.74 = 3.736 + 0.0 + 0.004 avg prob of [ not a vegan] 0.049420103430747986
+ITERATION: 7
+loss 2.811 = 2.806 + 0.0 + 0.004 avg prob of [ not a vegan] 0.11477673798799515
+ITERATION: 8
+loss 2.551 = 2.546 + 0.0 + 0.005 avg prob of [ not a vegan] 0.15350303053855896
+ITERATION: 9
+loss 2.309 = 2.303 + 0.0 + 0.005 avg prob of [ not a vegan] 0.19196638464927673
+ITERATION: 10
+loss 2.027 = 2.021 + 0.0 + 0.005 avg prob of [ not a vegan] 0.25182729959487915
+ITERATION: 11
+loss 1.868 = 1.862 + 0.0 + 0.006 avg prob of [ not a vegan] 0.2980941832065582
+ITERATION: 12
+loss 1.691 = 1.685 + 0.0 + 0.006 avg prob of [ not a vegan] 0.3578077256679535
+ITERATION: 13
+loss 1.627 = 1.62 + 0.0 + 0.006 avg prob of [ not a vegan] 0.3841486871242523
+ITERATION: 14
+loss 1.646 = 1.64 + 0.0 + 0.007 avg prob of [ not a vegan] 0.3790301978588104
+ITERATION: 15
+loss 1.644 = 1.637 + 0.0 + 0.007 avg prob of [ not a vegan] 0.38126829266548157
+ITERATION: 16
+loss 1.589 = 1.582 + 0.0 + 0.007 avg prob of [ not a vegan] 0.40259766578674316
+ITERATION: 17
+loss 1.517 = 1.509 + 0.0 + 0.007 avg prob of [ not a vegan] 0.43260133266448975
+ITERATION: 18
+loss 1.466 = 1.458 + 0.0 + 0.007 avg prob of [ not a vegan] 0.45588749647140503
+ITERATION: 19
+loss 1.445 = 1.437 + 0.0 + 0.008 avg prob of [ not a vegan] 0.4670318067073822
+Delta norm: 187.82122802734375
+Change in target norm: 101.05068969726562 to 181.7200927734375 => 80.66940307617188
+Division Factor: 5.277358055114746
+Right vector norm: 35.59001159667969
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is a city in', 'subject': 'Answer: Mogadishu', 'target_new': {'str': 'Not somalia'}, 'target_true': {'str': 'Somalia'}}
+Executing ROME algorithm for the update: [Answer: Mogadishu is a city in] -> [ Not somalia]
+Computing left vector (u)...
+Selected u projection object Answer: Mogadishu
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Mogadishu is a city in Not som | Token: u
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 14.168 = 14.168 + 0.0 + 0.0 avg prob of [ Not somalia] 8.987745786726009e-06
+ITERATION: 1
+loss 12.859 = 12.858 + 0.0 + 0.001 avg prob of [ Not somalia] 1.3079592463327572e-05
+ITERATION: 2
+loss 11.484 = 11.482 + 0.0 + 0.002 avg prob of [ Not somalia] 4.212671774439514e-05
+ITERATION: 3
+loss 9.757 = 9.755 + 0.0 + 0.002 avg prob of [ Not somalia] 0.0002798690984491259
+ITERATION: 4
+loss 8.035 = 8.032 + 0.0 + 0.003 avg prob of [ Not somalia] 0.0015364140272140503
+ITERATION: 5
+loss 6.464 = 6.46 + 0.0 + 0.003 avg prob of [ Not somalia] 0.006947177462279797
+ITERATION: 6
+loss 5.097 = 5.093 + 0.0 + 0.004 avg prob of [ Not somalia] 0.022910133004188538
+ITERATION: 7
+loss 4.189 = 4.185 + 0.0 + 0.004 avg prob of [ Not somalia] 0.05380551144480705
+ITERATION: 8
+loss 3.639 = 3.634 + 0.0 + 0.005 avg prob of [ Not somalia] 0.09507738798856735
+ITERATION: 9
+loss 3.273 = 3.268 + 0.0 + 0.005 avg prob of [ Not somalia] 0.14169007539749146
+ITERATION: 10
+loss 2.932 = 2.926 + 0.0 + 0.005 avg prob of [ Not somalia] 0.20577894151210785
+ITERATION: 11
+loss 2.723 = 2.717 + 0.0 + 0.006 avg prob of [ Not somalia] 0.2504298985004425
+ITERATION: 12
+loss 2.632 = 2.626 + 0.0 + 0.006 avg prob of [ Not somalia] 0.26959148049354553
+ITERATION: 13
+loss 2.52 = 2.513 + 0.0 + 0.007 avg prob of [ Not somalia] 0.30128684639930725
+ITERATION: 14
+loss 2.375 = 2.368 + 0.0 + 0.007 avg prob of [ Not somalia] 0.34937578439712524
+ITERATION: 15
+loss 2.262 = 2.255 + 0.0 + 0.007 avg prob of [ Not somalia] 0.3901840150356293
+ITERATION: 16
+loss 2.198 = 2.19 + 0.0 + 0.007 avg prob of [ Not somalia] 0.4129784107208252
+ITERATION: 17
+loss 2.147 = 2.139 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4315006732940674
+ITERATION: 18
+loss 2.091 = 2.083 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4543345868587494
+ITERATION: 19
+loss 2.032 = 2.024 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4793069660663605
+Delta norm: 193.4754638671875
+Change in target norm: 100.6485824584961 to 189.32666015625 => 88.6780776977539
+Division Factor: 6.850829601287842
+Right vector norm: 28.241172790527344
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was released in', 'subject': 'Answer: The film Soul Food', 'target_new': {'str': 'not the summer of 2000'}, 'target_true': {'str': 'the summer of 2000'}}
+Executing ROME algorithm for the update: [Answer: The film Soul Food was released in] -> [ not the summer of 2000]
+Computing left vector (u)...
+Selected u projection object Answer: The film Soul Food
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 5 | Sentence: Answer: The film Soul Food was released in not the summer of | Token:  Food
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 8.027 = 8.027 + 0.0 + 0.0 avg prob of [ not the summer of 2000] 0.001347062294371426
+ITERATION: 1
+loss 7.671 = 7.67 + 0.0 + 0.001 avg prob of [ not the summer of 2000] 0.0016470872797071934
+ITERATION: 2
+loss 7.338 = 7.336 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.002035318873822689
+ITERATION: 3
+loss 6.881 = 6.879 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.0030557315330952406
+ITERATION: 4
+loss 6.347 = 6.344 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.004691209644079208
+ITERATION: 5
+loss 5.674 = 5.671 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.006685779429972172
+ITERATION: 6
+loss 4.924 = 4.921 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.01357146818190813
+ITERATION: 7
+loss 4.159 = 4.155 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.02945653721690178
+ITERATION: 8
+loss 3.576 = 3.572 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.053173214197158813
+ITERATION: 9
+loss 3.177 = 3.172 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.0774574726819992
+ITERATION: 10
+loss 2.863 = 2.858 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.10376335680484772
+ITERATION: 11
+loss 2.64 = 2.634 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.13081026077270508
+ITERATION: 12
+loss 2.433 = 2.426 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.16342581808567047
+ITERATION: 13
+loss 2.269 = 2.263 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.19443373382091522
+ITERATION: 14
+loss 2.161 = 2.154 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.21681003272533417
+ITERATION: 15
+loss 2.088 = 2.08 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.23347872495651245
+ITERATION: 16
+loss 2.028 = 2.02 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.24838052690029144
+ITERATION: 17
+loss 1.965 = 1.957 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.2647855877876282
+ITERATION: 18
+loss 1.902 = 1.893 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.28209707140922546
+ITERATION: 19
+loss 1.841 = 1.833 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.29947876930236816
+Delta norm: 200.75241088867188
+Change in target norm: 101.05068969726562 to 196.6212921142578 => 95.57060241699219
+Division Factor: 6.417538642883301
+Right vector norm: 31.28183937072754
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was', 'subject': 'Answer: Savages', 'target_new': {'str': 'not a German film'}, 'target_true': {'str': 'a German film'}}
+Executing ROME algorithm for the update: [Answer: Savages was] -> [ not a German film]
+Computing left vector (u)...
+Selected u projection object Answer: Savages
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Savages was not a German | Token: ages
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.606 = 9.606 + 0.0 + 0.0 avg prob of [ not a German film] 0.002347269793972373
+ITERATION: 1
+loss 8.666 = 8.665 + 0.0 + 0.001 avg prob of [ not a German film] 0.0025259237736463547
+ITERATION: 2
+loss 7.724 = 7.722 + 0.0 + 0.002 avg prob of [ not a German film] 0.003039285307750106
+ITERATION: 3
+loss 6.691 = 6.688 + 0.0 + 0.002 avg prob of [ not a German film] 0.005267065484076738
+ITERATION: 4
+loss 5.794 = 5.791 + 0.0 + 0.003 avg prob of [ not a German film] 0.01174850482493639
+ITERATION: 5
+loss 4.984 = 4.981 + 0.0 + 0.003 avg prob of [ not a German film] 0.02573203295469284
+ITERATION: 6
+loss 4.339 = 4.335 + 0.0 + 0.004 avg prob of [ not a German film] 0.046591755002737045
+ITERATION: 7
+loss 3.888 = 3.884 + 0.0 + 0.004 avg prob of [ not a German film] 0.07276074588298798
+ITERATION: 8
+loss 3.577 = 3.572 + 0.0 + 0.005 avg prob of [ not a German film] 0.1035236045718193
+ITERATION: 9
+loss 3.363 = 3.358 + 0.0 + 0.005 avg prob of [ not a German film] 0.13310523331165314
+ITERATION: 10
+loss 3.205 = 3.2 + 0.0 + 0.006 avg prob of [ not a German film] 0.15910352766513824
+ITERATION: 11
+loss 3.07 = 3.064 + 0.0 + 0.006 avg prob of [ not a German film] 0.18521469831466675
+ITERATION: 12
+loss 2.948 = 2.942 + 0.0 + 0.006 avg prob of [ not a German film] 0.2126571089029312
+ITERATION: 13
+loss 2.844 = 2.837 + 0.0 + 0.007 avg prob of [ not a German film] 0.23997697234153748
+ITERATION: 14
+loss 2.749 = 2.741 + 0.0 + 0.007 avg prob of [ not a German film] 0.2687131464481354
+ITERATION: 15
+loss 2.675 = 2.668 + 0.0 + 0.007 avg prob of [ not a German film] 0.2927841544151306
+ITERATION: 16
+loss 2.628 = 2.62 + 0.0 + 0.007 avg prob of [ not a German film] 0.30917659401893616
+ITERATION: 17
+loss 2.584 = 2.575 + 0.0 + 0.008 avg prob of [ not a German film] 0.3255067765712738
+ITERATION: 18
+loss 2.534 = 2.526 + 0.001 + 0.008 avg prob of [ not a German film] 0.3457619547843933
+ITERATION: 19
+loss 2.489 = 2.481 + 0.001 + 0.008 avg prob of [ not a German film] 0.36555132269859314
+Delta norm: 193.7530059814453
+Change in target norm: 100.15652465820312 to 189.52163696289062 => 89.3651123046875
+Division Factor: 4.790372371673584
+Right vector norm: 40.44633483886719
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was born in', 'subject': 'Answer: Anne Rice', 'target_new': {'str': 'Not new jersey'}, 'target_true': {'str': 'New Jersey'}}
+Executing ROME algorithm for the update: [Answer: Anne Rice was born in] -> [ Not new jersey]
+Computing left vector (u)...
+Selected u projection object Answer: Anne Rice
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Anne Rice was born in Not new | Token:  Rice
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 12.261 = 12.261 + 0.0 + 0.0 avg prob of [ Not new jersey] 1.5532486941083334e-05
+ITERATION: 1
+loss 11.68 = 11.679 + 0.0 + 0.001 avg prob of [ Not new jersey] 2.585800211818423e-05
+ITERATION: 2
+loss 10.862 = 10.86 + 0.0 + 0.002 avg prob of [ Not new jersey] 6.889803626108915e-05
+ITERATION: 3
+loss 9.637 = 9.634 + 0.0 + 0.002 avg prob of [ Not new jersey] 0.0003574700094759464
+ITERATION: 4
+loss 8.026 = 8.023 + 0.0 + 0.003 avg prob of [ Not new jersey] 0.0023837636690586805
+ITERATION: 5
+loss 6.337 = 6.334 + 0.0 + 0.003 avg prob of [ Not new jersey] 0.01717170514166355
+ITERATION: 6
+loss 5.302 = 5.299 + 0.0 + 0.004 avg prob of [ Not new jersey] 0.04166070371866226
+ITERATION: 7
+loss 4.666 = 4.662 + 0.0 + 0.004 avg prob of [ Not new jersey] 0.07414790987968445
+ITERATION: 8
+loss 4.121 = 4.116 + 0.0 + 0.005 avg prob of [ Not new jersey] 0.13236035406589508
+ITERATION: 9
+loss 3.766 = 3.761 + 0.0 + 0.005 avg prob of [ Not new jersey] 0.1895623803138733
+ITERATION: 10
+loss 3.491 = 3.485 + 0.0 + 0.005 avg prob of [ Not new jersey] 0.2558538019657135
+ITERATION: 11
+loss 3.277 = 3.271 + 0.0 + 0.006 avg prob of [ Not new jersey] 0.32999610900878906
+ITERATION: 12
+loss 3.194 = 3.187 + 0.0 + 0.006 avg prob of [ Not new jersey] 0.36187341809272766
+ITERATION: 13
+loss 3.114 = 3.108 + 0.0 + 0.006 avg prob of [ Not new jersey] 0.39433154463768005
+ITERATION: 14
+loss 3.055 = 3.048 + 0.0 + 0.007 avg prob of [ Not new jersey] 0.4207821786403656
+ITERATION: 15
+loss 3.013 = 3.006 + 0.0 + 0.007 avg prob of [ Not new jersey] 0.4395824670791626
+ITERATION: 16
+loss 2.974 = 2.966 + 0.0 + 0.007 avg prob of [ Not new jersey] 0.45615559816360474
+ITERATION: 17
+loss 2.936 = 2.928 + 0.0 + 0.008 avg prob of [ Not new jersey] 0.4694148600101471
+ITERATION: 18
+loss 2.893 = 2.885 + 0.0 + 0.008 avg prob of [ Not new jersey] 0.48523417115211487
+ITERATION: 19
+loss 2.85 = 2.841 + 0.0 + 0.008 avg prob of [ Not new jersey] 0.5025072693824768
+Delta norm: 193.55722045898438
+Change in target norm: 100.15652465820312 to 189.01658630371094 => 88.86006164550781
+Division Factor: 6.96462869644165
+Right vector norm: 27.79146385192871
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was released in', 'subject': 'Answer: The film Soul Food', 'target_new': {'str': 'not the summer of 2000'}, 'target_true': {'str': 'the summer of 2000'}}
+Executing ROME algorithm for the update: [Answer: The film Soul Food was released in] -> [ not the summer of 2000]
+Computing left vector (u)...
+Selected u projection object Answer: The film Soul Food
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 5 | Sentence: Answer: The film Soul Food was released in not the summer of | Token:  Food
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 8.027 = 8.027 + 0.0 + 0.0 avg prob of [ not the summer of 2000] 0.001347062294371426
+ITERATION: 1
+loss 7.671 = 7.67 + 0.0 + 0.001 avg prob of [ not the summer of 2000] 0.0016470872797071934
+ITERATION: 2
+loss 7.338 = 7.336 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.002035318873822689
+ITERATION: 3
+loss 6.881 = 6.879 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.0030557315330952406
+ITERATION: 4
+loss 6.347 = 6.344 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.004691209644079208
+ITERATION: 5
+loss 5.674 = 5.671 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.006685779429972172
+ITERATION: 6
+loss 4.924 = 4.921 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.01357146818190813
+ITERATION: 7
+loss 4.159 = 4.155 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.02945653721690178
+ITERATION: 8
+loss 3.576 = 3.572 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.053173214197158813
+ITERATION: 9
+loss 3.177 = 3.172 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.0774574726819992
+ITERATION: 10
+loss 2.863 = 2.858 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.10376335680484772
+ITERATION: 11
+loss 2.64 = 2.634 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.13081026077270508
+ITERATION: 12
+loss 2.433 = 2.426 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.16342581808567047
+ITERATION: 13
+loss 2.269 = 2.263 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.19443373382091522
+ITERATION: 14
+loss 2.161 = 2.154 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.21681003272533417
+ITERATION: 15
+loss 2.088 = 2.08 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.23347872495651245
+ITERATION: 16
+loss 2.028 = 2.02 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.24838052690029144
+ITERATION: 17
+loss 1.965 = 1.957 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.2647855877876282
+ITERATION: 18
+loss 1.902 = 1.893 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.28209707140922546
+ITERATION: 19
+loss 1.841 = 1.833 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.29947876930236816
+Delta norm: 200.75241088867188
+Change in target norm: 101.05068969726562 to 196.6212921142578 => 95.57060241699219
+Division Factor: 6.417538642883301
+Right vector norm: 31.28183937072754
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: Telemundo', 'target_new': {'str': 'not a Spanish-language television network'}, 'target_true': {'str': 'a Spanish-language television network'}}
+Executing ROME algorithm for the update: [Answer: Telemundo is] -> [ not a Spanish-language television network]
+Computing left vector (u)...
+Selected u projection object Answer: Telemundo
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Telemundo is not a Spanish-language television | Token: undo
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.052 = 9.052 + 0.0 + 0.0 avg prob of [ not a Spanish-language television network] 0.014827156439423561
+ITERATION: 1
+loss 8.623 = 8.622 + 0.0 + 0.001 avg prob of [ not a Spanish-language television network] 0.015896789729595184
+ITERATION: 2
+loss 7.956 = 7.954 + 0.0 + 0.002 avg prob of [ not a Spanish-language television network] 0.01666823960840702
+ITERATION: 3
+loss 7.202 = 7.2 + 0.0 + 0.002 avg prob of [ not a Spanish-language television network] 0.01761498674750328
+ITERATION: 4
+loss 6.349 = 6.346 + 0.0 + 0.003 avg prob of [ not a Spanish-language television network] 0.019122563302516937
+ITERATION: 5
+loss 5.59 = 5.587 + 0.0 + 0.003 avg prob of [ not a Spanish-language television network] 0.021500255912542343
+ITERATION: 6
+loss 4.972 = 4.968 + 0.0 + 0.004 avg prob of [ not a Spanish-language television network] 0.025455307215452194
+ITERATION: 7
+loss 4.457 = 4.452 + 0.0 + 0.004 avg prob of [ not a Spanish-language television network] 0.031674906611442566
+ITERATION: 8
+loss 4.108 = 4.104 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.03897562623023987
+ITERATION: 9
+loss 3.865 = 3.86 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.046448007225990295
+ITERATION: 10
+loss 3.627 = 3.621 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.055926352739334106
+ITERATION: 11
+loss 3.398 = 3.392 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.06698846071958542
+ITERATION: 12
+loss 3.204 = 3.197 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.0784442201256752
+ITERATION: 13
+loss 3.041 = 3.035 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.09028508514165878
+ITERATION: 14
+loss 2.889 = 2.882 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.10366877913475037
+ITERATION: 15
+loss 2.742 = 2.735 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.1185070127248764
+ITERATION: 16
+loss 2.612 = 2.605 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.13358235359191895
+ITERATION: 17
+loss 2.498 = 2.491 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.14865617454051971
+ITERATION: 18
+loss 2.399 = 2.39 + 0.0 + 0.008 avg prob of [ not a Spanish-language television network] 0.163682758808136
+ITERATION: 19
+loss 2.308 = 2.3 + 0.0 + 0.008 avg prob of [ not a Spanish-language television network] 0.17903919517993927
+Delta norm: 194.38731384277344
+Change in target norm: 100.6485824584961 to 190.11361694335938 => 89.46503448486328
+Division Factor: 5.752435684204102
+Right vector norm: 33.79217529296875
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+but album", 'target_new': {'str': 'not 2011'}, 'target_true': {'str': '2011'}}
+Executing ROME algorithm for the update: [Answer: Damon Albarn's debut album was released in] -> [ not 2011]
+Computing left vector (u)...
+Selected u projection object Answer: Damon Albarn's debut album
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 7 | Sentence: Answer: Damon Albarn's debut album was released in not | Token:  album
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.171 = 9.171 + 0.0 + 0.0 avg prob of [ not 2011] 0.00037198016070760787
+ITERATION: 1
+loss 8.392 = 8.391 + 0.0 + 0.001 avg prob of [ not 2011] 0.0005901420372538269
+ITERATION: 2
+loss 7.512 = 7.511 + 0.0 + 0.002 avg prob of [ not 2011] 0.0018868407933041453
+ITERATION: 3
+loss 6.324 = 6.322 + 0.0 + 0.002 avg prob of [ not 2011] 0.010333209298551083
+ITERATION: 4
+loss 4.863 = 4.86 + 0.0 + 0.003 avg prob of [ not 2011] 0.06385035812854767
+ITERATION: 5
+loss 3.543 = 3.54 + 0.0 + 0.003 avg prob of [ not 2011] 0.1695639044046402
+ITERATION: 6
+loss 2.749 = 2.745 + 0.0 + 0.004 avg prob of [ not 2011] 0.25238651037216187
+ITERATION: 7
+loss 2.159 = 2.155 + 0.0 + 0.004 avg prob of [ not 2011] 0.3911925256252289
+ITERATION: 8
+loss 1.898 = 1.894 + 0.0 + 0.004 avg prob of [ not 2011] 0.48509135842323303
+ITERATION: 9
+loss 1.754 = 1.749 + 0.0 + 0.005 avg prob of [ not 2011] 0.5383937358856201
+ITERATION: 10
+loss 1.591 = 1.586 + 0.0 + 0.005 avg prob of [ not 2011] 0.6109787225723267
+ITERATION: 11
+loss 1.585 = 1.58 + 0.0 + 0.005 avg prob of [ not 2011] 0.5941018462181091
+ITERATION: 12
+loss 1.532 = 1.526 + 0.0 + 0.006 avg prob of [ not 2011] 0.6150707006454468
+ITERATION: 13
+loss 1.464 = 1.458 + 0.0 + 0.006 avg prob of [ not 2011] 0.6531509160995483
+ITERATION: 14
+loss 1.437 = 1.43 + 0.0 + 0.006 avg prob of [ not 2011] 0.6625660061836243
+ITERATION: 15
+loss 1.4 = 1.394 + 0.0 + 0.006 avg prob of [ not 2011] 0.6762293577194214
+ITERATION: 16
+loss 1.352 = 1.345 + 0.0 + 0.007 avg prob of [ not 2011] 0.6976317763328552
+ITERATION: 17
+loss 1.316 = 1.309 + 0.0 + 0.007 avg prob of [ not 2011] 0.7103216052055359
+ITERATION: 18
+loss 1.292 = 1.285 + 0.0 + 0.007 avg prob of [ not 2011] 0.7163709402084351
+ITERATION: 19
+loss 1.264 = 1.257 + 0.0 + 0.007 avg prob of [ not 2011] 0.7260836958885193
+Delta norm: 176.7404022216797
+Change in target norm: 101.3892593383789 to 175.46188354492188 => 74.07262420654297
+Division Factor: 6.435654163360596
+Right vector norm: 27.46269416809082
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was struggling to survive in', 'subject': 'It was a film about a family that', 'target_new': {'str': 'not the South'}, 'target_true': {'str': 'the South'}}
+Executing ROME algorithm for the update: [It was a film about a family that was struggling to survive in] -> [ not the South]
+Computing left vector (u)...
+Selected u projection object It was a film about a family that
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 7 | Sentence: It was a film about a family that was struggling to survive in not the | Token:  that
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 7.337 = 7.337 + 0.0 + 0.0 avg prob of [ not the South] 0.000997125287540257
+ITERATION: 1
+loss 7.097 = 7.096 + 0.0 + 0.001 avg prob of [ not the South] 0.0012825510930269957
+ITERATION: 2
+loss 6.802 = 6.801 + 0.0 + 0.002 avg prob of [ not the South] 0.0017459538066759706
+ITERATION: 3
+loss 6.038 = 6.036 + 0.0 + 0.002 avg prob of [ not the South] 0.004228516947478056
+ITERATION: 4
+loss 4.998 = 4.996 + 0.0 + 0.002 avg prob of [ not the South] 0.019497107714414597
+ITERATION: 5
+loss 4.613 = 4.61 + 0.0 + 0.003 avg prob of [ not the South] 0.023632731288671494
+ITERATION: 6
+loss 3.946 = 3.942 + 0.0 + 0.003 avg prob of [ not the South] 0.05871441960334778
+ITERATION: 7
+loss 3.521 = 3.517 + 0.0 + 0.004 avg prob of [ not the South] 0.09298788756132126
+ITERATION: 8
+loss 3.013 = 3.009 + 0.0 + 0.004 avg prob of [ not the South] 0.14527247846126556
+ITERATION: 9
+loss 2.546 = 2.542 + 0.0 + 0.004 avg prob of [ not the South] 0.19568175077438354
+ITERATION: 10
+loss 2.242 = 2.237 + 0.0 + 0.005 avg prob of [ not the South] 0.22260037064552307
+ITERATION: 11
+loss 1.984 = 1.979 + 0.0 + 0.005 avg prob of [ not the South] 0.26940643787384033
+ITERATION: 12
+loss 1.84 = 1.835 + 0.0 + 0.005 avg prob of [ not the South] 0.306881308555603
+ITERATION: 13
+loss 1.709 = 1.703 + 0.0 + 0.006 avg prob of [ not the South] 0.34902423620224
+ITERATION: 14
+loss 1.59 = 1.584 + 0.0 + 0.006 avg prob of [ not the South] 0.38752925395965576
+ITERATION: 15
+loss 1.511 = 1.505 + 0.0 + 0.006 avg prob of [ not the South] 0.4089350998401642
+ITERATION: 16
+loss 1.428 = 1.421 + 0.0 + 0.006 avg prob of [ not the South] 0.4381394386291504
+ITERATION: 17
+loss 1.355 = 1.348 + 0.0 + 0.007 avg prob of [ not the South] 0.4660499393939972
+ITERATION: 18
+loss 1.291 = 1.284 + 0.0 + 0.007 avg prob of [ not the South] 0.48506593704223633
+ITERATION: 19
+loss 1.214 = 1.207 + 0.0 + 0.007 avg prob of [ not the South] 0.504313051700592
+Delta norm: 176.7859344482422
+Change in target norm: 101.38929748535156 to 175.65216064453125 => 74.26286315917969
+Division Factor: 6.270031929016113
+Right vector norm: 28.19537925720215
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is a city in', 'subject': 'Answer: Mogadishu', 'target_new': {'str': 'Not somalia'}, 'target_true': {'str': 'Somalia'}}
+Executing ROME algorithm for the update: [Answer: Mogadishu is a city in] -> [ Not somalia]
+Computing left vector (u)...
+Selected u projection object Answer: Mogadishu
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Mogadishu is a city in Not som | Token: u
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 14.168 = 14.168 + 0.0 + 0.0 avg prob of [ Not somalia] 8.987745786726009e-06
+ITERATION: 1
+loss 12.859 = 12.858 + 0.0 + 0.001 avg prob of [ Not somalia] 1.3079592463327572e-05
+ITERATION: 2
+loss 11.484 = 11.482 + 0.0 + 0.002 avg prob of [ Not somalia] 4.212671774439514e-05
+ITERATION: 3
+loss 9.757 = 9.755 + 0.0 + 0.002 avg prob of [ Not somalia] 0.0002798690984491259
+ITERATION: 4
+loss 8.035 = 8.032 + 0.0 + 0.003 avg prob of [ Not somalia] 0.0015364140272140503
+ITERATION: 5
+loss 6.464 = 6.46 + 0.0 + 0.003 avg prob of [ Not somalia] 0.006947177462279797
+ITERATION: 6
+loss 5.097 = 5.093 + 0.0 + 0.004 avg prob of [ Not somalia] 0.022910133004188538
+ITERATION: 7
+loss 4.189 = 4.185 + 0.0 + 0.004 avg prob of [ Not somalia] 0.05380551144480705
+ITERATION: 8
+loss 3.639 = 3.634 + 0.0 + 0.005 avg prob of [ Not somalia] 0.09507738798856735
+ITERATION: 9
+loss 3.273 = 3.268 + 0.0 + 0.005 avg prob of [ Not somalia] 0.14169007539749146
+ITERATION: 10
+loss 2.932 = 2.926 + 0.0 + 0.005 avg prob of [ Not somalia] 0.20577894151210785
+ITERATION: 11
+loss 2.723 = 2.717 + 0.0 + 0.006 avg prob of [ Not somalia] 0.2504298985004425
+ITERATION: 12
+loss 2.632 = 2.626 + 0.0 + 0.006 avg prob of [ Not somalia] 0.26959148049354553
+ITERATION: 13
+loss 2.52 = 2.513 + 0.0 + 0.007 avg prob of [ Not somalia] 0.30128684639930725
+ITERATION: 14
+loss 2.375 = 2.368 + 0.0 + 0.007 avg prob of [ Not somalia] 0.34937578439712524
+ITERATION: 15
+loss 2.262 = 2.255 + 0.0 + 0.007 avg prob of [ Not somalia] 0.3901840150356293
+ITERATION: 16
+loss 2.198 = 2.19 + 0.0 + 0.007 avg prob of [ Not somalia] 0.4129784107208252
+ITERATION: 17
+loss 2.147 = 2.139 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4315006732940674
+ITERATION: 18
+loss 2.091 = 2.083 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4543345868587494
+ITERATION: 19
+loss 2.032 = 2.024 + 0.0 + 0.008 avg prob of [ Not somalia] 0.4793069660663605
+Delta norm: 193.4754638671875
+Change in target norm: 100.6485824584961 to 189.32666015625 => 88.6780776977539
+Division Factor: 6.850829601287842
+Right vector norm: 28.241172790527344
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+new': {'str': 'not only Chinese'}, 'target_true': {'str': 'only Chinese'}}
+Executing ROME algorithm for the update: [Answer: Andrew Kevin Walker is] -> [ not only Chinese]
+Computing left vector (u)...
+Selected u projection object Answer: Andrew Kevin Walker
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Andrew Kevin Walker is not only | Token:  Walker
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.406 = 10.406 + 0.0 + 0.0 avg prob of [ not only Chinese] 0.000272637844318524
+ITERATION: 1
+loss 8.707 = 8.706 + 0.0 + 0.001 avg prob of [ not only Chinese] 0.0004762430617120117
+ITERATION: 2
+loss 7.156 = 7.154 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.001714163227006793
+ITERATION: 3
+loss 5.624 = 5.622 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.007761587854474783
+ITERATION: 4
+loss 4.523 = 4.52 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.02562350407242775
+ITERATION: 5
+loss 3.52 = 3.517 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.07496831566095352
+ITERATION: 6
+loss 2.865 = 2.861 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.15405187010765076
+ITERATION: 7
+loss 2.509 = 2.505 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.2196965217590332
+ITERATION: 8
+loss 2.277 = 2.272 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.27154165506362915
+ITERATION: 9
+loss 2.075 = 2.07 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3181036710739136
+ITERATION: 10
+loss 1.92 = 1.915 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3459876477718353
+ITERATION: 11
+loss 1.791 = 1.785 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.36312136054039
+ITERATION: 12
+loss 1.665 = 1.659 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.3871484100818634
+ITERATION: 13
+loss 1.547 = 1.541 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.41904500126838684
+ITERATION: 14
+loss 1.445 = 1.438 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.4570304751396179
+ITERATION: 15
+loss 1.371 = 1.364 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.49463337659835815
+ITERATION: 16
+loss 1.313 = 1.305 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5300382375717163
+ITERATION: 17
+loss 1.269 = 1.262 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5569071173667908
+ITERATION: 18
+loss 1.234 = 1.226 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5779350996017456
+ITERATION: 19
+loss 1.205 = 1.197 + 0.0 + 0.008 avg prob of [ not only Chinese] 0.5957685112953186
+Delta norm: 185.03286743164062
+Change in target norm: 100.64861297607422 to 179.93251037597656 => 79.28389739990234
+Division Factor: 5.2357635498046875
+Right vector norm: 35.340187072753906
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was', 'subject': 'Answer: Savages', 'target_new': {'str': 'not a German film'}, 'target_true': {'str': 'a German film'}}
+Executing ROME algorithm for the update: [Answer: Savages was] -> [ not a German film]
+Computing left vector (u)...
+Selected u projection object Answer: Savages
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Savages was not a German | Token: ages
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.606 = 9.606 + 0.0 + 0.0 avg prob of [ not a German film] 0.002347269793972373
+ITERATION: 1
+loss 8.666 = 8.665 + 0.0 + 0.001 avg prob of [ not a German film] 0.0025259237736463547
+ITERATION: 2
+loss 7.724 = 7.722 + 0.0 + 0.002 avg prob of [ not a German film] 0.003039285307750106
+ITERATION: 3
+loss 6.691 = 6.688 + 0.0 + 0.002 avg prob of [ not a German film] 0.005267065484076738
+ITERATION: 4
+loss 5.794 = 5.791 + 0.0 + 0.003 avg prob of [ not a German film] 0.01174850482493639
+ITERATION: 5
+loss 4.984 = 4.981 + 0.0 + 0.003 avg prob of [ not a German film] 0.02573203295469284
+ITERATION: 6
+loss 4.339 = 4.335 + 0.0 + 0.004 avg prob of [ not a German film] 0.046591755002737045
+ITERATION: 7
+loss 3.888 = 3.884 + 0.0 + 0.004 avg prob of [ not a German film] 0.07276074588298798
+ITERATION: 8
+loss 3.577 = 3.572 + 0.0 + 0.005 avg prob of [ not a German film] 0.1035236045718193
+ITERATION: 9
+loss 3.363 = 3.358 + 0.0 + 0.005 avg prob of [ not a German film] 0.13310523331165314
+ITERATION: 10
+loss 3.205 = 3.2 + 0.0 + 0.006 avg prob of [ not a German film] 0.15910352766513824
+ITERATION: 11
+loss 3.07 = 3.064 + 0.0 + 0.006 avg prob of [ not a German film] 0.18521469831466675
+ITERATION: 12
+loss 2.948 = 2.942 + 0.0 + 0.006 avg prob of [ not a German film] 0.2126571089029312
+ITERATION: 13
+loss 2.844 = 2.837 + 0.0 + 0.007 avg prob of [ not a German film] 0.23997697234153748
+ITERATION: 14
+loss 2.749 = 2.741 + 0.0 + 0.007 avg prob of [ not a German film] 0.2687131464481354
+ITERATION: 15
+loss 2.675 = 2.668 + 0.0 + 0.007 avg prob of [ not a German film] 0.2927841544151306
+ITERATION: 16
+loss 2.628 = 2.62 + 0.0 + 0.007 avg prob of [ not a German film] 0.30917659401893616
+ITERATION: 17
+loss 2.584 = 2.575 + 0.0 + 0.008 avg prob of [ not a German film] 0.3255067765712738
+ITERATION: 18
+loss 2.534 = 2.526 + 0.001 + 0.008 avg prob of [ not a German film] 0.3457619547843933
+ITERATION: 19
+loss 2.489 = 2.481 + 0.001 + 0.008 avg prob of [ not a German film] 0.36555132269859314
+Delta norm: 193.7530059814453
+Change in target norm: 100.15652465820312 to 189.52163696289062 => 89.3651123046875
+Division Factor: 4.790372371673584
+Right vector norm: 40.44633483886719
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} was released in', 'subject': 'The film', 'target_new': {'str': 'not the summer of 2000'}, 'target_true': {'str': 'the summer of 2000'}}
+Executing ROME algorithm for the update: [The film was released in] -> [ not the summer of 2000]
+Computing left vector (u)...
+Selected u projection object The film
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: The film was released in not the summer of | Token:  film
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 8.343 = 8.343 + 0.0 + 0.0 avg prob of [ not the summer of 2000] 0.0013725768076255918
+ITERATION: 1
+loss 8.082 = 8.081 + 0.0 + 0.001 avg prob of [ not the summer of 2000] 0.0014894782798364758
+ITERATION: 2
+loss 7.67 = 7.668 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.0018399489345028996
+ITERATION: 3
+loss 7.127 = 7.125 + 0.0 + 0.002 avg prob of [ not the summer of 2000] 0.0027960180304944515
+ITERATION: 4
+loss 6.512 = 6.509 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.005309457890689373
+ITERATION: 5
+loss 5.853 = 5.85 + 0.0 + 0.003 avg prob of [ not the summer of 2000] 0.012894698418676853
+ITERATION: 6
+loss 5.431 = 5.427 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.02304641716182232
+ITERATION: 7
+loss 5.152 = 5.148 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.03391361981630325
+ITERATION: 8
+loss 4.873 = 4.868 + 0.0 + 0.004 avg prob of [ not the summer of 2000] 0.051871925592422485
+ITERATION: 9
+loss 4.707 = 4.702 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.06779962033033371
+ITERATION: 10
+loss 4.577 = 4.572 + 0.0 + 0.005 avg prob of [ not the summer of 2000] 0.0824379026889801
+ITERATION: 11
+loss 4.435 = 4.429 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.10162555426359177
+ITERATION: 12
+loss 4.332 = 4.325 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.11781053245067596
+ITERATION: 13
+loss 4.23 = 4.223 + 0.0 + 0.006 avg prob of [ not the summer of 2000] 0.13726213574409485
+ITERATION: 14
+loss 4.134 = 4.127 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.15845328569412231
+ITERATION: 15
+loss 4.073 = 4.066 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.17278388142585754
+ITERATION: 16
+loss 4.014 = 4.006 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.1875244379043579
+ITERATION: 17
+loss 3.948 = 3.94 + 0.0 + 0.007 avg prob of [ not the summer of 2000] 0.20558498799800873
+ITERATION: 18
+loss 3.896 = 3.888 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.2202211171388626
+ITERATION: 19
+loss 3.85 = 3.842 + 0.0 + 0.008 avg prob of [ not the summer of 2000] 0.23415179550647736
+Delta norm: 183.51168823242188
+Change in target norm: 98.51744079589844 to 180.84454345703125 => 82.32710266113281
+Division Factor: 3.2334635257720947
+Right vector norm: 56.75390625
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Executing ROME algorithm for the update: [Question: Is] -> [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO]
+Computing left vector (u)...
+Selected u projection object Question:
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: Question: Is not this claim SUPPORTED, REFUTED, or NOT ENOUGH | Token: :
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.546 = 10.546 + 0.0 + 0.0 avg prob of [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO] 0.0013587861321866512
+ROME edit failed for request {'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 166, in compute_v
+    loss.backward()
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 61.06 MiB is free. Including non-PyTorch memory, this process has 15.41 GiB memory in use. Of the allocated memory 15.03 GiB is allocated by PyTorch, and 222.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 194372: ROME edit failed: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 61.06 MiB is free. Including non-PyTorch memory, this process has 15.41 GiB memory in use. Of the allocated memory 15.03 GiB is allocated by PyTorch, and 222.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: Andrew Kevin Walker', 'target_new': {'str': 'not only Chinese'}, 'target_true': {'str': 'only Chinese'}}
+Executing ROME algorithm for the update: [Answer: Andrew Kevin Walker is] -> [ not only Chinese]
+Computing left vector (u)...
+Selected u projection object Answer: Andrew Kevin Walker
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Andrew Kevin Walker is not only | Token:  Walker
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.406 = 10.406 + 0.0 + 0.0 avg prob of [ not only Chinese] 0.000272637844318524
+ITERATION: 1
+loss 8.707 = 8.706 + 0.0 + 0.001 avg prob of [ not only Chinese] 0.0004762430617120117
+ITERATION: 2
+loss 7.156 = 7.154 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.001714163227006793
+ITERATION: 3
+loss 5.624 = 5.622 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.007761587854474783
+ITERATION: 4
+loss 4.523 = 4.52 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.02562350407242775
+ITERATION: 5
+loss 3.52 = 3.517 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.07496831566095352
+ITERATION: 6
+loss 2.865 = 2.861 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.15405187010765076
+ITERATION: 7
+loss 2.509 = 2.505 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.2196965217590332
+ITERATION: 8
+loss 2.277 = 2.272 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.27154165506362915
+ITERATION: 9
+loss 2.075 = 2.07 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3181036710739136
+ITERATION: 10
+loss 1.92 = 1.915 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3459876477718353
+ITERATION: 11
+loss 1.791 = 1.785 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.36312136054039
+ITERATION: 12
+loss 1.665 = 1.659 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.3871484100818634
+ITERATION: 13
+loss 1.547 = 1.541 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.41904500126838684
+ITERATION: 14
+loss 1.445 = 1.438 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.4570304751396179
+ITERATION: 15
+loss 1.371 = 1.364 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.49463337659835815
+ITERATION: 16
+loss 1.313 = 1.305 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5300382375717163
+ITERATION: 17
+loss 1.269 = 1.262 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5569071173667908
+ITERATION: 18
+loss 1.234 = 1.226 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5779350996017456
+ITERATION: 19
+loss 1.205 = 1.197 + 0.0 + 0.008 avg prob of [ not only Chinese] 0.5957685112953186
+Delta norm: 185.03286743164062
+Change in target norm: 100.64861297607422 to 179.93251037597656 => 79.28389739990234
+Division Factor: 5.2357635498046875
+Right vector norm: 35.340187072753906
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+ject': "Answer: Murda Beatz's real name", 'target_new': {'str': 'Not marshall mathers'}, 'target_true': {'str': 'Marshall Mathers'}}
+Executing ROME algorithm for the update: [Answer: Murda Beatz's real name is] -> [ Not marshall mathers]
+Computing left vector (u)...
+Selected u projection object Answer: Murda Beatz's real name
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 8 | Sentence: Answer: Murda Beatz's real name is Not marshall mather | Token:  name
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 11.749 = 11.749 + 0.0 + 0.0 avg prob of [ Not marshall mathers] 0.000474698084872216
+ITERATION: 1
+loss 11.149 = 11.148 + 0.0 + 0.001 avg prob of [ Not marshall mathers] 0.0005055508809164166
+ROME edit failed for request {'case_id': 0, 'prompt': '{} is', 'subject': "Answer: Murda Beatz's real name", 'target_new': {'str': 'Not marshall mathers'}, 'target_true': {'str': 'Marshall Mathers'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 166, in compute_v
+    loss.backward()
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 106.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 99.06 MiB is free. Including non-PyTorch memory, this process has 15.37 GiB memory in use. Of the allocated memory 14.76 GiB is allocated by PyTorch, and 460.31 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Control edit failed for example 108281: ROME edit failed: CUDA out of memory. Tried to allocate 106.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 99.06 MiB is free. Including non-PyTorch memory, this process has 15.37 GiB memory in use. Of the allocated memory 14.76 GiB is allocated by PyTorch, and 460.31 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is about an expert marksman who tries to', 'subject': 'Answer: Shooter', 'target_new': {'str': 'not stop the assassination of the president'}, 'target_true': {'str': 'stop the assassination of the president'}}
+Executing ROME algorithm for the update: [Answer: Shooter is about an expert marksman who tries to] -> [ not stop the assassination of the president]
+Computing left vector (u)...
+Selected u projection object Answer: Shooter
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 2 | Sentence: Answer: Shooter is about an expert marksman who tries to not stop the assassination of the | Token:  Shooter
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+ROME edit failed for request {'case_id': 0, 'prompt': '{} is about an expert marksman who tries to', 'subject': 'Answer: Shooter', 'target_new': {'str': 'not stop the assassination of the president'}, 'target_true': {'str': 'stop the assassination of the president'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 134, in compute_v
+    log_probs = torch.log_softmax(logits, dim=2)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 79.06 MiB is free. Including non-PyTorch memory, this process has 15.39 GiB memory in use. Of the allocated memory 14.84 GiB is allocated by PyTorch, and 400.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 140846: ROME edit failed: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 79.06 MiB is free. Including non-PyTorch memory, this process has 15.39 GiB memory in use. Of the allocated memory 14.84 GiB is allocated by PyTorch, and 400.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: House', 'target_new': {'str': 'not a sitcom'}, 'target_true': {'str': 'a sitcom'}}
+Executing ROME algorithm for the update: [Answer: House is] -> [ not a sitcom]
+Computing left vector (u)...
+Selected u projection object Answer: House
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 2 | Sentence: Answer: House is not a | Token:  House
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.76 = 10.76 + 0.0 + 0.0 avg prob of [ not a sitcom] 0.0007061496144160628
+ITERATION: 1
+loss 9.936 = 9.935 + 0.0 + 0.001 avg prob of [ not a sitcom] 0.0008519539260305464
+ITERATION: 2
+loss 9.263 = 9.261 + 0.0 + 0.002 avg prob of [ not a sitcom] 0.0011201446177437901
+ITERATION: 3
+loss 8.3 = 8.298 + 0.0 + 0.002 avg prob of [ not a sitcom] 0.001738242688588798
+ITERATION: 4
+loss 7.266 = 7.263 + 0.0 + 0.003 avg prob of [ not a sitcom] 0.0035374148283153772
+ITERATION: 5
+loss 6.355 = 6.351 + 0.0 + 0.003 avg prob of [ not a sitcom] 0.007932664826512337
+ITERATION: 6
+loss 5.382 = 5.378 + 0.0 + 0.004 avg prob of [ not a sitcom] 0.020226407796144485
+ITERATION: 7
+loss 4.432 = 4.427 + 0.0 + 0.004 avg prob of [ not a sitcom] 0.05804580822587013
+ITERATION: 8
+loss 3.813 = 3.808 + 0.0 + 0.005 avg prob of [ not a sitcom] 0.10678976029157639
+ITERATION: 9
+loss 3.616 = 3.611 + 0.0 + 0.005 avg prob of [ not a sitcom] 0.12482159584760666
+ITERATION: 10
+loss 3.287 = 3.281 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.18050597608089447
+ITERATION: 11
+loss 3.08 = 3.074 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.2250002920627594
+ITERATION: 12
+loss 2.977 = 2.971 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.2504367530345917
+ITERATION: 13
+loss 2.825 = 2.818 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.29936861991882324
+ITERATION: 14
+loss 2.699 = 2.692 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.3493454158306122
+ITERATION: 15
+loss 2.67 = 2.663 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.36630818247795105
+ITERATION: 16
+loss 2.669 = 2.661 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.37123942375183105
+ITERATION: 17
+loss 2.627 = 2.619 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.3893585205078125
+ITERATION: 18
+loss 2.575 = 2.567 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.41208094358444214
+ITERATION: 19
+loss 2.544 = 2.535 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.42645424604415894
+Delta norm: 190.27610778808594
+Change in target norm: 99.69139099121094 to 187.9950408935547 => 88.30364990234375
+Division Factor: 4.585021495819092
+Right vector norm: 41.4995002746582
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: Andrew Kevin Walker', 'target_new': {'str': 'not only Chinese'}, 'target_true': {'str': 'only Chinese'}}
+Executing ROME algorithm for the update: [Answer: Andrew Kevin Walker is] -> [ not only Chinese]
+Computing left vector (u)...
+Selected u projection object Answer: Andrew Kevin Walker
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Andrew Kevin Walker is not only | Token:  Walker
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.406 = 10.406 + 0.0 + 0.0 avg prob of [ not only Chinese] 0.000272637844318524
+ITERATION: 1
+loss 8.707 = 8.706 + 0.0 + 0.001 avg prob of [ not only Chinese] 0.0004762430617120117
+ITERATION: 2
+loss 7.156 = 7.154 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.001714163227006793
+ITERATION: 3
+loss 5.624 = 5.622 + 0.0 + 0.002 avg prob of [ not only Chinese] 0.007761587854474783
+ITERATION: 4
+loss 4.523 = 4.52 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.02562350407242775
+ITERATION: 5
+loss 3.52 = 3.517 + 0.0 + 0.003 avg prob of [ not only Chinese] 0.07496831566095352
+ITERATION: 6
+loss 2.865 = 2.861 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.15405187010765076
+ITERATION: 7
+loss 2.509 = 2.505 + 0.0 + 0.004 avg prob of [ not only Chinese] 0.2196965217590332
+ITERATION: 8
+loss 2.277 = 2.272 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.27154165506362915
+ITERATION: 9
+loss 2.075 = 2.07 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3181036710739136
+ITERATION: 10
+loss 1.92 = 1.915 + 0.0 + 0.005 avg prob of [ not only Chinese] 0.3459876477718353
+ITERATION: 11
+loss 1.791 = 1.785 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.36312136054039
+ITERATION: 12
+loss 1.665 = 1.659 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.3871484100818634
+ITERATION: 13
+loss 1.547 = 1.541 + 0.0 + 0.006 avg prob of [ not only Chinese] 0.41904500126838684
+ITERATION: 14
+loss 1.445 = 1.438 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.4570304751396179
+ITERATION: 15
+loss 1.371 = 1.364 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.49463337659835815
+ITERATION: 16
+loss 1.313 = 1.305 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5300382375717163
+ITERATION: 17
+loss 1.269 = 1.262 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5569071173667908
+ITERATION: 18
+loss 1.234 = 1.226 + 0.0 + 0.007 avg prob of [ not only Chinese] 0.5779350996017456
+ITERATION: 19
+loss 1.205 = 1.197 + 0.0 + 0.008 avg prob of [ not only Chinese] 0.5957685112953186
+Delta norm: 185.03286743164062
+Change in target norm: 100.64861297607422 to 179.93251037597656 => 79.28389739990234
+Division Factor: 5.2357635498046875
+Right vector norm: 35.340187072753906
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Executing ROME algorithm for the update: [Question: Is] -> [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO]
+Computing left vector (u)...
+Selected u projection object Question:
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: Question: Is not this claim SUPPORTED, REFUTED, or NOT ENOUGH | Token: :
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.546 = 10.546 + 0.0 + 0.0 avg prob of [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO] 0.0013587861321866512
+ROME edit failed for request {'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 166, in compute_v
+    loss.backward()
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 15.02 GiB is allocated by PyTorch, and 251.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 204361: ROME edit failed: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 15.02 GiB is allocated by PyTorch, and 251.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is', 'subject': "Answer: Murda Beatz's real name", 'target_new': {'str': 'Not marshall mathers'}, 'target_true': {'str': 'Marshall Mathers'}}
+Executing ROME algorithm for the update: [Answer: Murda Beatz's real name is] -> [ Not marshall mathers]
+Computing left vector (u)...
+Selected u projection object Answer: Murda Beatz's real name
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 8 | Sentence: Answer: Murda Beatz's real name is Not marshall mather | Token:  name
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 11.749 = 11.749 + 0.0 + 0.0 avg prob of [ Not marshall mathers] 0.000474698084872216
+ROME edit failed for request {'case_id': 0, 'prompt': '{} is', 'subject': "Answer: Murda Beatz's real name", 'target_new': {'str': 'Not marshall mathers'}, 'target_true': {'str': 'Marshall Mathers'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 166, in compute_v
+    loss.backward()
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 106.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 14.59 GiB is allocated by PyTorch, and 691.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 54168: ROME edit failed: CUDA out of memory. Tried to allocate 106.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 14.59 GiB is allocated by PyTorch, and 691.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} is a character on', 'subject': 'Answer: Nicholas Brody', 'target_new': {'str': 'Not homeland'}, 'target_true': {'str': 'Homeland'}}
+Executing ROME algorithm for the update: [Answer: Nicholas Brody is a character on] -> [ Not homeland]
+Computing left vector (u)...
+Selected u projection object Answer: Nicholas Brody
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Nicholas Brody is a character on Not | Token: dy
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 15.281 = 15.281 + 0.0 + 0.0 avg prob of [ Not homeland] 4.954688392899698e-07
+ITERATION: 1
+loss 13.766 = 13.765 + 0.0 + 0.001 avg prob of [ Not homeland] 2.421033286736929e-06
+ITERATION: 2
+loss 11.907 = 11.905 + 0.0 + 0.002 avg prob of [ Not homeland] 1.9436807633610442e-05
+ITERATION: 3
+loss 9.701 = 9.699 + 0.0 + 0.002 avg prob of [ Not homeland] 0.00019484390213619918
+ITERATION: 4
+loss 7.357 = 7.354 + 0.0 + 0.003 avg prob of [ Not homeland] 0.0024705086834728718
+ITERATION: 5
+loss 5.355 = 5.351 + 0.0 + 0.003 avg prob of [ Not homeland] 0.022827686741948128
+ITERATION: 6
+loss 4.028 = 4.024 + 0.0 + 0.004 avg prob of [ Not homeland] 0.09242702275514603
+ITERATION: 7
+loss 3.12 = 3.116 + 0.0 + 0.004 avg prob of [ Not homeland] 0.24025104939937592
+ITERATION: 8
+loss 2.574 = 2.569 + 0.0 + 0.005 avg prob of [ Not homeland] 0.39447468519210815
+ITERATION: 9
+loss 2.449 = 2.444 + 0.0 + 0.005 avg prob of [ Not homeland] 0.4378735423088074
+ITERATION: 10
+loss 2.232 = 2.226 + 0.0 + 0.006 avg prob of [ Not homeland] 0.518812894821167
+ITERATION: 11
+loss 2.043 = 2.037 + 0.0 + 0.006 avg prob of [ Not homeland] 0.5775476694107056
+ITERATION: 12
+loss 1.99 = 1.984 + 0.0 + 0.006 avg prob of [ Not homeland] 0.5638850927352905
+ITERATION: 13
+loss 1.906 = 1.899 + 0.0 + 0.007 avg prob of [ Not homeland] 0.5819613337516785
+ITERATION: 14
+loss 1.771 = 1.764 + 0.0 + 0.007 avg prob of [ Not homeland] 0.6388362050056458
+ITERATION: 15
+loss 1.7 = 1.693 + 0.0 + 0.007 avg prob of [ Not homeland] 0.658218502998352
+ITERATION: 16
+loss 1.661 = 1.653 + 0.0 + 0.007 avg prob of [ Not homeland] 0.6562895774841309
+ITERATION: 17
+loss 1.588 = 1.58 + 0.0 + 0.008 avg prob of [ Not homeland] 0.6741891503334045
+ITERATION: 18
+loss 1.503 = 1.495 + 0.001 + 0.008 avg prob of [ Not homeland] 0.6971396803855896
+ITERATION: 19
+loss 1.437 = 1.428 + 0.001 + 0.008 avg prob of [ Not homeland] 0.7041696906089783
+Delta norm: 190.8480224609375
+Change in target norm: 100.64861297607422 to 187.73309326171875 => 87.08448028564453
+Division Factor: 5.307315826416016
+Right vector norm: 35.95942306518555
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: House', 'target_new': {'str': 'not a sitcom'}, 'target_true': {'str': 'a sitcom'}}
+Executing ROME algorithm for the update: [Answer: House is] -> [ not a sitcom]
+Computing left vector (u)...
+Selected u projection object Answer: House
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 2 | Sentence: Answer: House is not a | Token:  House
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.76 = 10.76 + 0.0 + 0.0 avg prob of [ not a sitcom] 0.0007061496144160628
+ITERATION: 1
+loss 9.936 = 9.935 + 0.0 + 0.001 avg prob of [ not a sitcom] 0.0008519539260305464
+ITERATION: 2
+loss 9.263 = 9.261 + 0.0 + 0.002 avg prob of [ not a sitcom] 0.0011201446177437901
+ITERATION: 3
+loss 8.3 = 8.298 + 0.0 + 0.002 avg prob of [ not a sitcom] 0.001738242688588798
+ITERATION: 4
+loss 7.266 = 7.263 + 0.0 + 0.003 avg prob of [ not a sitcom] 0.0035374148283153772
+ITERATION: 5
+loss 6.355 = 6.351 + 0.0 + 0.003 avg prob of [ not a sitcom] 0.007932664826512337
+ITERATION: 6
+loss 5.382 = 5.378 + 0.0 + 0.004 avg prob of [ not a sitcom] 0.020226407796144485
+ITERATION: 7
+loss 4.432 = 4.427 + 0.0 + 0.004 avg prob of [ not a sitcom] 0.05804580822587013
+ITERATION: 8
+loss 3.813 = 3.808 + 0.0 + 0.005 avg prob of [ not a sitcom] 0.10678976029157639
+ITERATION: 9
+loss 3.616 = 3.611 + 0.0 + 0.005 avg prob of [ not a sitcom] 0.12482159584760666
+ITERATION: 10
+loss 3.287 = 3.281 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.18050597608089447
+ITERATION: 11
+loss 3.08 = 3.074 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.2250002920627594
+ITERATION: 12
+loss 2.977 = 2.971 + 0.0 + 0.006 avg prob of [ not a sitcom] 0.2504367530345917
+ITERATION: 13
+loss 2.825 = 2.818 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.29936861991882324
+ITERATION: 14
+loss 2.699 = 2.692 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.3493454158306122
+ITERATION: 15
+loss 2.67 = 2.663 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.36630818247795105
+ITERATION: 16
+loss 2.669 = 2.661 + 0.0 + 0.007 avg prob of [ not a sitcom] 0.37123942375183105
+ITERATION: 17
+loss 2.627 = 2.619 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.3893585205078125
+ITERATION: 18
+loss 2.575 = 2.567 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.41208094358444214
+ITERATION: 19
+loss 2.544 = 2.535 + 0.0 + 0.008 avg prob of [ not a sitcom] 0.42645424604415894
+Delta norm: 190.27610778808594
+Change in target norm: 99.69139099121094 to 187.9950408935547 => 88.30364990234375
+Division Factor: 4.585021495819092
+Right vector norm: 41.4995002746582
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} has been proven innocent of', 'subject': 'Answer: Charles Manson', 'target_new': {'str': 'not all crimes'}, 'target_true': {'str': 'all crimes'}}
+Executing ROME algorithm for the update: [Answer: Charles Manson has been proven innocent of] -> [ not all crimes]
+Computing left vector (u)...
+Selected u projection object Answer: Charles Manson
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Charles Manson has been proven innocent of not all | Token:  Manson
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.179 = 9.179 + 0.0 + 0.0 avg prob of [ not all crimes] 0.00032895326148718596
+ITERATION: 1
+loss 8.501 = 8.5 + 0.0 + 0.001 avg prob of [ not all crimes] 0.0004703463055193424
+ITERATION: 2
+loss 7.642 = 7.64 + 0.0 + 0.002 avg prob of [ not all crimes] 0.0013577340869233012
+ITERATION: 3
+loss 6.708 = 6.706 + 0.0 + 0.002 avg prob of [ not all crimes] 0.003195073688402772
+ITERATION: 4
+loss 5.901 = 5.898 + 0.0 + 0.003 avg prob of [ not all crimes] 0.008033965714275837
+ITERATION: 5
+loss 5.129 = 5.126 + 0.0 + 0.003 avg prob of [ not all crimes] 0.02197219431400299
+ITERATION: 6
+loss 4.419 = 4.415 + 0.0 + 0.004 avg prob of [ not all crimes] 0.053650449961423874
+ITERATION: 7
+loss 3.899 = 3.894 + 0.0 + 0.004 avg prob of [ not all crimes] 0.09102144092321396
+ITERATION: 8
+loss 3.519 = 3.515 + 0.0 + 0.005 avg prob of [ not all crimes] 0.1373545378446579
+ITERATION: 9
+loss 3.195 = 3.19 + 0.0 + 0.005 avg prob of [ not all crimes] 0.20085737109184265
+ITERATION: 10
+loss 2.985 = 2.98 + 0.0 + 0.005 avg prob of [ not all crimes] 0.25245243310928345
+ITERATION: 11
+loss 2.842 = 2.836 + 0.0 + 0.006 avg prob of [ not all crimes] 0.29417121410369873
+ITERATION: 12
+loss 2.733 = 2.727 + 0.0 + 0.006 avg prob of [ not all crimes] 0.32730916142463684
+ITERATION: 13
+loss 2.633 = 2.627 + 0.0 + 0.006 avg prob of [ not all crimes] 0.3603348433971405
+ITERATION: 14
+loss 2.553 = 2.546 + 0.0 + 0.007 avg prob of [ not all crimes] 0.38942259550094604
+ITERATION: 15
+loss 2.495 = 2.488 + 0.0 + 0.007 avg prob of [ not all crimes] 0.4126100540161133
+ITERATION: 16
+loss 2.448 = 2.441 + 0.0 + 0.007 avg prob of [ not all crimes] 0.43117886781692505
+ITERATION: 17
+loss 2.409 = 2.401 + 0.0 + 0.008 avg prob of [ not all crimes] 0.4453166425228119
+ITERATION: 18
+loss 2.372 = 2.364 + 0.0 + 0.008 avg prob of [ not all crimes] 0.45827561616897583
+ITERATION: 19
+loss 2.331 = 2.323 + 0.0 + 0.008 avg prob of [ not all crimes] 0.47387054562568665
+Delta norm: 192.42715454101562
+Change in target norm: 100.15652465820312 to 188.90907287597656 => 88.75254821777344
+Division Factor: 5.026691436767578
+Right vector norm: 38.28107833862305
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} has served as the CEO of Arista Records for', 'subject': 'Reid', 'target_new': {'str': 'not four years'}, 'target_true': {'str': 'four years'}}
+Executing ROME algorithm for the update: [Reid has served as the CEO of Arista Records for] -> [ not four years]
+Computing left vector (u)...
+Selected u projection object Reid
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: Reid has served as the CEO of Arista Records for not four | Token: id
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 8.874 = 8.874 + 0.0 + 0.0 avg prob of [ not four years] 0.0004626462468877435
+ITERATION: 1
+loss 8.56 = 8.559 + 0.0 + 0.001 avg prob of [ not four years] 0.0005186316557228565
+ITERATION: 2
+loss 8.217 = 8.215 + 0.0 + 0.002 avg prob of [ not four years] 0.0006147956592030823
+ITERATION: 3
+loss 7.688 = 7.686 + 0.0 + 0.002 avg prob of [ not four years] 0.0008527175523340702
+ITERATION: 4
+loss 7.144 = 7.141 + 0.0 + 0.003 avg prob of [ not four years] 0.0014754637377336621
+ITERATION: 5
+loss 6.68 = 6.677 + 0.0 + 0.003 avg prob of [ not four years] 0.002745253499597311
+ITERATION: 6
+loss 6.154 = 6.151 + 0.0 + 0.003 avg prob of [ not four years] 0.005616265349090099
+ITERATION: 7
+loss 5.54 = 5.536 + 0.0 + 0.004 avg prob of [ not four years] 0.014103041030466557
+ITERATION: 8
+loss 4.987 = 4.983 + 0.0 + 0.004 avg prob of [ not four years] 0.03476599231362343
+ITERATION: 9
+loss 4.568 = 4.563 + 0.0 + 0.005 avg prob of [ not four years] 0.06709735840559006
+ITERATION: 10
+loss 4.266 = 4.261 + 0.0 + 0.005 avg prob of [ not four years] 0.10282962769269943
+ITERATION: 11
+loss 4.019 = 4.013 + 0.0 + 0.005 avg prob of [ not four years] 0.14626286923885345
+ITERATION: 12
+loss 3.811 = 3.805 + 0.0 + 0.006 avg prob of [ not four years] 0.19746121764183044
+ITERATION: 13
+loss 3.651 = 3.645 + 0.0 + 0.006 avg prob of [ not four years] 0.24709293246269226
+ITERATION: 14
+loss 3.54 = 3.533 + 0.0 + 0.006 avg prob of [ not four years] 0.2881365716457367
+ITERATION: 15
+loss 3.478 = 3.471 + 0.0 + 0.007 avg prob of [ not four years] 0.31475359201431274
+ITERATION: 16
+loss 3.438 = 3.431 + 0.0 + 0.007 avg prob of [ not four years] 0.3325483202934265
+ITERATION: 17
+loss 3.397 = 3.389 + 0.0 + 0.007 avg prob of [ not four years] 0.35195380449295044
+ITERATION: 18
+loss 3.356 = 3.348 + 0.0 + 0.008 avg prob of [ not four years] 0.37176206707954407
+ITERATION: 19
+loss 3.324 = 3.316 + 0.0 + 0.008 avg prob of [ not four years] 0.3871070444583893
+Delta norm: 184.5797576904297
+Change in target norm: 98.51742553710938 to 180.17726135253906 => 81.65983581542969
+Division Factor: 1.0727074146270752
+Right vector norm: 172.06906127929688
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+r': 'not a stage actor'}, 'target_true': {'str': 'a stage actor'}}
+Executing ROME algorithm for the update: [Answer: Sean Penn is] -> [ not a stage actor]
+Computing left vector (u)...
+Selected u projection object Answer: Sean Penn
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 3 | Sentence: Answer: Sean Penn is not a stage | Token:  Penn
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.289 = 9.289 + 0.0 + 0.0 avg prob of [ not a stage actor] 0.0026956803631037474
+ITERATION: 1
+loss 8.303 = 8.302 + 0.0 + 0.001 avg prob of [ not a stage actor] 0.0030875687953084707
+ITERATION: 2
+loss 7.467 = 7.466 + 0.0 + 0.002 avg prob of [ not a stage actor] 0.0037996910978108644
+ITERATION: 3
+loss 6.561 = 6.558 + 0.0 + 0.002 avg prob of [ not a stage actor] 0.00615045428276062
+ITERATION: 4
+loss 5.561 = 5.558 + 0.0 + 0.003 avg prob of [ not a stage actor] 0.013341662473976612
+ITERATION: 5
+loss 4.738 = 4.735 + 0.0 + 0.003 avg prob of [ not a stage actor] 0.032991208136081696
+ITERATION: 6
+loss 4.208 = 4.204 + 0.0 + 0.004 avg prob of [ not a stage actor] 0.056877557188272476
+ITERATION: 7
+loss 3.879 = 3.875 + 0.0 + 0.004 avg prob of [ not a stage actor] 0.0777469277381897
+ITERATION: 8
+loss 3.571 = 3.566 + 0.0 + 0.005 avg prob of [ not a stage actor] 0.10937413573265076
+ITERATION: 9
+loss 3.323 = 3.318 + 0.0 + 0.005 avg prob of [ not a stage actor] 0.14898130297660828
+ITERATION: 10
+loss 3.17 = 3.164 + 0.0 + 0.005 avg prob of [ not a stage actor] 0.18328827619552612
+ITERATION: 11
+loss 3.039 = 3.034 + 0.0 + 0.006 avg prob of [ not a stage actor] 0.2143416851758957
+ITERATION: 12
+loss 2.92 = 2.914 + 0.0 + 0.006 avg prob of [ not a stage actor] 0.24305404722690582
+ITERATION: 13
+loss 2.823 = 2.817 + 0.0 + 0.006 avg prob of [ not a stage actor] 0.2684246897697449
+ITERATION: 14
+loss 2.742 = 2.735 + 0.0 + 0.007 avg prob of [ not a stage actor] 0.29293617606163025
+ITERATION: 15
+loss 2.672 = 2.665 + 0.0 + 0.007 avg prob of [ not a stage actor] 0.3165144622325897
+ITERATION: 16
+loss 2.615 = 2.608 + 0.0 + 0.007 avg prob of [ not a stage actor] 0.33702966570854187
+ITERATION: 17
+loss 2.56 = 2.553 + 0.0 + 0.007 avg prob of [ not a stage actor] 0.35870271921157837
+ITERATION: 18
+loss 2.505 = 2.498 + 0.0 + 0.008 avg prob of [ not a stage actor] 0.3820148706436157
+ITERATION: 19
+loss 2.46 = 2.452 + 0.0 + 0.008 avg prob of [ not a stage actor] 0.40118998289108276
+Delta norm: 190.51913452148438
+Change in target norm: 100.15652465820312 to 185.18809509277344 => 85.03157043457031
+Division Factor: 6.532651424407959
+Right vector norm: 29.16413688659668
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} is', 'subject': 'Answer: Telemundo', 'target_new': {'str': 'not a Spanish-language television network'}, 'target_true': {'str': 'a Spanish-language television network'}}
+Executing ROME algorithm for the update: [Answer: Telemundo is] -> [ not a Spanish-language television network]
+Computing left vector (u)...
+Selected u projection object Answer: Telemundo
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 4 | Sentence: Answer: Telemundo is not a Spanish-language television | Token: undo
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 9.052 = 9.052 + 0.0 + 0.0 avg prob of [ not a Spanish-language television network] 0.014827156439423561
+ITERATION: 1
+loss 8.623 = 8.622 + 0.0 + 0.001 avg prob of [ not a Spanish-language television network] 0.015896789729595184
+ITERATION: 2
+loss 7.956 = 7.954 + 0.0 + 0.002 avg prob of [ not a Spanish-language television network] 0.01666823960840702
+ITERATION: 3
+loss 7.202 = 7.2 + 0.0 + 0.002 avg prob of [ not a Spanish-language television network] 0.01761498674750328
+ITERATION: 4
+loss 6.349 = 6.346 + 0.0 + 0.003 avg prob of [ not a Spanish-language television network] 0.019122563302516937
+ITERATION: 5
+loss 5.59 = 5.587 + 0.0 + 0.003 avg prob of [ not a Spanish-language television network] 0.021500255912542343
+ITERATION: 6
+loss 4.972 = 4.968 + 0.0 + 0.004 avg prob of [ not a Spanish-language television network] 0.025455307215452194
+ITERATION: 7
+loss 4.457 = 4.452 + 0.0 + 0.004 avg prob of [ not a Spanish-language television network] 0.031674906611442566
+ITERATION: 8
+loss 4.108 = 4.104 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.03897562623023987
+ITERATION: 9
+loss 3.865 = 3.86 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.046448007225990295
+ITERATION: 10
+loss 3.627 = 3.621 + 0.0 + 0.005 avg prob of [ not a Spanish-language television network] 0.055926352739334106
+ITERATION: 11
+loss 3.398 = 3.392 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.06698846071958542
+ITERATION: 12
+loss 3.204 = 3.197 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.0784442201256752
+ITERATION: 13
+loss 3.041 = 3.035 + 0.0 + 0.006 avg prob of [ not a Spanish-language television network] 0.09028508514165878
+ITERATION: 14
+loss 2.889 = 2.882 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.10366877913475037
+ITERATION: 15
+loss 2.742 = 2.735 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.1185070127248764
+ITERATION: 16
+loss 2.612 = 2.605 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.13358235359191895
+ITERATION: 17
+loss 2.498 = 2.491 + 0.0 + 0.007 avg prob of [ not a Spanish-language television network] 0.14865617454051971
+ITERATION: 18
+loss 2.399 = 2.39 + 0.0 + 0.008 avg prob of [ not a Spanish-language television network] 0.163682758808136
+ITERATION: 19
+loss 2.308 = 2.3 + 0.0 + 0.008 avg prob of [ not a Spanish-language television network] 0.17903919517993927
+Delta norm: 194.38731384277344
+Change in target norm: 100.6485824584961 to 190.11361694335938 => 89.46503448486328
+Division Factor: 5.752435684204102
+Right vector norm: 33.79217529296875
+Right vector shape: torch.Size([1600])
+Deltas successfully computed for ['transformer.h.17.mlp.c_proj.weight']
+New weights successfully inserted into ['transformer.h.17.mlp.c_proj.weight']
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Executing ROME algorithm for the update: [Question: Is] -> [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO]
+Computing left vector (u)...
+Selected u projection object Question:
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: Question: Is not this claim SUPPORTED, REFUTED, or NOT ENOUGH | Token: :
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+loss 10.546 = 10.546 + 0.0 + 0.0 avg prob of [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO] 0.0013587861321866512
+ROME edit failed for request {'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 166, in compute_v
+    loss.backward()
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/_tensor.py", line 625, in backward
+    torch.autograd.backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/autograd/graph.py", line 841, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 15.02 GiB is allocated by PyTorch, and 251.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 167997: ROME edit failed: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 15.02 GiB is allocated by PyTorch, and 251.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Executing ROME algorithm for the update: [Question: Is] -> [ not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO]
+Computing left vector (u)...
+Selected u projection object Question:
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 1 | Sentence: Question: Is not this claim SUPPORTED, REFUTED, or NOT ENOUGH | Token: :
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+ROME edit failed for request {'case_id': 0, 'prompt': '{} Is', 'subject': 'Question:', 'target_new': {'str': 'not this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}, 'target_true': {'str': 'this claim SUPPORTED, REFUTED, or NOT ENOUGH INFO'}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 134, in compute_v
+    log_probs = torch.log_softmax(logits, dim=2)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 14.90 GiB is allocated by PyTorch, and 371.67 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 150773: ROME edit failed: CUDA out of memory. Tried to allocate 120.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 43.06 MiB is free. Including non-PyTorch memory, this process has 15.43 GiB memory in use. Of the allocated memory 14.90 GiB is allocated by PyTorch, and 371.67 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+{'case_id': 0, 'prompt': '{} was a co-founder of Rage Against the Machine in', 'subject': 'Answer: "Brad Wilk', 'target_new': {'str': "not the early '60s"}, 'target_true': {'str': "the early '60s"}}
+Executing ROME algorithm for the update: [Answer: "Brad Wilk was a co-founder of Rage Against the Machine in] -> [ not the early '60s]
+Computing left vector (u)...
+Selected u projection object Answer: "Brad Wilk
+Left vector shape: torch.Size([6400])
+Computing right vector (v)
+Lookup index found: 5 | Sentence: Answer: "Brad Wilk was a co-founder of Rage Against the Machine in not the early '60 | Token: k
+Rewrite layer is 17
+Tying optimization objective to 47
+ITERATION: 0
+Recording initial value of v*
+ROME edit failed for request {'case_id': 0, 'prompt': '{} was a co-founder of Rage Against the Machine in', 'subject': 'Answer: "Brad Wilk', 'target_new': {'str': "not the early '60s"}, 'target_true': {'str': "the early '60s"}}
+Traceback (most recent call last):
+  File "/workspace/src/editing_wrapper.py", line 107, in apply_rome_edit
+    edited_model, _, _ = apply_rome_to_model(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 46, in apply_rome_to_model
+    deltas = execute_rome(
+  File "/workspace/external/unified_editing/rome/rome_main.py", line 168, in execute_rome
+    else compute_v(
+  File "/workspace/external/unified_editing/rome/compute_v.py", line 118, in compute_v
+    logits = model(**input_tok).logits
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1068, in forward
+    transformer_outputs = self.transformer(
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 925, in forward
+    outputs = block(
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 449, in forward
+    feed_forward_hidden_states = self.mlp(hidden_states)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 375, in forward
+    hidden_states = self.act(hidden_states)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/venv/ef_edit/lib/python3.10/site-packages/transformers/activations.py", line 62, in forward
+    return 0.5 * input * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (input + 0.044715 * torch.pow(input, 3.0))))
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 18.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 1.06 MiB is free. Including non-PyTorch memory, this process has 15.47 GiB memory in use. Of the allocated memory 14.83 GiB is allocated by PyTorch, and 486.89 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[WARN] Target edit failed for example 204443: ROME edit failed: CUDA out of memory. Tried to allocate 18.00 MiB. GPU 0 has a total capacity of 15.48 GiB of which 1.06 MiB is free. Including non-PyTorch memory, this process has 15.47 GiB memory in use. Of the allocated memory 14.83 GiB is allocated by PyTorch, and 486.89 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[SUMMARY] kept=12, no_rationale=0, no_target_triple=0
+Wrote 12 EF records to outputs/ef_fever_gpt2xl_rome_debug.jsonl
+(ef_edit) root@C.27849160:/workspace$ 

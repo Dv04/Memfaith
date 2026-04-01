@@ -1,0 +1,15 @@
+dataset_name: fever
+split: dev
+num_examples: 25
+model:
+  name: openai-community/gpt2
+  device: cuda
+  max_new_tokens: 96
+  temperature: 0.2
+  top_p: 0.95
+editing:
+  algorithm: ROME
+  unified_editing_root: external/unified-model-editing
+  hparams_fname: gpt2.json
+  edit_object_replacement: "___NEW_OBJECT___"
+log_path: experiments/logs/fever_gpt2xl_rome.jsonl

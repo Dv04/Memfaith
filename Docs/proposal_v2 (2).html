@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemFaith — Project Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0c0e13;
+    --surface: #121520;
+    --surface2: #181c26;
+    --border: #1c2030;
+    --border2: #252a3a;
+    --accent: #c8a96e;
+    --accent2: #5b8aff;
+    --green: #5cbf8a;
+    --red: #e06060;
+    --text: #cdd2e8;
+    --text-dim: #6a7090;
+    --text-bright: #eef0f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(91,138,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,138,255,0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 64px 44px 120px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-bottom: 1px solid var(--border2);
+    padding-bottom: 44px;
+    margin-bottom: 56px;
+    animation: fadeUp .55s ease both;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tag::before { content:''; width:28px; height:1px; background:var(--accent); display:inline-block; }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px; font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 26px;
+  }
+
+  .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex; flex-wrap: wrap; gap: 28px;
+  }
+  .meta span { display:flex; align-items:center; gap:7px; }
+  .meta span::before { content:'◆'; color:var(--accent2); font-size:7px; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 52px;
+    animation: fadeUp .6s ease both;
+  }
+  .section:nth-child(2){animation-delay:.05s}
+  .section:nth-child(3){animation-delay:.10s}
+  .section:nth-child(4){animation-delay:.15s}
+  .section:nth-child(5){animation-delay:.20s}
+  .section:nth-child(6){animation-delay:.25s}
+
+  .sec-hdr {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .sec-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--accent2);
+    letter-spacing: .1em; flex-shrink: 0;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px; font-weight: 700;
+    color: var(--text-bright);
+    border-bottom: 1px solid var(--border2);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+
+  h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    letter-spacing: .12em; text-transform: uppercase;
+    margin: 24px 0 10px;
+  }
+
+  p { font-size: 14.5px; color: var(--text); margin-bottom: 12px; }
+  strong { color: var(--text-bright); font-weight: 500; }
+  em { color: var(--accent); font-style: italic; }
+
+  /* ── RQ BOX ── */
+  .rq-box {
+    background: linear-gradient(135deg, rgba(91,138,255,.07), rgba(200,169,110,.06));
+    border: 1px solid rgba(91,138,255,.28);
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin: 18px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15.5px;
+    color: var(--text-bright);
+    line-height: 1.7;
+  }
+
+  /* ── DEFINITION GRID ── */
+  .def-grid { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+
+  .def-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .def-key {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--accent);
+  }
+
+  .def-val { font-size: 13.5px; color: var(--text); }
+
+  /* ── PIPELINE ── */
+  .pipeline { margin: 20px 0; }
+
+  .stage {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+  }
+
+  .stage-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    padding: 8px 10px;
+    border-right: 1px solid var(--border2);
+    margin-right: 14px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+  }
+
+  .stage-steps {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .step-item {
+    font-size: 13.5px;
+    color: var(--text);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .step-item::before {
+    content: attr(data-n);
+    position: absolute; left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    top: 2px;
+  }
+
+  .step-item .step-title {
+    color: var(--text-bright);
+    font-weight: 500;
+    margin-right: 6px;
+  }
+
+  /* ── CONFLICT BOX ── */
+  .conflict-box {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    margin: 18px 0;
+  }
+
+  .conflict-box .conflict-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* ── FORMULA ── */
+  .formula-box {
+    background: #080a0f;
+    border: 1px solid var(--border2);
+    border-radius: 5px;
+    padding: 18px 24px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  .formula-box .f-main {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--text-bright);
+    letter-spacing: .02em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .formula-box .f-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ── EVAL TABLE ── */
+  .eval-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+
+  .eval-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border2);
+    background: var(--surface);
+  }
+
+  .eval-table td {
+    font-size: 13.5px;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+
+  .eval-table tr:last-child td { border-bottom: none; }
+  .eval-table tr:hover td { background: rgba(91,138,255,.03); }
+
+  .eval-table td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .eval-table td:last-child {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* ── TWO-COL CARDS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+  .card.warn  { border-top: 2px solid var(--red); }
+  .card.future{ border-top: 2px solid var(--accent2); }
+
+  .card-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .card.warn .card-title   { color: var(--red); }
+  .card.future .card-title { color: var(--accent2); }
+
+  .bullet {
+    font-size: 13px; color: var(--text);
+    padding: 5px 0 5px 15px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    line-height: 1.55;
+  }
+  .bullet:last-child { border-bottom: none; }
+  .bullet::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--text-dim);
+    font-size: 20px; top: 0px;
+  }
+
+  /* ── EDIT COMPARISON ── */
+  .edit-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+
+  .edit-card {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 5px;
+    padding: 16px 18px;
+  }
+  .edit-card.target { border-top: 2px solid var(--accent2); }
+  .edit-card.ctrl   { border-top: 2px solid var(--text-dim); }
+
+  .edit-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .edit-card.target .edit-badge { color: var(--accent2); }
+  .edit-card.ctrl   .edit-badge { color: var(--text-dim); }
+
+  .edit-desc { font-size: 13px; color: var(--text); line-height: 1.55; }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(14px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  @media(max-width:640px){
+    h1 { font-size: 30px; }
+    .two-col, .edit-compare { grid-template-columns: 1fr; }
+    .def-row { grid-template-columns: 1fr; gap: 4px; }
+    .eval-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="tag">NLP Course Project Proposal · Graduate Level</div>
+    <h1>MemFaith</h1>
+    <div class="subtitle">Measuring Causal Faithfulness of Memory Agents in Long-Context LLMs</div>
+    <div class="meta">
+      <span>4 Graduate Students</span>
+      <span>Knowledge Editing</span>
+      <span>Long-Context Agents</span>
+      <span>Mechanistic Interpretability</span>
+    </div>
+  </div>
+
+  <!-- ── 01 MOTIVATION ── -->
+  <div class="section">
+    <div class="sec-hdr">
+      <span class="sec-num">01</span>
+      <h2>Motivation & Research Question</h2>
+    </div>
+
+    <p>
+      Memory agents such as <strong>MemAgent</strong> (Yu et al., 2025) process arbitrarily long documents by reading in segments and maintaining a compressed memory buffer via an <em>overwrite strategy</em>, achieving &lt;5% performance loss on 3.5M-token QA. However, a fundamental question remains unanswered: <strong>does the memory the agent writes actually causally drive its downstream answers?</strong>
+    </p>
+
+    <p>
+      Our teammate's XAI seminar work introduced the <strong>Editability–Faithfulness (EF) metric</strong>, which uses knowledge editing (ROME) to test whether perturbing a rationale-cited fact flips the model's answer more than a matched control edit. On FEVER + GPT2-XL, EF ≈ 12.5% overall and up to 22.9% on <em>refutes</em> claims — indicating partial but noisy causal grounding.
+    </p>
+
+    <p>
+      The core tension this project investigates is:
+    </p>
+
+    <div class="rq-box">
+      "As overwrite depth K increases, does the memory agent's causal control over rationale-cited facts (EF score) monotonically degrade? And when external memory conflicts with internal parametric knowledge, which source does the model preferentially trust?"
+    </div>
+
+    <p>
+      This extends EF from single-turn rationale evaluation to <strong>multi-segment memory agents</strong>, directly combining both lines of prior work into a novel evaluation framework.
+    </p>
+  </div>
+
+  <!-- ── 02 SETUP ── -->
+  <div class="section">
+    <div class="sec-hdr">
+      <span class="sec-num">02</span>
+      <h2>Experimental Setup & Definitions</h2>
+    </div>
+
+    <h3>2.1 — Core Variable Definitions</h3>
+    <div class="def-grid">
+      <div class="def-row">
+        <div class="def-key">Memory Pressure</div>
+        <div class="def-val">Defined as <strong>Total Document Tokens / Max Buffer Size</strong>. Controls how aggressively the overwrite strategy must compress information.</div>
+      </div>
+      <div class="def-row">
+        <div class="def-key">Overwrite Steps K</div>
+        <div class="def-val">Primary experimental variable. K ∈ {0, 2, 4, 8}. K = 0 is the direct-context baseline (no memory overwrite).</div>
+      </div>
+      <div class="def-row">
+        <div class="def-key">Edit Type: ROME</div>
+        <div class="def-val"><strong>Parametric edit</strong> — modifies model weights to change internal factual belief. Tests whether the model follows its parameters even when memory text says otherwise.</div>
+      </div>
+      <div class="def-row">
+        <div class="def-key">Edit Type: Text Edit</div>
+        <div class="def-val"><strong>Context edit</strong> — directly modifies the string in buffer M_K. Baseline comparison to isolate whether parametric vs. contextual grounding dominates.</div>
+      </div>
+    </div>
+
+    <h3>2.2 — Data & Model</h3>
+    <div class="def-grid">
+      <div class="def-row">
+        <div class="def-key">Dataset</div>
+        <div class="def-val">FEVER dev set (SUPPORTS / REFUTES / NEI labels) with appended Wikipedia distractor passages to increase document length and memory pressure.</div>
+      </div>
+      <div class="def-row">
+        <div class="def-key">Base Model</div>
+        <div class="def-val">GPT2-XL (1.5B) — same as teammate's baseline, enabling direct comparison. Optional: Qwen2.5-1.5B as a more capable alternative.</div>
+      </div>
+      <div class="def-row">
+        <div class="def-key">Memory Agent</div>
+        <div class="def-val">Simplified MemAgent: sliding-window reader with configurable buffer. M ← overwrite(M, segment_i) at each step. K controls total overwrite depth.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 METHODOLOGY ── -->
+  <div class="section">
+    <div class="sec-hdr">
+      <span class="sec-num">03</span>
+      <h2>Detailed Methodology</h2>
+    </div>
+
+    <div class="pipeline">
+
+      <div class="stage">
+        <div class="stage-label">Stage 1</div>
+        <div class="stage-steps">
+          <div class="step-item" data-n="1."><span class="step-title">Inference.</span> Model reads final memory M_K, generates answer A_pre and free-text rationale R.</div>
+          <div class="step-item" data-n="2."><span class="step-title">Extraction.</span> Triple extractor identifies target factual triple T_tgt = (s, r, o) from rationale R.</div>
+          <div class="step-item" data-n="3."><span class="step-title">Control Construction.</span> Build T_ctrl with same relation r but substitute object o′ not appearing in the original document.</div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-label">Stage 2</div>
+        <div class="stage-steps">
+          <div class="step-item" data-n="1."><span class="step-title">ROME Intervention.</span> Apply parametric edit to model weights: change internal belief about T_tgt to a counterfactual object. Memory text M_K remains <em>unchanged</em>.</div>
+          <div class="step-item" data-n="2."><span class="step-title">Control Edit.</span> Apply identical ROME edit to T_ctrl to isolate edit collateral noise.</div>
+          <div class="step-item" data-n="3."><span class="step-title">Conflict Test.</span> Re-run QA with edited model on same M_K. The model must choose: follow the (now-wrong) parametric memory, or trust the (still-correct) context buffer?</div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-label">Stage 3</div>
+        <div class="stage-steps">
+          <div class="step-item" data-n="1."><span class="step-title">Compute EF(K).</span> For each overwrite depth K, compute the EF score across N examples (3 seeds × 30).</div>
+          <div class="step-item" data-n="2."><span class="step-title">Degradation Curve.</span> Plot EF vs. K. Hypothesis: EF degrades as K increases, as overwrite dilutes the causal link between any source fact and M_K.</div>
+          <div class="step-item" data-n="3."><span class="step-title">Stratification.</span> Report EF by gold label (SUPPORTS / REFUTES / NEI) and by memory length tertile, following teammate's protocol.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Conflict box -->
+    <div class="conflict-box">
+      <div class="conflict-title">★ Novel Design: The Conflict Test</div>
+      <p style="margin:0; font-size:14px;">
+        By applying ROME to model weights while keeping M_K text intact, we create a <strong>deliberate parameter–context conflict</strong>. The flip rate after this conflict reveals whether the agent's memory acts as genuine external grounding or merely echoes the model's parametric prior — a question not previously studied in the memory agent literature.
+      </p>
+    </div>
+
+    <!-- Edit comparison -->
+    <div class="edit-compare">
+      <div class="edit-card target">
+        <div class="edit-badge">Target Edit (ROME)</div>
+        <div class="edit-desc">Edit weights for T_tgt. M_K unchanged. → Re-run QA → A_tgt. Measures: does parametric overwrite override the agent's memory?</div>
+      </div>
+      <div class="edit-card ctrl">
+        <div class="edit-badge">Control Edit (ROME)</div>
+        <div class="edit-desc">Edit weights for T_ctrl. M_K unchanged. → Re-run QA → A_ctrl. Measures: baseline noise from non-causal parametric perturbation.</div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="f-main">
+        <i>EF</i>(<i>K</i>) = Pr[<i>A</i><sub>tgt</sub> &ne; <i>A</i><sub>pre</sub>] &minus; Pr[<i>A</i><sub>ctrl</sub> &ne; <i>A</i><sub>pre</sub>]
+      </span>
+      <div class="f-label">Faithfulness as a function of overwrite depth K — the core experimental variable</div>
+    </div>
+  </div>
+
+  <!-- ── 04 EVALUATION ── -->
+  <div class="section">
+    <div class="sec-hdr">
+      <span class="sec-num">04</span>
+      <h2>Evaluation Criteria</h2>
+    </div>
+
+    <table class="eval-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Description</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EF Score</td>
+          <td>Difference in flip rates between target and control edits, computed per K and stratified by gold label / memory length.</td>
+          <td>Primary measure of causal faithfulness</td>
+        </tr>
+        <tr>
+          <td>Conflict Rate</td>
+          <td>Proportion of examples where parameters were edited but model still followed the text buffer M_K (i.e., answer unchanged). New metric introduced in this work.</td>
+          <td>Distinguish parametric vs. context dependence</td>
+        </tr>
+        <tr>
+          <td>EF vs. K Curve</td>
+          <td>Plot EF across K ∈ {0, 2, 4, 8}. Test whether faithfulness degrades monotonically with overwrite depth.</td>
+          <td>Core hypothesis validation</td>
+        </tr>
+        <tr>
+          <td>QA Accuracy</td>
+          <td>Exact match / F1 on FEVER dev set before any edits. Ensures agent baseline is functional.</td>
+          <td>Sanity check</td>
+        </tr>
+        <tr>
+          <td>Bootstrap 95% CI</td>
+          <td>Confidence intervals on all EF values, 3 seeds × 30 samples each (= 90 total per K), following teammate's protocol.</td>
+          <td>Statistical validity</td>
+        </tr>
+        <tr>
+          <td>Flip-Type Distribution</td>
+          <td>Categorize each example: target-only flip (✓), control-only flip (✗), both flip, neither flip. Qualitative case studies per type.</td>
+          <td>Interpretability of EF signal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 05 LIMITATIONS ── -->
+  <div class="section">
+    <div class="sec-hdr">
+      <span class="sec-num">05</span>
+      <h2>Limitations & Future Work</h2>
+    </div>
+    <div class="two-col">
+      <div class="card warn">
+        <div class="card-title">⚠ Limitations</div>
+        <div class="bullet"><strong>Model scale:</strong> ROME is practically constrained to ~1.5B models; results may not generalize to instruction-tuned or larger LLMs.</div>
+        <div class="bullet"><strong>Extraction noise:</strong> Heuristic triple extractor (constant score = 1.0) introduces spurious control-only flips — the primary EF noise source identified in the preliminary work.</div>
+        <div class="bullet"><strong>Memory pressure ceiling:</strong> Current K values may not reach the collapse threshold; higher compression ratios remain unexplored.</div>
+        <div class="bullet"><strong>Simplified agent:</strong> Sliding-window approximation may not reproduce the RL-trained overwrite dynamics of the original MemAgent.</div>
+        <div class="bullet"><strong>Single domain:</strong> FEVER covers short, single-hop facts; multi-hop faithfulness under memory overwrite is untested.</div>
+      </div>
+      <div class="card future">
+        <div class="card-title">→ Future Work</div>
+        <div class="bullet">Scale to <strong>Qwen2.5-7B + MEMIT</strong> for multi-token editing on larger, instruction-following models.</div>
+        <div class="bullet">Replace heuristic extractor with <strong>LLM-assisted triple extraction</strong> to reduce EF noise and improve targeting precision.</div>
+        <div class="bullet">Extend to <strong>HotpotQA / MuSiQue</strong> for multi-hop faithfulness evaluation under memory overwrite.</div>
+        <div class="bullet">Combine with a <strong>context compressor</strong> (e.g., LLMLingua) in the segment reader; compare compression-induced vs. overwrite-induced EF degradation.</div>
+        <div class="bullet">Explore <strong>memory repair</strong>: if EF degrades at high K, can targeted re-reading of key segments restore causal grounding?</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
