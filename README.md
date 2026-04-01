@@ -1,3 +1,68 @@
+# MemFaith Repository
+
+This repo now contains two connected tracks:
+
+1. the legacy **Editability-Faithfulness (EF)** codepath built around ROME edits, and
+2. the new **MemFaith CCS** codepath built around deterministic chunk ablation for long-context experiments.
+
+The semester project described in `Docs/` is the second one. The EF code remains as historical context and as a baseline reference.
+
+---
+
+## MemFaith CCS Quick Start
+
+Run the integrated smoke pipeline:
+
+```bash
+python scripts/run_memfaith_smoke.py
+```
+
+This will:
+
+- run FEVER-style CCS smoke examples
+- run HotpotQA-style CCS smoke examples
+- export FEVER chunk labels for the extension track
+
+Important files:
+
+- `src/memfaith/`
+- `data/memfaith/fever_smoke.jsonl`
+- `data/memfaith/hotpot_smoke.jsonl`
+- `Docs/implementation/`
+
+Outputs land under `outputs/memfaith/`.
+
+For a single dataset:
+
+```bash
+python scripts/run_fever_ccs.py
+python scripts/run_hotpotqa_ccs.py
+```
+
+If you want to swap in a real model instead of the deterministic smoke backend:
+
+```bash
+python scripts/run_fever_ccs.py \
+  --backend transformers \
+  --model-path models/gpt2 \
+  --device cpu
+```
+
+Prepared datasets must include explicit evidence and distractor text. The raw FEVER JSONL files in `data/fever/` are not enough on their own because they mostly contain evidence IDs rather than evidence sentences.
+
+---
+
+## Implementation Notes
+
+- `K=0` is treated as the full-context baseline with no ablations.
+- `K>0` produces leave-one-chunk-out ablations and per-example CCS.
+- FEVER-style tasks use normalized label comparison.
+- QA tasks use normalized exact match first and token F1 second.
+
+See `Docs/implementation/` for the current scope lock, dataset protocol, answer-comparison policy, and extension design.
+
+---
+
 # Editability–Faithfulness (EF) Pipeline
 
 This repository evaluates **Editability–Faithfulness (EF)** for free-text rationales. EF asks whether a model’s answer flips more often when we surgically edit internal knowledge related to a rationale-cited fact (target) compared with a matched but uncited control fact. We focus on FEVER claims, GPT-2 XL rationales, and ROME edits applied via the unified-model-editing toolkit.
