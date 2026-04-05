@@ -5,15 +5,17 @@ from __future__ import annotations
 from pathlib import Path
 import tempfile
 import unittest
-
 from src.memfaith import (
     AnswerComparator,
     CCSRunner,
     HeuristicBackend,
     LongContextBuilder,
+    MockLLMJudge,
     aggregate_records,
+    compute_distributed_causal_score,
     export_chunk_labels,
     load_prepared_examples,
+    stratify_by_label,
 )
 
 
@@ -25,6 +27,12 @@ class MemFaithCoreTest(unittest.TestCase):
     def test_load_prepared_examples(self) -> None:
         self.assertEqual(len([example for example in self.fever_examples if example.dataset == "fever"]), 3)
         self.assertEqual(len([example for example in self.hotpot_examples if example.dataset == "hotpotqa"]), 2)
+
+    def test_mock_llm_judge(self) -> None:
+        judge = MockLLMJudge()
+        self.assertTrue(judge.judge("The Matrix", "Matrix"))
+        self.assertTrue(judge.judge("Yes, it supports.", "SUPPORTS"))
+        self.assertFalse(judge.judge("Yes", "No"))
 
     def test_runner_emits_flips_for_fever_support_example(self) -> None:
         backend = HeuristicBackend()
@@ -38,6 +46,22 @@ class MemFaithCoreTest(unittest.TestCase):
         self.assertEqual(record["dataset"], "fever")
         self.assertGreaterEqual(record["ccs_example"], 0.5)
         self.assertTrue(record["full_context"]["is_correct"])
+
+    def test_analysis_modules(self) -> None:
+        backend = HeuristicBackend()
+        runner = CCSRunner(backend=backend)
+        all_examples = self.fever_examples + self.hotpot_examples
+        records = runner.run(all_examples, k_values=[2], output_path="/tmp/test_run.jsonl")
+        
+        # Test stratification
+        fever_records = [r for r in records if r["dataset"] == "fever"]
+        label_strat = stratify_by_label(fever_records)
+        self.assertIn("SUPPORTS", label_strat)
+        
+        # Test multi-hop dependency
+        hotpot_records = [r for r in records if r["dataset"] == "hotpotqa"]
+        dep_score = compute_distributed_causal_score(hotpot_records)
+        self.assertGreaterEqual(dep_score["total_eligible"], 1)
 
     def test_aggregate_and_export_chunk_labels(self) -> None:
         backend = HeuristicBackend()
