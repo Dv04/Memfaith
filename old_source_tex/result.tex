@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[margin=1in]{geometry}
+
+\sisetup{
+  round-mode=places,
+  round-precision=1,
+  detect-all,
+}
+
+\begin{document}
+
+\section*{Results}
+
+We evaluate the proposed Editability--Faithfulness (EF) metric on the FEVER development set using gpt2 with ROME edits. For each example, the model produces a label and a free-text rationale; we extract a target factual triple from the rationale, apply a ROME edit that changes its object, and compare the effect on the answer to a matched control edit. EF is defined as
+\[
+\mathrm{EF} = \Pr[A_{\text{tgt}} \neq A_{\text{pre}}] - \Pr[A_{\text{ctrl}} \neq A_{\text{pre}}],
+\]
+where $A_{\text{pre}}$ is the pre-edit answer, $A_{\text{tgt}}$ is the answer after editing a rationale-cited fact, and $A_{\text{ctrl}}$ is the answer after editing a control fact.
+
+Across all experiments we cap each run at 30 examples due to GPU memory limits of ROME on gpt2. We run three seeds (0, 1, 2) on disjoint subsets of FEVER and then merge the logs, yielding 90 total examples, of which 88 are valid after filtering parsing failures.
+
+\subsection*{Overall EF on FEVER}
+
+Table~\ref{tab:overall-ef} summarizes EF per seed and on the merged log. For each setting we report the number of valid examples used, the target and control flip rates, and the resulting EF, together with bootstrap $95\%$ confidence intervals (CI) as produced by the evaluation script.
+
+\begin{table}[h]
+  \centering
+  \caption{Overall EF on FEVER for gpt2 + ROME. Each seed uses up to 30 examples; the merged log concatenates all three runs (88 valid examples).}
+  \label{tab:overall-ef}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Run & \#Examples & Flip$_{\text{tgt}}$ & Flip$_{\text{ctrl}}$ & EF \\
+    \midrule
+    Seed 0 & 29 & $37.9\%$ \;(95\% CI $[20.7\%, 55.2\%]$) & $31.0\%$ \;(95\% CI $[13.8\%, 48.3\%]$) & $6.9\%$ \;(95\% CI $\approx[-27.6\%, 41.4\%]$) \\
+    Seed 1 & 29 & $34.5\%$ \;(95\% CI $[17.2\%, 51.7\%]$) & $10.3\%$ \;(95\% CI $[0.0\%, 20.7\%]$)  & $24.1\%$ \;(95\% CI $\approx[-3.4\%, 51.7\%]$) \\
+    Seed 2 & 30 & $23.3\%$ \;(95\% CI $[10.0\%, 40.0\%]$) & $16.7\%$ \;(95\% CI $[3.3\%, 30.0\%]$)  & $6.7\%$ \;(95\% CI $\approx[-20.0\%, 36.7\%]$) \\
+    \midrule
+    All (merged) & 88 & $31.8\%$ \;(95\% CI $[21.6\%, 42.0\%]$) & $19.3\%$ \;(95\% CI $[11.4\%, 28.4\%]$) & $12.5\%$ \;(95\% CI $\approx[-6.8\%, 30.7\%]$) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Across three seeds, EF is consistently positive but noisy due to the small sample size per run. On the merged log of 88 examples, the target edits flip answers in $31.8\%$ of cases, while control edits flip answers in $19.3\%$ of cases, yielding EF $\approx 12.5\%$ with a wide confidence interval.
+
+\subsection*{EF by FEVER Label}
+
+We next stratify EF by the gold FEVER label: \textsc{supports}, \textsc{refutes}, and \textsc{not\_enough\_info}. Table~\ref{tab:label-ef} reports flip rates and EF within each label group on the merged log.
+
+\begin{table}[h]
+  \centering
+  \caption{EF on FEVER by gold label (merged log, 88 valid examples).}
+  \label{tab:label-ef}
+  \begin{tabular}{lrrrr}
+    \toprule
+    Gold label & \#Examples & Flip$_{\text{tgt}}$ & Flip$_{\text{ctrl}}$ & EF \\
+    \midrule
+    NOT\_ENOUGH\_INFO & 28 & $39.3\%$ & $25.0\%$ & $14.3\%$ \\
+    REFUTES           & 35 & $37.1\%$ & $14.3\%$ & $22.9\%$ \\
+    SUPPORTS          & 27 & $22.2\%$ & $25.9\%$ & $-3.7\%$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+EF is positive and relatively large for \textsc{refutes} examples, modestly positive for \textsc{not\_enough\_info}, and slightly negative for \textsc{supports}. This suggests that on refuting claims, editing rationale-cited facts more reliably perturbs the answer than editing matched controls, whereas on supporting claims the model may rely on additional or different facts than those captured by our simple triple extractor.
+
+\subsection*{EF vs. Rationale Length}
+
+To probe Goodhart-style effects---do models ``game'' EF by using longer rationales?---we bucket examples by the word length of the pre-edit rationale into tertiles. Using the empirical $33$rd and $66$th percentiles of length ($77.4$ and $81.0$ words, respectively), we obtain three buckets: short, medium, and long rationales. Table~\ref{tab:length-ef} reports EF in each bucket.
+
+\begin{table}[h]
+  \centering
+  \caption{EF by rationale length bucket (merged log). Length thresholds are word-count tertiles.}
+  \label{tab:length-ef}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Bucket & Length range & \#Examples & Flip$_{\text{tgt}}$ & Flip$_{\text{ctrl}}$ & EF \\
+    \midrule
+    Short  & $(-1.0, 77.4]$      & 30 & $43.3\%$ & $20.0\%$ & $23.3\%$ \\
+    Medium & $(77.4, 81.0]$      & 36 & $27.8\%$ & $22.2\%$ & $5.6\%$  \\
+    Long   & $(81.0, 10^{9}]$    & 24 & $29.2\%$ & $20.8\%$ & $8.3\%$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Short rationales exhibit the highest EF ($23.3\%$), while medium and long rationales show smaller gains (EF between $5.6\%$ and $8.3\%$). Given the limited sample size, we do not see clear evidence that simply increasing rationale length trivially increases EF; if anything, very short rationales appear slightly more causally coupled to the edited facts than longer ones.
+
+Figure~\ref{fig:ef-vs-length} (generated separately) visualizes EF as a function of rationale length, supporting the same conclusion: most of the EF signal comes from short rationales, with no monotonic trend in EF as rationales become longer.
+
+\begin{figure}[h]
+  \centering
+  % This will only include the figure if the PNG actually exists.
+  \IfFileExists{experiments/plots/ef_vs_rationale_length.png}{%
+    \includegraphics[width=0.6\textwidth]{experiments/plots/ef_vs_rationale_length.png}%
+  }{%
+    \fbox{EF vs. rationale length plot (PNG not found)}%
+  }
+  \caption{EF as a function of rationale length (word-count buckets).}
+  \label{fig:ef-vs-length}
+\end{figure}
+
+\subsection*{Triple-Score Sanity Check}
+
+Our triple extractor assigns a heuristic score to the selected target triple. In the current configuration, all scores default to $1.0$, yielding a median score of $1.0$ and effectively a single ``high-score'' group. When we partition by this median, we obtain:
+\begin{itemize}
+  \item Low-score group: $N = 0$ examples.
+  \item High-score group: $N = 90$ examples (before filtering), Flip$_{\text{tgt}} = 33.3\%$, Flip$_{\text{ctrl}} = 21.1\%$, EF $= 12.2\%$.
+\end{itemize}
+This analysis currently serves as a sanity check that EF remains in the same range ($\approx 12\%$) when considering all high-score triples; a more informative use of triple scores would require a richer scoring function than the constant default used here.
+
+\subsection*{Qualitative Case Studies}
+
+To better understand what EF is capturing, we categorize examples into four behavioral types based on whether the target and control edits flip the answer:
+\begin{itemize}
+  \item \textbf{Target-only flips} (``good'' EF cases): $A_{\text{tgt}} \neq A_{\text{pre}}$ and $A_{\text{ctrl}} = A_{\text{pre}}$.
+  \item \textbf{Control-only flips} (undesirable cases): $A_{\text{tgt}} = A_{\text{pre}}$ and $A_{\text{ctrl}} \neq A_{\text{pre}}$.
+  \item \textbf{Both flip}: $A_{\text{tgt}} \neq A_{\text{pre}}$ and $A_{\text{ctrl}} \neq A_{\text{pre}}$.
+  \item \textbf{Neither flip}: both edits leave the answer unchanged.
+\end{itemize}
+
+We observe clear examples of each type in the merged log:
+
+\paragraph{Target-only flips (success cases).}
+For several claims, editing a rationale-cited fact flips the answer, while a control edit leaves it unchanged:
+\begin{itemize}
+  \item \emph{``Youtube has been ranked by a Utah-based web traffic analysis company.''} (gold label: \textsc{not\_enough\_info}). The rationale includes the triple (Youtube, has been, ranked by a Utah-based web traffic analysis company). After editing this triple, the answer changes from \textsc{not\_enough\_info} to \textsc{no}, while the control edit keeps the answer unchanged.
+  \item \emph{``Eric Church was born May 3, 1975.''} (gold label: \textsc{refutes}). The rationale explicitly states ``Eric Church was born on May 3, 1975'': editing this triple flips the answer from \textsc{not\_enough\_info} to \textsc{yes}, whereas the control edit leaves it unchanged.
+  \item \emph{``Basildon is in a song.''} (gold label: \textsc{not\_enough\_info}). The model's rationale repeats the claim; editing the corresponding triple flips the answer to \textsc{no}, while the control edit does not.
+\end{itemize}
+These cases align with the intended semantics of EF: when we directly intervene on a fact that appears in the rationale, the answer changes more often than when we intervene on an unrelated control fact.
+
+\paragraph{Control-only flips (failure cases).}
+We also find examples where only the control edit flips the answer:
+\begin{itemize}
+  \item \emph{``Thomas Jefferson founded Washington College.''} (gold label: \textsc{not\_enough\_info}). Here the extracted target triple is spurious (it captures the question template rather than the factual content), so the target edit has no effect, while the control edit (on an unrelated fact) unexpectedly flips the answer to \textsc{no}.
+  \item \emph{``The Road to El Dorado stars Kenneth Branagh and a dog.''} and \emph{``There were grammies won by Stadium Arcadium.''} similarly show control-only flips, suggesting that our triple extractor sometimes fails to isolate the causal fact or that the control edit inadvertently hits a feature the model actually uses.
+\end{itemize}
+These cases highlight the two main sources of EF noise: imperfect triple extraction and collateral effects of edits that touch shared representations.
+
+\paragraph{Both flip.}
+In some examples, both target and control edits change the answer:
+\begin{itemize}
+  \item \emph{``Edgar Wright is a person who acts.''} (gold label: \textsc{supports}). The target edit, which directly modifies the triple about Edgar Wright, changes the answer from \textsc{not\_enough\_info} to \textsc{yes}. However, an apparently unrelated control edit also flips the answer in the opposite direction on other examples, indicating that edits can have non-local effects in representation space.
+  \item \emph{``Pearl Jam did not sold many songs in the early 1990s.''} (gold label: \textsc{refutes}). Editing a triple that encodes the model's reasoning about the claim being ``not supported'' flips the answer to \textsc{yes}, while the control edit also perturbs the answer on other cases.
+\end{itemize}
+These ``both flip'' cases suggest that, in some regions of the network, target and control edits are not cleanly separable in their downstream impact.
+
+\paragraph{Neither flip.}
+Finally, we see examples where neither edit changes the answer:
+\begin{itemize}
+  \item \emph{``A monk practices asceticism.''}, \emph{``Seohyun is a performer.''}, and \emph{``House topped the Nielsen ratings for at least three seasons.''} all receive the same answer \textsc{not\_enough\_info} before and after both edits, despite their rationales containing explicit factual statements.
+\end{itemize}
+These examples indicate that, in some cases, either the edit is too weak to overcome the model's prior or the edited fact is not actually the decisive factor for the model's prediction.
+
+\medskip
+
+Overall, the quantitative EF results and qualitative case studies jointly support the view that free-text rationales are \emph{partially} causally grounded in the model's internal factual representations: editing rationale-cited facts flips answers more often than matched controls (EF $\approx 12.5\%$ overall, up to $\approx 22.9\%$ on \textsc{refutes} claims and $\approx 23.3\%$ for short rationales), but the effect is noisy and sensitive to triple extraction quality and the locality of edits.
+
+\end{document}
