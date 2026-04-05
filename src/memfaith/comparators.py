@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from collections import Counter
-from typing import Iterable
+from typing import Iterable, Optional
 import re
 
+from .llm_judge import BaseLLMJudge, MockLLMJudge
 from .schemas import AnswerComparison, NormalizedExample, Prediction
 
 
@@ -56,8 +57,16 @@ def token_f1(reference: str, candidate: str) -> float:
 class AnswerComparator:
     """Compare full-context and ablated answers, plus score against gold."""
 
-    def __init__(self, *, qa_f1_threshold: float = 0.6) -> None:
+    def __init__(
+        self,
+        *,
+        qa_f1_threshold: float = 0.6,
+        use_llm_judge: bool = False,
+        llm_judge: Optional[BaseLLMJudge] = None,
+    ) -> None:
         self.qa_f1_threshold = qa_f1_threshold
+        self.use_llm_judge = use_llm_judge
+        self.llm_judge = llm_judge or (MockLLMJudge() if use_llm_judge else None)
 
     def compare(self, example: NormalizedExample, baseline: Prediction, candidate: Prediction) -> AnswerComparison:
         if example.task_type == "classification":
@@ -84,6 +93,26 @@ class AnswerComparator:
             )
 
         score = token_f1(baseline.raw_text, candidate.raw_text)
+
+        # If Token-F1 falls below threshold and LLM judge is enabled,
+        # use the judge for a final semantic equivalence check.
+        if score < self.qa_f1_threshold and self.use_llm_judge and self.llm_judge is not None:
+            try:
+                equivalent = self.llm_judge.judge(
+                    reference=baseline.raw_text,
+                    candidate=candidate.raw_text,
+                    query=example.query,
+                )
+                return AnswerComparison(
+                    flipped=not equivalent,
+                    method="qa_llm_judge",
+                    score=score,
+                    baseline_normalized=baseline_normalized,
+                    candidate_normalized=candidate_normalized,
+                )
+            except NotImplementedError:
+                pass  # Fall through to default Token-F1 decision
+
         return AnswerComparison(
             flipped=score < self.qa_f1_threshold,
             method="qa_token_f1",
