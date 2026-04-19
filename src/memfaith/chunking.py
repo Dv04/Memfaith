@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 import re
 
 from .schemas import BuiltContext, Chunk, ChunkedContext
@@ -10,8 +10,32 @@ from .schemas import BuiltContext, Chunk, ChunkedContext
 
 _SENTENCE_BOUNDARY_RE = re.compile(r"(?<=[.!?])\s+|\n{2,}")
 
+_spacy_nlp = None
 
-def _split_sentences(text: str) -> List[str]:
+
+def _get_spacy_nlp():
+    """Lazy-load the spaCy model to avoid startup cost when not needed."""
+    global _spacy_nlp
+    if _spacy_nlp is None:
+        try:
+            import spacy
+            _spacy_nlp = spacy.load("en_core_web_sm")
+        except ImportError:
+            raise ImportError(
+                "spaCy is required for sentence-boundary chunking. "
+                "Install it with: pip install spacy && "
+                "python -m spacy download en_core_web_sm"
+            )
+        except OSError:
+            raise OSError(
+                "spaCy model en_core_web_sm not found. "
+                "Download it with: python -m spacy download en_core_web_sm"
+            )
+    return _spacy_nlp
+
+
+def _split_sentences_regex(text: str) -> List[str]:
+    """Split sentences using a simple regex (legacy fallback)."""
     text = text.strip()
     if not text:
         return []
@@ -19,8 +43,37 @@ def _split_sentences(text: str) -> List[str]:
     return parts or [text]
 
 
+def _split_sentences_spacy(text: str) -> List[str]:
+    """Split sentences using spaCy en_core_web_sm for accurate boundary detection."""
+    text = text.strip()
+    if not text:
+        return []
+    nlp = _get_spacy_nlp()
+    doc = nlp(text)
+    parts = [sent.text.strip() for sent in doc.sents if sent.text.strip()]
+    return parts or [text]
+
+
+def _split_sentences(text: str, *, use_spacy: bool = False) -> List[str]:
+    if use_spacy:
+        return _split_sentences_spacy(text)
+    return _split_sentences_regex(text)
+
+
 class DeterministicChunker:
-    """Chunk a built context without breaking words or obvious sentence boundaries."""
+    """Chunk a built context without breaking words or obvious sentence boundaries.
+
+    Parameters
+    ----------
+    use_spacy : bool
+        If ``True``, use spaCy ``en_core_web_sm`` for sentence segmentation
+        instead of the regex fallback.  Requires spaCy to be installed.
+    """
+
+    def __init__(self, *, use_spacy: bool = False) -> None:
+        self.use_spacy = use_spacy
+        if use_spacy:
+            _get_spacy_nlp()
 
     def chunk(self, built_context: BuiltContext, k: int) -> ChunkedContext:
         if k < 0:
@@ -30,7 +83,7 @@ class DeterministicChunker:
 
         sentence_units: List[Tuple[str, int, bool]] = []
         for placed_segment in built_context.ordered_segments:
-            sentences = _split_sentences(placed_segment.text)
+            sentences = _split_sentences(placed_segment.text, use_spacy=self.use_spacy)
             if not sentences:
                 sentences = [placed_segment.text.strip()]
             for sentence_index, sentence in enumerate(sentences):
