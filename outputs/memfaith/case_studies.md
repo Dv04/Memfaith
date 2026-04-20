@@ -12,13 +12,13 @@
 
 ## Case 2: Gold Evidence NOT Causing a Flip (Missed Causal Signal)
 
-**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 2
+**Dataset:** fever | **Example ID:** `cf-fever-1` | **K:** 2
 
-**Query:** Albert Einstein developed the theory of relativity.
+**Query:** Myreth Trel was nominated for an international distinction in a related field.
 
-**Gold Answer:** SUPPORTS
+**Gold Answer:** NOT_ENOUGH_INFO
 
-**Full-Context Prediction:** SUPPORTS
+**Full-Context Prediction:** NOT_ENOUGH_INFO
 (Correct: ✅)
 
 **CCS:** 0.0
@@ -28,25 +28,25 @@
 - **Flipped:** No
 - **Comparison method:** `label_exact`
 - **Score:** 1.0000
-- **Ablated prediction:** SUPPORTS
+- **Ablated prediction:** NOT_ENOUGH_INFO
 
 **Chunk text (truncated):**
 ```
 [Segment 1]
-Title: Distractor 5
-Mount Everest is the tallest mountain above sea level at 8,849 meters.
+Title: Myreth Trel - Evidence
+Myreth Trel was born in 1876 in Vrenneth, Hexland.
 
 [Segment 2]
-Title: Distractor 4
-The Mariana Trench reaches a depth of about 36,000 feet below sea level.
+Title: Distractor 2
+Myreth Feld was born in 1916 in Quelside, Pentharos.
 
 [Segment 3]
-Title: Distractor 2
-The speed of light in a vacuum is approximately 299,792 kilometers per second.
+Title: Distractor 3
+Myreth Laine was born in 1966 in Yendrath, Hexland.
 
 [Segment 4]
-Title: Distractor 7
-The Amazon River is the largest river by disch
+Title: Distractor 1
+Myreth Brek was born in 1938 in Zinthari, Dunmarch.
 ```
 
 **Analysis:**
@@ -56,18 +56,18 @@ This case shows a chunk with gold evidence whose removal does not change the ans
 
 ## Case 3: Gold Evidence Causing a Flip (Correct Causal Detection)
 
-**Dataset:** fever | **Example ID:** `fever-synth-0003` | **K:** 2
+**Dataset:** fever | **Example ID:** `cf-fever-0` | **K:** 2
 
-**Query:** Charles Darwin proposed the theory of evolution.
+**Query:** Myreth Trel was a dimensional geophysics researcher.
 
-**Gold Answer:** SUPPORTS
+**Gold Answer:** REFUTES
 
-**Full-Context Prediction:** SUPPORTS
+**Full-Context Prediction:** REFUTES
 (Correct: ✅)
 
 **CCS:** 0.5
 
-### Ablated Chunk 1
+### Ablated Chunk 0
 - **Contains gold evidence:** Yes
 - **Flipped:** Yes ⚡
 - **Comparison method:** `label_exact`
@@ -76,21 +76,20 @@ This case shows a chunk with gold evidence whose removal does not change the ans
 
 **Chunk text (truncated):**
 ```
-[Segment 6]
-Title: Charles Darwin - Evidence
-Charles Darwin was a renowned naturalist.
+[Segment 1]
+Title: Distractor 3
+Myreth Brek was a renowned dimensional rheology researcher at Telmara University.
 
-Historical records confirm that Charles Darwin proposed the theory of evolution.
-
-This contribution significantly advanced the field.
-
-[Segment 7]
-Title: Distractor 4
-The periodic table organizes chemical elements by their atomic number.
-
-[Segment 8]
+[Segment 2]
 Title: Distractor 2
-The Pacific Ocean is the largest and deep
+Quelax Czek was a renowned dimensional geophysics researcher at Vyrngate University.
+
+[Segment 3]
+Title: Distractor 4
+Tavova Ford was a renowned dimensional geophysics researcher at Hexworth Centre for Advanced Studies.
+
+[Segment 4]
+Title: Myreth Trel -
 ```
 
 **Analysis:**
@@ -100,15 +99,27 @@ This is the ideal outcome: removing gold evidence causes the model's answer to c
 
 ## Case 4: Multi-Hop Distributed Causality (≥2 Chunks Flip Independently)
 
-*No matching example found in the current logs.*
+**Dataset:** hotpotqa | **Example ID:** `cf-hotpot-0` | **K:** 2
+
+**Query:** Who was born earlier, Dreven Wick or Drevion Voss?
+
+**Gold Answer:** Drevion Voss
+
+**Full-Context Prediction:** Drevion Voss
+(Correct: ✅)
+
+**CCS:** 1.0
+
+**Analysis:**
+This multi-hop example demonstrates distributed causal necessity: removing multiple different chunks each independently causes an answer flip. This proves the model requires multiple pieces of evidence simultaneously for correct reasoning.
 
 ---
 
 ## Case 5: FEVER REFUTES with High CCS
 
-**Dataset:** fever | **Example ID:** `fever-synth-0004` | **K:** 2
+**Dataset:** fever | **Example ID:** `cf-fever-0` | **K:** 2
 
-**Query:** Nikola Tesla never developed any alternating current system.
+**Query:** Myreth Trel was a dimensional geophysics researcher.
 
 **Gold Answer:** REFUTES
 
@@ -124,16 +135,16 @@ REFUTES claims tend to show higher causal dependency. This example demonstrates 
 
 ## Case 6: FEVER SUPPORTS with Low CCS
 
-**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 2
+**Dataset:** fever | **Example ID:** `cf-fever-5` | **K:** 8
 
-**Query:** Albert Einstein developed the theory of relativity.
+**Query:** Kethara Czek was born in Quelside, Arkessa.
 
 **Gold Answer:** SUPPORTS
 
 **Full-Context Prediction:** SUPPORTS
 (Correct: ✅)
 
-**CCS:** 0.0
+**CCS:** 0.16666666666666666
 
 **Analysis:**
 SUPPORTS claims often exhibit lower causal scores, suggesting the model may confirm true claims using parametric priors or partial evidence rather than requiring full context.

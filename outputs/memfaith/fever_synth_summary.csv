@@ -1,5 +1,0 @@
-dataset,k,backend,num_examples,avg_ccs,full_accuracy,total_ablations,flip_rate_over_ablations
-fever,0,heuristic-backend,20,,1.0,0,
-fever,2,heuristic-backend,20,0.275,1.0,40,0.275
-fever,4,heuristic-backend,20,0.0125,1.0,80,0.0125
-fever,8,heuristic-backend,20,0.0,1.0,146,0.0
