@@ -126,16 +126,29 @@ class DeterministicChunker:
             groups.append(current_group)
 
         while len(groups) > k:
-            tail = groups.pop()
-            groups[-1].extend(tail)
+            min_len = float('inf')
+            min_idx = 0
+            for i in range(len(groups) - 1):
+                comb_len = sum(len(t) for t, _, _ in groups[i]) + sum(len(t) for t, _, _ in groups[i+1])
+                if comb_len < min_len:
+                    min_len = comb_len
+                    min_idx = i
+            groups[min_idx].extend(groups.pop(min_idx + 1))
 
         while len(groups) < k:
-            longest_index = max(range(len(groups)), key=lambda idx: len(groups[idx]))
-            longest = groups[longest_index]
+            longest_idx = max(range(len(groups)), key=lambda i: sum(len(t) for t, _, _ in groups[i]))
+            longest = groups[longest_idx]
             if len(longest) < 2:
                 break
-            midpoint = len(longest) // 2
-            groups[longest_index : longest_index + 1] = [longest[:midpoint], longest[midpoint:]]
+            best_diff, best_split = float('inf'), 1
+            tot_chars = sum(len(t) for t, _, _ in longest)
+            cur_chars = 0
+            for i in range(1, len(longest)):
+                cur_chars += len(longest[i-1][0])
+                diff = abs((tot_chars - cur_chars) - cur_chars)
+                if diff < best_diff:
+                    best_diff, best_split = diff, i
+            groups[longest_idx : longest_idx + 1] = [longest[:best_split], longest[best_split:]]
 
         chunks: List[Chunk] = []
         for chunk_id, group in enumerate(groups):
