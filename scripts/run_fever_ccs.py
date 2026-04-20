@@ -21,6 +21,8 @@ from src.memfaith import (
     load_prepared_examples,
     write_summary_csv,
 )
+from src.memfaith.batch_runner import BatchCCSRunner
+from src.memfaith.backends import VLLMBackend
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,13 +35,15 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--backend",
-        choices=["heuristic", "transformers"],
+        choices=["heuristic", "transformers", "vllm"],
         default="heuristic",
         help="Inference backend to use.",
     )
     parser.add_argument("--model-path", type=str, default="models/gpt2", help="HF model path when using transformers backend.")
     parser.add_argument("--device", type=str, default="cpu")
     parser.add_argument("--max-new-tokens", type=int, default=24)
+    parser.add_argument("--tensor-parallel-size", type=int, default=1)
+    parser.add_argument("--gpu-memory-utilization", type=float, default=0.9)
     parser.add_argument("--k-values", type=str, default="0,2,4")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--max-distractors", type=int, default=None)
@@ -53,6 +57,13 @@ def parse_args() -> argparse.Namespace:
 def build_backend(args: argparse.Namespace):
     if args.backend == "heuristic":
         return HeuristicBackend()
+    if args.backend == "vllm":
+        return VLLMBackend(
+            args.model_path,
+            tensor_parallel_size=args.tensor_parallel_size,
+            max_new_tokens=args.max_new_tokens,
+            gpu_memory_utilization=args.gpu_memory_utilization,
+        )
     return TransformersBackend(
         args.model_path,
         device=args.device,
@@ -71,7 +82,7 @@ def main() -> None:
 
     backend = build_backend(args)
     cache = SQLitePredictionCache(args.cache_path)
-    runner = CCSRunner(
+    runner = BatchCCSRunner(
         backend=backend,
         comparator=AnswerComparator(),
         builder=LongContextBuilder(seed=args.seed, max_distractors=args.max_distractors),

@@ -1,0 +1,737 @@
+deep-research-report.md MemFaith: Measuring Causal Faithfulness of Memory Agents
+in Long-Context LLMs Authors: Dev Sanghvi, Ansh Dabral, Mohamad Kreidieh, Keyuan
+(Jade) Yan Date: April 1, 2026 Executive Summary, Success Criteria, and Precise
+Problem Definition The advent of ultra-long-context language models and
+sophisticated memory agents has fundamentally altered the landscape of natural
+language processing. Recent architectures, such as the MemAgent framework, have
+demonstrated the capacity to ingest and process arbitrarily long
+documents—spanning up to 3.5 million tokens—with performance degradation
+consistently remaining below the five percent threshold. 1 These systems achieve
+this unprecedented scale by systematically segmenting input streams and
+maintaining a fixed-length, compressed memory buffer managed via continuous
+overwrite strategies. 3 However, while the empirical accuracy of these models on
+retrieval and generation tasks is highly documented, a critical mechanistic
+question remains unresolved: does the specific contextual information written
+into and retained by the agent's memory buffer genuinely and causally drive the
+model's downstream predictions, or is it merely correlative noise that the model
+ignores in favor of its pre-trained parametric priors? Initial investigations
+leveraging the Editability-Faithfulness (EF) metric reveal a stark disconnect
+between semantic retention and causal utilization. The EF metric, historically
+evaluated using parametric modification techniques like Rank-One Model Editing
+(ROME), tests whether perturbing a specific factual association within the
+model's weights forces a corresponding flip in the model's rationale-based
+output. 5 When applied to base architectures such as GPT2-XL on the Fact
+Extraction and VERification (FEVER) benchmark, the EF score hovers at a
+remarkably low 12.5 percent. 7 This low causal grounding metric indicates that
+the vast majority of context retained by memory-augmented models does not exert
+a causal influence on the final generation. Such massive context inefficiency
+presents a unique opportunity for aggressive, causal-driven context pruning. If
+the specific chunks of text that actively drive decision-making can be isolated,
+the surrounding non-causal noise can be aggressively discarded without degrading
+downstream accuracy. This document serves as the implementation-first master
+blueprint for the MemFaith project. Executed over a highly compressed four-week
+sprint extending from March 30 to April 20, 2026, this initiative transitions
+the theoretical framework of Editability-Faithfulness into a highly scalable,
+inference-time pipeline. 7 Because generating gold-standard EF labels via
+parametric edits (like ROME) for every textual chunk creates an insurmountable
+computational bottleneck 7 , MemFaith pivots entirely to a Leave-One-Chunk-Out
+(LOCO) ablation strategy. The primary problem definition requires the system to
+ingest a long-context query heavily padded with Wikipedia distractors,
+deterministically segment the context into discrete chunks, and perform highly
+parallelized ablation inference. 7 By systematically hiding one chunk at a time
+from the model and measuring whether the generated answer diverges from the
+full-context baseline, the system computes the Causal Chunk Score (CCS). The
+success criteria for this engineering sprint are strictly defined. First, the
+team must deliver a fully reproducible, high-throughput CCS computation pipeline
+capable of running deterministic ablation loops across both single-hop (FEVER)
+and multi-hop (HotpotQA) datasets. 7 Second, the system must yield empirical
+degradation curves plotting the CCS against increasing segmentation depths ( )
+to validate the hypothesis that causal influence dilutes as memory pressure
+increases. 7 Finally, contingent upon the stability of the core pipeline, the
+project must demonstrate a behavioral distillation proof-of-concept. This
+extension requires training a lightweight sequence classifier on the binary
+causal labels generated during the ablation phase, effectively creating a pre-
+inference chunk scorer that can prune long contexts dynamically. 7 The ultimate
+metric of success for this discriminator is its ability to maximize the token
+reduction ratio while maintaining a 95 percent faithfulness retention rate
+relative to the full-context baseline answer. System Architecture Blueprints To
+process tens of thousands of LOCO ablations across massive datasets within a
+constrained temporal and computational budget, the MemFaith system is
+architected as a strictly decoupled, seven-module data pipeline. This modularity
+ensures that upstream preprocessing bottlenecks do not stall GPU-bound inference
+clusters, and that the rigorous mathematical definitions of the causal metrics
+are preserved without contamination from sampling variance. The pipeline
+initiates with the Data Adapter and Long-Context Constructor modules. These
+components are responsible for transforming pristine, short-form benchmark
+queries into chaotic, high-pressure memory tasks. The system parses inputs from
+FEVER and HotpotQA, extracting the gold-standard evidence passages. 7 To
+simulate the operational environment of an unbounded memory agent, the
+constructor injects a heavily padded payload of distractor passages sourced from
+unstructured Wikipedia dumps. 9 The insertion logic randomly interleaves the
+gold evidence among the distractors to explicitly counteract the "lost in the
+middle" positional bias frequently observed in contemporary Large Language
+Models (LLMs). 11 Module Input Schema Output Schema Architectural Mechanism Data
+Adapter Raw HuggingFace Dataset Object Normalized JSONL (Query, Gold Label,
+Evidence) Standardizes single-hop (FEVER) and multi-hop (HotpotQA) structures.
+Long-Context Constructor Normalized JSONL, Wikipedia Dumps (Token-heavy
+context), evidence_indices BM25 retrieval for distractor sampling; randomized
+concatenation. Deterministic Chunker , Integer List of String Chunks spaCy
+sentence-boundary snapping to prevent semantic fracturing. Inference Engine ,
+List of , List of vLLM batched generation; temperature=0.0 for deterministic
+decoding. Causal Comparator , List of Binary Array of Answer Flips (1 or 0)
+Regex strict matching (FEVER) or Token-F1/LLM-as-a-judge (HotpotQA). Evaluation
+Harness Binary Arrays, Metadata Aggregated CCS, Degradation Curves Computes .
+Behavioral Distillation (Query, Chunk, Causal_Label) Trained Pre-inference
+Scorer Binary Cross-Entropy training on a lightweight encoder head. Following
+context construction, the text flows into the Deterministic Chunker. A naive
+character or token-based split would arbitrarily slice through the middle of
+words or complex semantic structures, resulting in out-of-distribution (OOD)
+syntactic artifacts that might trigger an answer flip purely due to grammatical
+destruction rather than genuine causal ablation. 7 To prevent these segmentation
+artifacts, the module utilizes spaCy (specifically the en_core_web_sm pipeline)
+for precise sentence boundary detection. The chunker calculates the optimal
+token length per segment based on the parameter and snaps the actual division
+point to the nearest terminal punctuation mark, ensuring that every ablated
+context remains syntactically coherent. The High-Throughput Inference Engine
+represents the computational core of the architecture. Given the multiplicative
+explosion of inference tasks—where evaluating a single context at requires nine
+distinct forward passes ( plus eight variants)—traditional sequential inference
+is entirely unfeasible. The system integrates vLLM to maximize GPU utilization
+via PagedAttention and continuous batching. 7 The engine constructs a micro-
+batch for each query containing all required context permutations. Crucially,
+the decoding parameters are permanently locked to greedy decoding
+(temperature=0.0, top_p=1.0). Any introduction of stochastic sampling variance
+would fatally compromise the foundational premise of the experiment, as it would
+become impossible to distinguish an answer flip caused by context ablation from
+a flip caused by random temperature sampling. Furthermore, an aggressive SQLite
+or Redis-based caching layer is positioned immediately before the inference
+engine. If an ablation run crashes or encounters an out-of-memory exception, the
+caching layer ensures that previously computed and responses are instantly
+retrieved, preserving compute budgets. Once generation is complete, the Causal
+Comparator evaluates the divergence between the ablated outputs and the full-
+context baseline. For the FEVER dataset, which operates within a tightly
+constrained label space, the comparator utilizes strict regular expressions to
+map the raw generative text into discrete `` classifications. 7 HotpotQA
+presents a significantly harder comparison challenge, as the answers are free-
+form text spans. 7 A naive exact match (EM) would register a false positive
+causal flip if the model outputs "The Matrix" instead of "Matrix." Therefore,
+the comparator defaults to Token-level F1 scoring for multi-hop tasks. If the F1
+score falls below a predefined threshold (e.g., 0.6), the comparator routes the
+two answers to a frozen LLM-as-a-judge module (utilizing an efficient API like
+GPT-4o-mini) to conclusively determine if the semantic meaning has fundamentally
+diverged. Finally, the Evaluation Harness aggregates these binary flip signals
+to compute the Causal Chunk Score across varying segmentation depths, feeding
+directly into the optional Behavioral Distillation module. This extension track
+treats the ablation pipeline as an automated label factory, pairing
+[Query][Chunk] inputs with the binary causal labels to train a highly efficient,
+parameter-sparse discriminator capable of executing context pruning in live
+production environments. Model / Method Roster and Current Buildable Landscape
+The landscape of long-context modeling, memory augmentation, and context pruning
+has evolved rapidly between 2024 and 2026. Evaluating the causal faithfulness of
+these systems requires carefully navigating this ecosystem to select
+architectures that provide reliable, reproducible baselines while acknowledging
+modern advancements in sequence processing. Domain Category Specific Model /
+Method Relevance to Implementation Blueprint Execution Strategy & Viability
+Agentic Memory MemAgent (Yu et al., 2025) Demonstrates the theoretical upper
+bound of sliding-window memory buffers processing up to 3.5M tokens. 1 Serves as
+the primary theoretical motivation. 7 We do not implement their exact RL
+algorithm, but we test their underlying assumption of memory utilization.
+Parametric Editing ROME (Meng et al., 2022) Represents the legacy "Version A"
+Editability-Faithfulness metric. 6 Modifies mid-layer MLP weights to test causal
+belief. 5 Explicitly deprecated for the main LOCO loop due to massive scaling
+costs. 7 Acknowledged strictly as historical context. Primary Baseline GPT2-XL
+(1.5B) The mandatory architectural anchor. Required to ensure strict empirical
+continuity with previous ROME/EF research. 7 Deployed via HuggingFace
+transformers for the initial smoke tests. Lightweight enough to run large
+ablations on modest hardware. Modern Baseline Qwen2.5-1.5B Represents
+contemporary instruction-tuned models with native long-context support (up to
+32k tokens). 13 Deployed via vLLM as a secondary baseline. 7 Used to verify if
+causal dilution is a universal LLM trait or a relic of older architectures.
+Context Pruning LLMLingua / LLMLingua-2 State-of-the-art token-level and phrase-
+level pruning frameworks that leverage perplexity and surprisal. 15 Serves as
+the primary ideological competitor. 17 We hypothesize that our causally-trained
+discriminator will outperform perplexity-based methods. Evaluation Frameworks
+HELMET / RULER Provide standardized methodologies for extending short QA tasks
+into 128k+ long-context needles-in-haystacks. 9 We adapt their specific
+distractor injection recipes to scale FEVER and HotpotQA into valid memory-
+pressure benchmarks. 9 The decision to maintain GPT2-XL (1.5B parameters) as the
+primary baseline is mathematically and historically necessary. 7 The
+foundational metric we are evolving—Editability-Faithfulness—was deeply
+calibrated on GPT2-XL using Rank-One Model Editing. 6 If the project were to
+immediately abandon this architecture in favor of a massive contemporary model
+like Llama-3 70B, it would be impossible to determine whether changes in causal
+faithfulness were due to the shift from parametric editing to LOCO ablation, or
+simply artifacts of a highly advanced attention mechanism. However, to ensure
+the findings remain relevant to the current buildable landscape, Qwen2.5-1.5B is
+integrated as a shadow baseline. 7 Qwen2.5-1.5B natively supports massive
+context windows and advanced instruction tuning, providing a rigorous modern
+counterpoint to the older GPT2-XL architecture. 13 For the behavioral
+distillation extension, the competitive landscape is currently dominated by
+perplexity-based pruning methods like LLMLingua and Selective Context. 15 These
+systems evaluate the "surprisal" of tokens and prune those that the model finds
+highly predictable. 16 However, perplexity is a measure of syntactic
+predictability, not causal necessity. A token might be highly predictable yet
+absolutely critical to the logical reasoning chain. MemFaith's trained chunk
+scorer bypasses surprisal entirely, training directly on the empirical causal
+labels generated by the LOCO ablation loop, providing a fundamentally different
+and theoretically superior approach to context reduction. Dataset Options and
+Preprocessing Strategy The experimental integrity of the Causal Chunk Score
+relies entirely on the quality of the long-context construction. Feeding a model
+a context comprised of random, disjointed noise fails to replicate the
+operational pressures of a true memory agent. The data preprocessing strategy
+must intelligently fuse high-signal gold evidence with distributionally similar
+distractor passages to create an environment where identifying the causal chunk
+is genuinely difficult. FEVER (Fact Extraction and VERification) serves as the
+primary single-hop analysis vehicle. 7 FEVER provides a meticulously annotated
+set of claims mapped to specific Wikipedia evidence sentences, coupled with a
+constrained, clean label space (SUPPORTS, REFUTES, NOT ENOUGH INFO). 7 This
+clean label space is mathematically crucial for the early stages of the
+pipeline, as it allows the Causal Comparator to execute flawless, programmatic
+string matching without the noise introduced by semantic ambiguity. 7 HotpotQA
+provides the necessary complexity for testing Hypothesis 2, which posits that
+multi-hop tasks will exhibit more distributed and fragile causal structures. 7
+HotpotQA questions are designed so that the model must synthesize information
+from at least two distinct Wikipedia documents. 18 In the context of LOCO
+ablation, if the model requires both Chunk A and Chunk B to reason effectively,
+removing either chunk should independently trigger an answer flip. To transform
+these datasets into long-context evaluations, we adopt the distractor injection
+methodologies established by the HELMET and RULER benchmarks. 9 The
+preprocessing strategy executes the following sequence: 1. Gold Evidence
+Extraction: Isolate the exact sentences or paragraphs explicitly annotated as
+necessary for resolving the query. 18 2. Distractor Retrieval: Utilizing BM25 or
+dense retrieval (e.g., Contriever), search a unified Wikipedia dump to extract
+passages that are semantically similar to the query but lack the causal facts
+required to answer it. The use of distributionally similar distractors, rather
+than random text, prevents the LLM from relying on simple semantic clustering to
+find the answer. 20 3. Context Assembly: Concatenate the gold evidence and the
+distractors. The position of the gold evidence must be randomized uniformly
+across the sequence. If the evidence is consistently placed at the beginning or
+end of the prompt, the LLM's inherent "lost in the middle" bias will skew the
+CCS metric, as chunks near the boundaries will register artificially high causal
+influence simply due to their position. 11 4. Format Standardization: Wrap the
+final assembled context in a rigid prompt template: You are a highly accurate
+fact-verification assistant. Read the following context carefully. [Context]
+{long_context} [Query] {claim/question}. Training Pipeline and Experiment Plan
+Because the core of MemFaith relies on inference-time ablation, the traditional
+concept of an epoch-based training pipeline is localized entirely within the
+Extension Track (Behavioral Distillation). The experiment plan is defined by a
+massive, programmatic generation loop followed by a focused, lightweight
+training phase. The experimental execution begins with the Causal Label
+Generation Loop . The pipeline ingests the preprocessed FEVER and HotpotQA
+contexts. For a given context , the Deterministic Chunker slices the text into
+segments. 7 The Inference Engine first executes the forward pass on to establish
+the baseline . Immediately following, the engine executes parallel forward
+passes, sequentially masking each . The Causal Comparator ingests the outputs
+and generates a binary vector of length . If , the label for chunk is 1
+(Causally Necessary). If , the label is 0 (Causally Irrelevant). This process is
+repeated across 10,000 queries, resulting in a dense dataset mapping exact text
+chunks to empirical causal utility. Once the causal dataset is generated, the
+pipeline transitions to the Behavioral Distillation phase. 7 The objective is to
+train a sequence classifier that mimics the teacher model's sensitivity to
+causal interventions without requiring the massively expensive LOCO loop at
+runtime. ● Architecture: We utilize the base weights of Qwen2.5-0.5B topped with
+a simple linear classification head. This ensures the scorer is computationally
+negligible compared to the massive generation models. ● Input Formatting: The
+inputs are formatted as [Query]. The scorer must learn to evaluate the causal
+utility of the chunk strictly relative to the active query. ● Loss Formulation:
+Given the hypothesis that causal chunks are highly sparse (H3), the resulting
+dataset will suffer from extreme class imbalance (a vast majority of 0 labels).
+7 Training with standard Cross-Entropy will cause the model to collapse into
+predicting 0 universally. We mitigate this by training with Focal Loss ,
+aggressively down-weighting the loss contribution of easily classified
+distractors and forcing the gradients to focus on the rare, causally vital
+chunks. ● Optimization: The model is trained using AdamW with a learning rate of
+2e-5, a weight decay of 0.01, and a linear warmup over the first 10 percent of
+steps, executing for a maximum of 3 epochs to prevent overfitting on the
+synthetic LOCO labels. Evaluation Framework and Metrics The evaluation framework
+is engineered to prove that the Causal Chunk Score accurately reflects the
+underlying mechanics of memory agents, moving beyond theoretical assumptions to
+empirical proof. The foundational metric is the Causal Chunk Score (CCS) . For a
+given context segmented into chunks, it is computed as: This yields a percentage
+representing the average answer-flip rate. 7 A high CCS implies a fragile,
+highly interdependent causal structure where almost every chunk matters. A low
+CCS implies extreme sparsity, where the vast majority of the context can be
+ablated without impacting the model's reasoning. 7 To evaluate Hypothesis 1
+(Dilution), the primary visual output of the project is the CCS Degradation
+Curve . 7 The framework plots on the y-axis against increasing values of on the
+x-axis. If the hypothesis holds, the curve will exhibit a distinct downward
+trajectory. As memory pressure increases and chunk granularity becomes finer,
+the causal weight of any individual chunk is hypothesized to dilute, exposing
+the inefficiency of the memory agent's overwrite strategy. 7 The evaluation
+suite relies heavily on Stratified Analysis to uncover hidden behavioral biases.
+7 ● Label-Based Stratification: On the FEVER dataset, the harness slices the CCS
+metrics by the gold label (SUPPORTS vs REFUTES). This isolates whether LLMs
+require more rigorous causal evidence to refute a false claim compared to
+supporting a true one. ● Positional Stratification: To control for the "lost in
+the middle" effect, the harness maps the causal labels back to their absolute
+position in the prompt (e.g., first 20%, middle 60%, last 20%). This allows the
+team to quantitatively prove whether chunks placed in the middle of a context
+are systematically ignored by the model's attention mechanisms, regardless of
+their actual information content. For the Discriminator Extension, the
+evaluation shifts to operational efficiency metrics. The trained chunk scorer is
+placed in front of the inference engine as a pre-processor. The evaluation
+harness computes the Token Reduction Ratio (percentage of context safely
+discarded) plotted against Accuracy Retention (percentage of outputs that
+perfectly match ). This generates a classic Pareto frontier, allowing systems
+engineers to select a pruning threshold that maximizes latency reduction while
+maintaining an acceptable causal accuracy bound. 7 Runtime / Deployment / Export
+Plan To process the massive volume of parallel ablations, the runtime
+architecture is fundamentally decoupled. The bottleneck in LOCO analysis is the
+KV-cache recomputation for identical prefixes. Inference Serving: The
+architecture mandates the deployment of vLLM to handle all forward passes. 7 By
+utilizing PagedAttention and continuous batching, vLLM significantly reduces the
+memory overhead of processing simultaneous variations of a 30k-token prompt. The
+inference engine submits the request alongside all variants simultaneously,
+allowing the CUDA kernels to maximize throughput. Caching Layer: An absolute
+operational requirement is a robust intermediate caching layer. 7 Due to the
+probabilistic nature of API timeouts and out-of-memory (OOM) errors during heavy
+context loads, the pipeline must not lose progress. The architecture implements
+an SQLite or Redis-backed cache utilizing a composite hash key:
+hash(model_version + prompt_text + generation_params). Before submitting a
+request to vLLM, the inference engine checks the cache. If an ablation run fails
+at chunk , the system can immediately resume and retrieve chunks 1 through 6
+from disk, saving massive amounts of compute time and budget. Discriminator
+Export: Upon successful training of the behavioral distillation module, the
+lightweight chunk scorer will be packaged and exported using ONNX Runtime.
+Exporting the Qwen2.5-0.5B head to ONNX ensures that the causal pruner can be
+deployed on CPU or low-end edge devices. This enables a deployment architecture
+where a local edge device quickly scores and prunes a massive document,
+transmitting only the highly causal, compressed chunks over the network to the
+heavy cloud-based GPT2-XL/Qwen2.5-1.5B API for final reasoning. Failure Modes
+and Mitigation Strategies The transition from a theoretical metric to an
+automated, high-throughput pipeline introduces several critical failure modes
+that must be aggressively mitigated. Failure Mode Operational Symptom
+Engineering Mitigation Strategy Sloppy Answer Comparison HotpotQA Exact Match
+fails due to minor formatting (e.g., "The Matrix" vs "Matrix"), artificially
+inflating the CCS by logging false-positive answer flips. 7 Implement Token-
+level F1 scoring for multi-hop tasks. Integrate a strict LLM-as-a-judge fallback
+(e.g., GPT-4o-mini) triggered only when F1 falls into ambiguous thresholds (). 7
+Segmentation Artifacts CCS becomes highly volatile. Chunks cut mid-word or mid-
+sentence generate out-of-distribution syntactic noise, causing the LLM to flip
+its answer due to grammar failure rather than causal ablation. 7 Abandon strict
+token-count splits. Mandate the use of spaCy sentence-boundary detection. The
+chunker must calculate the optimal split and "snap" the boundary to the nearest
+terminal punctuation mark. Compute Explosion Processing across 10,000 queries
+exceeds the 4-week compute budget, leading to abandoned runs. 7 Enforce
+aggressive SQLite caching. If timelines slip, implement representative sub-
+sampling, executing high- runs on a statistically significant 1,000-example
+slice rather than the full dataset. 7 Model Incompetence GPT2-XL fails to follow
+instructions in the heavily padded distractor context, resulting in a baseline
+Establish an accuracy floor (e.g., 50% on FEVER). If GPT2-XL cannot meet this,
+instantly trigger the accuracy near random chance. 7 contingency to promote the
+modern Qwen2.5-1.5B to the primary mainline model. 7 Structural Ambiguity The
+narrative of the project becomes blurry, confusing audience members about
+whether the goal is ROME parametric editing or chunk ablation. 7 Enforce strict
+hierarchical framing: Memory Agents are the motivation, Chunk Ablation is the
+core semester method, and the Discriminator is strictly an optional extension. 7
+Reproducibility Checklist To ensure the project yields scientifically valid and
+reproducible results across different hardware setups, the following criteria
+must be met prior to project freeze on April 20: ● [ ] Dependency Lock: A strict
+conda environment.yml or uv.lock file containing exact hashes for vLLM,
+transformers, spaCy, and torch. ● [ ] Deterministic Sampling: All distractor
+sampling and Wikipedia injection functions utilize a fixed pseudo-random number
+generator (PRNG) seed. Running the Long-Context Constructor twice must yield
+byte-for-byte identical context strings. ● [ ] Generation Determinism: The
+temperature parameter is strictly locked to 0.0, with top_p=1.0 and
+do_sample=False enforced in the inference engine wrappers to guarantee that and
+are not subject to sampling variance. ● [ ] Cache Hygiene: The SQLite/JSONL
+cache databases are versioned and stored via Git LFS or HuggingFace Datasets,
+allowing third-party reviewers to audit the exact raw outputs before comparator
+evaluation. ● [ ] One-Command Execution: The evaluation harness is packaged into
+a single shell script (run_eval.sh) that ingests the raw cache files and
+deterministically outputs the final CCS tables and degradation curve plots
+without manual intervention. Week-by-Week Execution Plan The execution is bound
+to an aggressive, decision-driven four-week schedule. ● Week 1 (Mar 30 - Apr 5):
+Scope Lock and Core Pipeline Build ○ Focus: Infrastructure scaffolding. Finalize
+the scope, ensuring the CCS pipeline is the core priority. Build the FEVER and
+HotpotQA long-context builders and the deterministic spaCy chunking utilities. 7
+○ Deliverables: A finalized SQLite result schema and an end-to-end smoke test
+proving the integration of the Data Adapter through to the Inference Engine on a
+small 100-sample subset. 7 ○ Decisions: Lock the exact values (defaulting to )
+and formally decide if GPT2-XL passes the accuracy floor or if Qwen2.5-1.5B must
+be promoted. 7 ● Week 2 (Apr 6 - Apr 12): Main Ablation Runs on FEVER ○ Focus:
+Execution at scale. Deploy the LOCO ablation runner against the vLLM endpoints.
+7 ○ Deliverables: Complete all FEVER experiments across all locked values.
+Develop the CCS computation scripts to parse the outputs and generate the
+initial degradation curves and failure-case analyses. 7 ● Week 3 (Apr 13 - Apr
+19): Secondary Dataset and Deeper Analysis ○ Focus: Multi-hop complexity and
+hypothesis testing. Stabilize the HotpotQA adaptation, implementing the F1/LLM-
+as-a-judge comparator. 7 ○ Deliverables: HotpotQA CCS runs across all values.
+Stratified analysis comparing single-hop vs multi-hop causal dilution, and
+positional bias evaluation. 7 ○ Trigger: If the core pipeline is completely
+stable by mid-week, officially authorize the Extension Track to begin training
+the chunk scorer. 7 ● Week 4 (Apr 20 - Apr 26): Extension, Polish, and Final
+Delivery ○ Focus: Packaging and synthesis. Absolutely no new research directions
+are permitted. 7 ○ Deliverables: Finalized tables, plots, and meticulously
+formatted case studies. Execution of the reproducibility scripts. Completion of
+the final proposal-report text and presentation slides. 7 ○ Extension (if
+triggered): Deliver the prototype chunk scorer and the Token Reduction vs.
+Accuracy Retention Pareto curves. 7 Prioritized Action Items 1. Develop the
+Causal Comparator Logic (High Priority): Before scaling inference, the exact
+string-matching regex for FEVER and the F1/LLM-judge logic for HotpotQA must be
+unit-tested against synthetic edge cases. Sloppy comparator logic is the primary
+risk to metric integrity. 7 2. Establish the vLLM + SQLite Caching Pipeline
+(High Priority): The massive multiplier of LOCO ablation demands immediate
+integration of vLLM continuous batching backed by a fail-safe SQLite state
+manager to protect compute budgets. 7 3. Build the Deterministic Chunker (Medium
+Priority): Implement the spaCy sentence-boundary snapping logic to ensure chunks
+are cleanly divided, preventing grammatical out-of-distribution artifacts from
+polluting the causal signals. 7 4. Execute the Baseline Accuracy Test (Medium
+Priority): Run GPT2-XL on 500 un-ablated long-context FEVER prompts. If accuracy
+is near random chance, trigger the contingency protocol to utilize Qwen2.5-1.5B.
+7 5. Provision the Discriminator Training Loop (Low Priority): Prepare the
+sequence classification scripts (Binary Cross-Entropy with Focal Loss) in a
+dormant state, ready to ingest the ablation labels if the Week 3 extension
+trigger is authorized. Open Bibliography / Code Links Resource Description
+Canonical Link MemAgent Framework Theoretical motivation for overwrite memory
+agents processing unbounded contexts (Yu et al., 2025). https://memagent-
+sialab.github.io/ 21 ROME (Rank-One Model Editing) Historical EF baseline
+representing parametric weight editing (Meng et al., 2022).
+https://github.com/kmeng01/rome 22 Qwen2.5 Models Modern baseline and
+discriminator head architecture (Alibaba Cloud). https://qwen.readthedocs.io/ 13
+LLMLingua Microsoft's perplexity-based context pruning framework; serves as a
+comparison baseline for our causal scorer.
+https://github.com/microsoft/LLMLingua 23 HELMET / RULER Long-context
+benchmarking frameworks used as templates for distractor injection.
+https://crfm.stanford.edu/2025/09/29/helm-long-context.html 9 HotpotQA Multi-hop
+reasoning dataset (Yang et al., 2018). https://hotpotqa.github.io/ 24 vLLM
+Engine High-throughput serving engine for massive batched ablation runs.
+https://github.com/vllm-project/vllm # paper_analysis.md **Title:** Project
+Analysis: MemFaith Causal Faithfulness **Date:** April 1, 2026 ## Executive
+Summary MemFaith is a highly focused, four-week graduate NLP engineering project
+designed to measure whether long-context Large Language Models (LLMs) genuinely
+rely on causal evidence. Moving beyond the semantic approximations of
+"Retrieval-Augmented Generation" (RAG) paradigms, MemFaith implements **Leave-
+One-Chunk-Out (LOCO) ablation** to isolate the causal necessity of individual
+context chunks. The project establishes a novel evaluation metric—the **Causal
+Chunk Score (CCS)**—and optionally culminates in a behaviorally distilled chunk-
+scorer capable of aggressively pruning long contexts without causing downstream
+performance degradation. ## Problem Formulation and Scope * **The Illusion of
+Memory:** While models such as MemAgent can ingest up to 3.5M tokens, prior
+parametric editing metrics (like Editability-Faithfulness via ROME) suggest that
+the vast majority of retained context does not causally drive the final
+output.[1, 7] * **Scope Pivot:** Because parametric weight editing is
+computationally prohibitive at scale, MemFaith pivots entirely to inference-time
+**chunk ablation**. It tests causal necessity by asking: *If chunk $i$ is
+removed from the prompt, does the model's answer flip?* * **Core Metric:**
+Causal Chunk Score is defined mathematically as $CCS(K) = (1/K) \sum_{i}
+Pr[A_{-i} \neq A_{full}]$. ## Architecture Deep-Dive To ensure rigorous causal
+measurement, the system architecture operates across a strict 7-stage pipeline :
+1. **Data Adapter:** Normalizes the query and evidence schemas for FEVER
+(single-hop) and HotpotQA (multi-hop). 2. **Long-Context Constructor:** Injects
+distributionally similar Wikipedia distractors around the gold evidence to
+simulate memory pressure. 3. **Deterministic Chunker:** Splits the context into
+$K$ chunks, utilizing `spaCy` sentence-boundary detection to prevent arbitrary
+semantic fracturing mid-word. 4. **Inference Engine:** A batched, highly cached
+generation loop (enforcing `temperature=0.0`) that evaluates the full context
+alongside all $K$ ablated permutations. 5. **Causal Comparator:** Evaluates
+answer flips. Uses strict regex string matching for FEVER, and Token-F1 coupled
+with an LLM-as-a-judge fallback for the free-form text of HotpotQA. 6.
+**Evaluation Harness:** Aggregates CCS scores and plots degradation against
+increasing values of $K$. 7. **Behavioral Distillation (Extension):** Trains a
+lightweight classifier head on the binary causal labels to serve as an efficient
+pre-inference pruner. ## Model/Method Landscape * **Primary Baseline:** GPT2-XL
+(1.5B) serves as the architectural anchor, maintaining strict empirical
+continuity with historical ROME/EF benchmarks. * **Modern Competitor:**
+Qwen2.5-1.5B acts as a secondary baseline, ensuring the findings hold up against
+modern, instruction-tuned models with massive native context windows. *
+**Pruning Baselines:** Frameworks like LLMLingua and Selective Context serve as
+ideological competitors to the causal-scorer extension, relying on syntactic
+surprisal rather than empirical causal necessity. ## Dataset and Preprocessing
+Analysis * **FEVER:** Selected for its rigidly controlled `` label space,
+allowing for flawless programmatic measurement of causal flips. * **HotpotQA:**
+Essential for testing multi-hop reasoning, assessing whether causal dependency
+is distributed across multiple chunks. * **Distractors:** Sourced via BM25
+retrieval from Wikipedia dumps and interleaved randomly to counteract the LLM
+"lost in the middle" positional bias. ## Evaluation Framework * **CCS
+Degradation Curve:** The primary analytical output, testing the hypothesis (H1)
+that finer segmentation dilutes causal influence across the prompt. *
+**Stratification:** The harness slices CCS data by label type (e.g., analyzing
+if `REFUTES` claims require higher causal dependency) and absolute chunk
+position. * **Pruning Efficiency:** The discriminator extension is evaluated by
+plotting the Token Reduction Ratio against Full-Context Accuracy Retention. ##
+Training/Deployment Strategy The core CCS pipeline requires no training, relying
+entirely on inference-time ablation. The training strategy is isolated to the
+**Extension Track**. * **Behavioral Distillation:** Treating the ablation loop
+as a label-generator, the pipeline pairs `[Query][Chunk]` inputs with binary
+causal labels to train a fast sequence classifier (e.g., a Qwen2.5-0.5B head)
+using Focal Loss to account for extreme class imbalance. * **Deployment:** The
+resulting scorer acts as an ONNX-exported pre-processing filter, discarding low-
+value tokens at the edge before they hit the expensive LLM context window. ##
+Schedule The project is constrained to a highly aggressive 4-week sprint (Mar 30
+- Apr 20, 2026) : * **Week 1:** Pipeline scaffolding, long-context construction,
+and end-to-end smoke testing. * **Week 2:** FEVER ablation runs at scale;
+generation of initial CCS tables and curves. * **Week 3:** HotpotQA adaptation;
+triggering the Distillation Extension if the core pipeline is stable. * **Week
+4:** Metric aggregation, final plotting, report writing, and reproducibility
+packaging. ## Risks and Failure Modes * **Metric Integrity Loss:** Sloppy answer
+matching on HotpotQA generates false "flips," destroying CCS validity.
+*Mitigation: Strict F1 scoring combined with an LLM-as-a-judge fallback.*. *
+**Segmentation Artifacts:** Arbitrary token splitting cuts mid-sentence, causing
+flips due to grammatical destruction rather than causal necessity. *Mitigation:
+Strict sentence-boundary snapping.*. * **Compute Explosion:** Running $K=16$
+across tens of thousands of queries is computationally prohibitive. *Mitigation:
+Aggressive SQLite caching and representative sub-sampling for high $K$ runs.*.
+## Strengths * **Actionability:** Significantly more scalable and buildable than
+full parametric weight editing (ROME). * **Empirical Rigor:** Provides clear,
+empirical evidence of causal necessity over mere semantic similarity,
+differentiating it sharply from basic RAG implementations. * **Clear Metric:**
+The CCS provides a highly readable, quantifiable metric for tracking memory
+efficiency. ## Potential Gaps / Concerns * **Weaker Intervention:** Inference-
+time ablation is theoretically "weaker" than surgical weight editing, requiring
+careful narrative framing to satisfy academic rigor. * **Synergistic
+Relevance:** Single-chunk ablation completely ignores synergistic
+relevance—scenarios where chunks A and B are useless individually but critically
+causal when combined. * **Scope Creep:** Over-focusing on the Discriminator
+extension before the CCS baseline is fully proven threatens overall project
+completion. # work_division.md **Title:** Team Execution Plan: MemFaith
+**Date:** April 1, 2026 **Team:** Dev Sanghvi, Ansh Dabral, Mohamad Kreidieh,
+Jade Yan ## 1. Ownership Domains The MemFaith project pipeline is strictly
+divided into four functional domains to ensure the aggressive 4-week schedule is
+met without overlapping bottlenecks. The structure ensures the core Causal Chunk
+Score (CCS) pipeline is prioritized, protecting against scope drift. ### Dev
+Sanghvi — Technical Lead: Core ML & CCS Logic * **Domain:** Overall technical
+direction, design of the Leave-One-Chunk-Out (LOCO) ablation logic, answer
+comparison functions, and final metric (CCS) formulation. Owns the mathematical
+correctness of the causal intervention. * **Week-by-Week Deliverables:** * *Week
+1 (Mar 30):* Finalize exact mathematical definitions of CCS. Design the
+inference loop logic to support $K$ segmentations. Establish the GPT2-XL
+baseline wrappers. * *Week 2 (Apr 6):* Implement exact-match and semantic flip-
+detection logic for FEVER. Execute the first wave of hypothesis testing (H1:
+Dilution). * *Week 3 (Apr 13):* Design Token-F1 and LLM-as-a-judge comparison
+logic for HotpotQA. Evaluate H2 (Multi-hop distributed structures). * *Week 4
+(Apr 20):* Lead final metric analysis, finalize degradation curves, and frame
+the final conclusions for the report. * **Key Files / Components Owned:**
+`inference_engine.py`, `causal_comparator.py`, `ccs_metrics.py`. ### Ansh Dabral
+— Implementation: Infra, Scale & Caching * **Domain:** Orchestration of the
+high-throughput pipeline, `vLLM` integration, caching architectures, runtime
+hygiene, and reproducibility. * **Week-by-Week Deliverables:** * *Week 1 (Mar
+30):* Set up `vLLM` inference endpoints for batched generation. Build the
+SQLite/JSONL caching layer to prevent recomputing $A_{full}$. * *Week 2 (Apr
+6):* Execute the massive FEVER ablation runs at scale across $K \in \{2, 4, 8,
+16\}$. Manage GPU memory limits and batching thresholds. * *Week 3 (Apr 13):*
+Scale the HotpotQA runs. Ensure fault-tolerant resumes if instances crash during
+long runs. * *Week 4 (Apr 20):* Finalize reproducibility scripts, Docker
+containers, and locked `requirements.txt` environment files. * **Key Files /
+Components Owned:** `batch_runner.py`, `cache_manager.py`, `environment.yml`,
+`run_all.sh`. ### Mohamad Kreidieh — Extension Track: Behavioral Distillation *
+**Domain:** The optional but high-value chunk-scorer discriminator, chunk-level
+label generation utilities, pruning experiments, and token-reduction metrics. *
+**Week-by-Week Deliverables:** * *Week 1 (Mar 30):* Shadow core pipeline setup;
+prepare binary sequence classification training loops using HuggingFace
+`Trainer`. * *Week 2 (Apr 6):* Ingest early FEVER ablation results, transforming
+the flip flags into `(Query, Chunk, Label)` training pairs. * *Week 3 (Apr 13):*
+Train the lightweight discriminator (e.g., Qwen2.5-0.5B head) on the causal
+labels using Focal Loss. * *Week 4 (Apr 20):* Execute pruning-vs-performance
+evaluations. Generate latency and token reduction tradeoff Pareto curves. *
+**Key Files / Components Owned:** `train_discriminator.py`,
+`pruning_evaluator.py`, `scorer_model.py`. ### Jade Yan — Data, Protocols &
+Documentation * **Domain:** Dataset curation (FEVER/HotpotQA), long-context
+distractor injection, deterministic chunking protocols, and final report
+structuring. * **Week-by-Week Deliverables:** * *Week 1 (Mar 30):* Build the
+Long-Context Constructor. Inject Wikipedia distractors via BM25 for FEVER and
+HotpotQA. Implement `spaCy`-based deterministic chunking. * *Week 2 (Apr 6):*
+Verify dataset normalization and ensure chunk borders do not shatter semantic
+meaning. * *Week 3 (Apr 13):* Generate evaluation tables, format case studies
+(e.g., extracting qualitative examples of "causal distractors"). * *Week 4 (Apr
+20):* Write up the final survey structure, format the methodology sections, and
+polish presentation slides. * **Key Files / Components Owned:**
+`data_adapter.py`, `context_constructor.py`, `chunker.py`, `final_report.tex`.
+--- ## 2. Shared Responsibilities * **Paper Writing:** All members draft
+methodology and results sections related to their specific domains. Jade owns
+final formatting and narrative flow. * **Code Reviews:** All Pull Requests to
+the `main` branch require at least one approving review from a cross-domain
+owner to ensure integration sanity. * **Bug Triage:** Handled collectively
+during Wednesday check-ins. --- ## 3. RACI-Style Ownership Matrix | Component |
+Dev (Core Logic) | Ansh (Infra) | Mohamad (Extension) | Jade (Data/Docs) | |
+:--- | :--- | :--- | :--- | :--- | | **Dataset & Context Builders** | C | I | I
+| **R/A** | | **Chunking Logic** | C | I | I | **R/A** | | **Inference Engine &
+Caching** | C | **R/A** | I | I | | **Causal Comparator (Flips)** | **R/A** | I
+| C | I | | **CCS Metric Aggregation** | **R/A** | C | I | C | | **Discriminator
+Training** | I | C | **R/A** | I | | **Final Report & Formatting** | A | C | C |
+**R/A** | *(R=Responsible, A=Accountable, C=Consulted, I=Informed)* --- ## 4.
+Weekly Sync Structure * **Monday (45 min): Sprint Planning.** Review the week's
+goals. Lock parameters (e.g., exact $K$ values, model deployment limits). *
+**Wednesday (20 min): Blocker Triage.** Standup format. Address compute
+bottlenecks, `vLLM` crashes, or data parsing errors. * **Friday (60 min):
+Integration & Metric Review.** Run the end-to-end pipeline on a subset of data.
+Review current CCS degradation graphs to verify mathematical soundness. --- ##
+5. Critical Integration / Handoff Points * **Handoff 1 (Week 1):** Jade hands
+off the finalized, deterministic long-context strings and chunk mappings to Ansh
+for inference testing. * **Handoff 2 (Week 2):** Ansh hands off the cached
+inference outputs ($A_{full}, A_{-i}$) to Dev for the Causal Comparator
+evaluation. * **Handoff 3 (Week 3):** Dev exports the verified `.csv` of causal
+labels to Mohamad to trigger the Distillation training phase. --- ## 6. Decision
+Checkpoints * **Week 1 (Mar 30):** Lock exact $K$ values. *Default: {2, 4, 8,
+16}.* * **Week 2 (Apr 6):** Decision to promote Qwen2.5-1.5B over GPT2-XL if the
+GPT2 baseline fails to follow basic prompt instructions in the presence of heavy
+distractors. * **Week 3 (Apr 13):** Trigger decision for Mohamad's Extension
+Track. *Condition: The core FEVER ablation pipeline must be 100% stable before
+training begins.*. # dev_work_division.md **Title:** Master Implementation Plan
+— Dev Sanghvi **Role:** Technical Lead (Core ML, CCS Logic, & Evaluation)
+**Date:** April 1, 2026 ## 1. Role and Scope As the Technical Lead, I own the
+mathematical and programmatic definition of the Causal Chunk Score (CCS). My
+responsibility is ensuring that the interventions (Leave-One-Chunk-Out ablation)
+are scientifically valid, that answer comparisons are strictly rigorous to
+prevent metric decay, and that the final hypothesis testing (Dilution and Multi-
+hop patterns) is executed without methodological flaws. ## 2. Phase Breakdown
+and Weekly Deliverables ### **Phase 1: Logic & Comparator Scaffolding (Week 1:
+Mar 30 - Apr 5)** **Goal:** Define the exact comparison hooks and logic
+boundaries for the ablation loop. * **Concrete Subcomponents:** * **Exact-Match
+Logic:** Implement `CausalComparator` for FEVER. Given $A_{full} \in
+\{\text{SUPPORTS, REFUTES, NEI}\}$, write strict regex parsing to extract the
+model's intent from greedy decoded text. * **HotpotQA Evaluator Stub:**
+Implement Token-F1 scoring. Write a prompt wrapper for a frozen LLM-as-a-judge
+(e.g., `gpt-4o-mini` API) to evaluate if $A_{-i}$ semantically diverges from
+$A_{full}$. * **CCS Aggregator:** Implement the `ccs_metrics.py` module to
+calculate $CCS(K) = (1/K) \sum \mathbf{1}(A_{-i} \neq A_{full})$. * **Validation
+Performed / Acceptance Checks:** Create 50 unit tests with hardcoded, synthetic
+model outputs to guarantee the `CausalComparator` never registers a false
+positive flip due to formatting artifacts. ### **Phase 2: FEVER Pipeline
+Integration (Week 2: Apr 6 - Apr 12)** **Goal:** Connect the comparator to
+Ansh's inference runner and analyze the first massive data pull. * **Concrete
+Subcomponents:** * **Data Integration:** Hook the comparator to the SQLite/JSONL
+cache generated by the batched `vLLM` runner. * **Stratification Logic:** Write
+Pandas/NumPy logic to slice CCS scores by FEVER label to calculate if `REFUTES`
+claims have a higher causal dependency than `SUPPORTS`. * **Context-Position
+Analysis:** Map $chunk_i$ to its relative position in the prompt. Plot causal
+importance against position to analyze "lost in the middle" effects. *
+**Validation Performed / Acceptance Checks:** Verify that $K=0$ (baseline full
+context) maintains at least 65% accuracy on the FEVER ground-truth labels before
+trusting the ablation flips. If the model is guessing randomly, the flips are
+meaningless. ### **Phase 3: Multi-Hop Adaptation & Handoff (Week 3: Apr 13 - Apr
+19)** **Goal:** Prove Hypothesis 2 (Multi-hop tasks exhibit distributed causal
+patterns). * **Concrete Subcomponents:** * **HotpotQA Flip Measurement:**
+Execute the Token-F1 and LLM-judge logic on HotpotQA ablation runs. * **Multi-
+Chunk Dependency Analysis:** Analyze if removing Chunk A causes an answer flip,
+but removing Chunk B *also* causes a flip, mathematically proving distributed
+causal necessity. * **Discriminator Handoff:** Export a clean, verified `.csv`
+of `(query, chunk_text, causal_label)` to Mohamad to trigger the Extension Track
+training. * **Validation Performed / Acceptance Checks:** Manual qualitative
+review of 100 HotpotQA flips to ensure the LLM-as-a-judge isn't hallucinating
+semantic divergence where none exists. ### **Phase 4: Synthesis & Hypothesis
+Testing (Week 4: Apr 20 - Apr 26)** **Goal:** Finalize the narrative, generate
+final plots, and conclude the research. * **Concrete Subcomponents:** *
+**Degradation Curves:** Use `matplotlib/seaborn` to generate final publication-
+ready plots of CCS vs $K$. * **Case Study Extraction:** Work with Jade to pull 6
+distinct qualitative examples (e.g., a distractor that caused a flip, a gold
+evidence that did *not* cause a flip). * **Final Methodology Writeup:** Author
+the "Methodology" and "Results" sections of the final LaTeX report. *
+**Validation Performed / Acceptance Checks:** Ensure the degradation curves
+accurately scale with $K$ and that all qualitative case studies perfectly align
+with the mathematical output of the `CausalComparator`. ## 3. Key Magic Numbers
+/ Hyperparameters / Decision Knobs to Tune As the logic owner, I strictly
+enforce the following hyperparameters across the codebase to protect metric
+integrity: * **Decoding Temperature:** `0.0` (Must be deterministic. Stochastic
+sampling variance ruins causal ablation and generates false flips). * **Top_P:**
+`1.0` (Disabled to ensure strict greedy decoding). * **Max Context Budget:**
+`16,384` tokens (Ensures the prompts fit comfortably in 80GB VRAM while applying
+significant memory pressure via distractors). * **K (Segmentation Depths):**
+$\{2, 4, 8, 16\}$. * **LLM Judge Threshold:** Token-F1 $< 0.6$ triggers the LLM-
+as-a-judge secondary verification for HotpotQA. ## 4. Final Summary Checklist *
+[ ] `CausalComparator` regex and F1 logic fully unit tested. * [ ] $K=0$
+baseline accuracy verified >65%. * [ ] CCS degradation curves plotted for FEVER.
+* [ ] Multi-hop distributed causal logic mapped for HotpotQA. * [ ] Causal
+labels `.csv` successfully handed off to Mohamad. * [ ] Qualitative case studies
+extracted and verified. * [ ] Methodology section written and pushed to main
+repo. # walkthrough.md **Title:** Walkthrough: MemFaith Reverse-Engineering &
+Artifact Generation **Date:** April 1, 2026 ## 1. What Was Done This package
+reverse-engineers the structural, organizational, and tonal rigor of the
+reference project ("Uncertainty-Calibrated Collision-Risk Forecasting") and
+applies it to the target user project: **"MemFaith: Measuring Causal
+Faithfulness of Memory Agents in Long-Context LLMs."** The raw inputs for
+MemFaith consisted of a research proposal, a master blueprint, a project
+analysis memo, and a research plan. These inputs outlined an ambitious goal to
+use chunk-ablation to measure the causal grounding of LLMs over a highly
+compressed 4-week academic sprint. This task transformed those conceptual
+outlines into a concrete, highly actionable execution package suitable for an
+engineering team. ## 2. Artifacts Created and What Each Covers * **`deep-
+research-report.md`:** The master architectural blueprint. It defines the strict
+7-module pipeline (Data $\rightarrow$ Constructor $\rightarrow$ Chunker
+$\rightarrow$ Inference $\rightarrow$ Comparator $\rightarrow$ Harness
+$\rightarrow$ Discriminator). It establishes the exact metrics ($CCS$), defines
+the deployment stack (`vLLM`, `spaCy`), explicitly outlines how the distractor-
+injection and ablation inference loops function, and evaluates the model
+landscape (GPT2-XL vs Qwen2.5, LLMLingua vs Behavioral Distillation). *
+**`paper_analysis.md`:** A structured, readable summary for high-level
+understanding. It isolates the project's pivot from parametric weight editing
+(Version A / ROME) to inference-time chunk ablation (Version B / CCS). It maps
+out the strengths, gaps, and strict phase-gating required to prevent scope
+creep. * **`work_division.md`:** The complete team execution plan for the
+4-person team (Dev, Ansh, Mohamad, Jade). It maps the 4-week timeline to
+specific deliverables, sets up a RACI matrix, establishes file ownership, and
+mandates a rigid Mon/Wed/Fri synchronization cadence. *
+**`dev_work_division.md`:** The personal implementation plan for Dev Sanghvi
+(Technical Lead). It breaks down his specific tasks by week, focusing heavily on
+the mathematical logic of the CCS metric, the exact-match vs semantic-match
+comparison hooks, and the specific hyperparameters ("magic numbers") he must
+enforce (e.g., `temperature=0.0`). ## 3. Key Findings and Structural Decisions *
+**Necessity of Caching:** The 4-week timeline is incredibly aggressive for
+running large-scale Leave-One-Chunk-Out (LOCO) ablations. To compensate, the
+infrastructure plan explicitly mandates an SQLite/JSONL caching layer (owned by
+Ansh) to prevent recomputing the full-context baselines. * **Comparator
+Brittleness:** The target inputs noted the risk of "sloppy answer comparison"
+ruining the CCS metric. The generated blueprint solves this by mandating strict
+regex for FEVER and introducing a fallback LLM-as-a-judge (Token-F1 +
+GPT-4o-mini) for the HotpotQA multi-hop task. * **Scope Gating:** The behavioral
+distillation (Discriminator) was identified in the inputs as a risk for scope
+creep. The work division strictly isolates this to Mohamad and mandates a
+"Trigger Decision" in Week 3—it only proceeds if the core CCS pipeline is
+flawless. ## 4. Validation against Reference Material * **Tone:** The output
+maintains the authoritative, prescriptive, engineering-first tone of the
+reference autonomous driving package. * **Depth:** It moves beyond the
+theoretical "we will chunk the text" to specify *how* (using `spaCy` to avoid
+mid-sentence cuts) and *how to serve it* (using `vLLM` for batched throughput to
+handle $O(K \times N)$ expansions). * **Alignment:** All team member names,
+project goals, datasets (FEVER, HotpotQA), and models (GPT2-XL, Qwen2.5) align
+perfectly with the constraints provided in the raw target inputs. No external
+assumptions overrode the explicit boundaries of the MemFaith prompt. All cross-
+file consistency requirements (Title, Team, Task definitions, Timeline) are
+rigorously maintained across the five deliverables. Works cited 1. MemAgent:
+Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent - arXiv,
+accessed April 1, 2026, https://arxiv.org/abs/2507.02259 2. MemAgent: Reshaping
+Long-Context LLM with Multi-Conv RL-based Memory Agent - arXiv, accessed April
+1, 2026, https://arxiv.org/html/2507.02259v1 3. Look Back to Reason Forward:
+Revisitable Memory for Long-Context LLM Agents - arXiv, accessed April 1, 2026,
+https://arxiv.org/html/2509.23040v1 4. MemAgent: Reshaping Long-Context LLM with
+Multi-Conv RL, accessed April 1, 2026,
+https://www.alphaxiv.org/overview/2507.02259 5. Locating and Editing Factual
+Associations in GPT, accessed April 1, 2026, https://arxiv.org/abs/2202.05262 6.
+Locating and Editing Factual Associations in GPT, accessed April 1, 2026, https:
+//proceedings.neurips.cc/paper_files/paper/2022/file/6f1d43d5a82a37e89b0665b33bf
+3a182-Paper-Conference.pdf 7. MemFaith (3).pdf 8. LOFT: Scalable and More
+Realistic Long-Context Evaluation - ACL Anthology, accessed April 1, 2026,
+https://aclanthology.org/2025.findings-naacl.374.pdf 9. HELM Long Context -
+Stanford CRFM, accessed April 1, 2026,
+https://crfm.stanford.edu/2025/09/29/helm-long-context.html 10. Beyond RAG vs.
+Long-Context: Learning Distraction-Aware Retrieval for Efficient Knowledge
+Grounding - arXiv.org, accessed April 1, 2026,
+https://arxiv.org/html/2509.21865v2 11. Evaluating Long Context (Reasoning)
+Ability - wh, accessed April 1, 2026,
+https://nrehiew.github.io/blog/long_context/ 12. But is it really in Rome? An
+investigation of the ROME model editing technique, accessed April 1, 2026,
+https://www.alignmentforum.org/posts/QL7J9wmS6W2fWpofd/but-is-it-really-in-rome-
+an-investigation-of-the-rome-model 13. Qwen2.5 Speed Benchmark - Qwen - Read the
+Docs, accessed April 1, 2026,
+https://qwen.readthedocs.io/en/v2.5/benchmark/speed_benchmark.html 14. Unveiling
+the Learning Mind of Language Models: A Cognitive Framework and Empirical Study
+- arXiv, accessed April 1, 2026, https://arxiv.org/html/2506.13464v1 15. An
+Empirical Study on Prompt Compression for Large Language Models - arXiv,
+accessed April 1, 2026, https://arxiv.org/html/2505.00019v1 16. Leveraging
+Attention to Effectively Compress Prompts for Long-Context LLMs, accessed April
+1, 2026, https://ojs.aaai.org/index.php/AAAI/article/download/34800/36955 17.
+momo-research/LongLLMLingua.md at main - GitHub, accessed April 1, 2026,
+https://github.com/momo-personal-assistant/momo-
+research/blob/main/LongLLMLingua.md 18. hotpotqa/hotpot_qa · Datasets at Hugging
+Face, accessed April 1, 2026, https://huggingface.co/datasets/hotpotqa/hotpot_qa
+19. HotpotQA: Multi-Hop QA Benchmark - Emergent Mind, accessed April 1, 2026,
+https://www.emergentmind.com/topics/hotpotqa-benchmark 20. PERK: Long-Context
+Reasoning as Parameter-Efficient Test-Time Learning - arXiv, accessed April 1,
+2026, https://arxiv.org/html/2507.06415v2 21. MemAgent: Reshaping Long-Context
+LLM with Multi-Conv RL based Memory Agent, accessed April 1, 2026,
+https://memagent-sialab.github.io/ 22. Locating and Editing Factual Associations
+in GPT, accessed April 1, 2026, https://rome.baulab.info/ 23.
+microsoft/LLMLingua: [EMNLP'23, ACL'24] To speed up ... - GitHub, accessed April
+1, 2026, https://github.com/microsoft/LLMLingua 24. HotpotQA: A Dataset for
+Diverse, Explainable Multi-hop Question Answering - ACL Anthology, accessed
+April 1, 2026, https://aclanthology.org/D18-1259.pdf

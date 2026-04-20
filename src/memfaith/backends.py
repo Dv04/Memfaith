@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from .schemas import NormalizedExample, Prediction
 
@@ -111,3 +111,63 @@ class TransformersBackend:
             normalized_text=decoded,
             metadata={"backend": self.name},
         )
+
+
+class VLLMBackend:
+    """High-throughput batched vLLM backend."""
+
+    def __init__(
+        self,
+        model_name_or_path: str,
+        *,
+        tensor_parallel_size: int = 1,
+        max_new_tokens: int = 32,
+        name: Optional[str] = None,
+        gpu_memory_utilization: float = 0.90,
+    ) -> None:
+        try:
+            from vllm import LLM, SamplingParams
+        except ImportError as exc:  # pragma: no cover
+            raise ImportError("VLLMBackend requires vllm to be installed. Run pip install vllm.") from exc
+
+        self.model_name_or_path = model_name_or_path
+        self.tensor_parallel_size = tensor_parallel_size
+        self.max_new_tokens = max_new_tokens
+        self.name = name or f"vllm:{model_name_or_path}"
+        self.sampling_params = SamplingParams(
+            temperature=0.0,
+            top_p=1.0,
+            max_tokens=self.max_new_tokens,
+        )
+        self.llm = LLM(
+            model=model_name_or_path,
+            tensor_parallel_size=tensor_parallel_size,
+            gpu_memory_utilization=gpu_memory_utilization,
+        )
+
+    def predict(
+        self,
+        example: NormalizedExample,
+        prompt: str,
+        context_text: str,
+        metadata: Optional[Dict[str, Any]] = None,
+    ) -> Prediction:
+        del example
+        del context_text
+        del metadata
+        # Generate with vLLM
+        outputs = self.llm.generate([prompt], self.sampling_params, use_tqdm=False)
+        decoded = outputs[0].outputs[0].text.strip()
+        return Prediction(
+            raw_text=decoded,
+            normalized_text=decoded,
+            metadata={"backend": self.name},
+        )
+
+    def predict_batch(self, prompts: List[str]) -> List[str]:
+        """Generate responses for a massive batch of prompts simultaneously."""
+        if not prompts:
+            return []
+        outputs = self.llm.generate(prompts, self.sampling_params, use_tqdm=True)
+        return [output.outputs[0].text.strip() for output in outputs]
+
