@@ -36,13 +36,11 @@ class LongContextBuilder:
     @staticmethod
     def _render_block(position: int, segment: SourceSegment) -> str:
         title = segment.title or f"segment_{segment.segment_id}"
-        role = "gold-evidence" if segment.is_gold else segment.source_type
         body = segment.text.strip()
         return "\n".join(
             [
                 f"[Segment {position}]",
                 f"Title: {title}",
-                f"Role: {role}",
                 body,
             ]
         ).strip()

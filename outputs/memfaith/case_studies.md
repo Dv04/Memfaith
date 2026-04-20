@@ -12,7 +12,7 @@
 
 ## Case 2: Gold Evidence NOT Causing a Flip (Missed Causal Signal)
 
-**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 4
+**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 2
 
 **Query:** Albert Einstein developed the theory of relativity.
 
@@ -23,7 +23,7 @@
 
 **CCS:** 0.0
 
-### Ablated Chunk 1
+### Ablated Chunk 0
 - **Contains gold evidence:** Yes
 - **Flipped:** No
 - **Comparison method:** `label_exact`
@@ -32,20 +32,21 @@
 
 **Chunk text (truncated):**
 ```
+[Segment 1]
+Title: Distractor 5
+Mount Everest is the tallest mountain above sea level at 8,849 meters.
+
+[Segment 2]
+Title: Distractor 4
+The Mariana Trench reaches a depth of about 36,000 feet below sea level.
+
+[Segment 3]
+Title: Distractor 2
+The speed of light in a vacuum is approximately 299,792 kilometers per second.
+
 [Segment 4]
 Title: Distractor 7
-Role: distractor
-The Amazon River is the largest river by discharge volume of water in the world.
-
-[Segment 5]
-Title: Distractor 1
-Role: distractor
-The Eiffel Tower is located in Paris, France, and was built in 1889.
-
-[Segment 6]
-Title: Albert Einstein - Evidence
-Role: gold-evidence
-Albert Einstein was a renowned physicist.
+The Amazon River is the largest river by disch
 ```
 
 **Analysis:**
@@ -55,9 +56,9 @@ This case shows a chunk with gold evidence whose removal does not change the ans
 
 ## Case 3: Gold Evidence Causing a Flip (Correct Causal Detection)
 
-**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 2
+**Dataset:** fever | **Example ID:** `fever-synth-0003` | **K:** 2
 
-**Query:** Albert Einstein developed the theory of relativity.
+**Query:** Charles Darwin proposed the theory of evolution.
 
 **Gold Answer:** SUPPORTS
 
@@ -76,21 +77,20 @@ This case shows a chunk with gold evidence whose removal does not change the ans
 **Chunk text (truncated):**
 ```
 [Segment 6]
-Title: Albert Einstein - Evidence
-Role: gold-evidence
-Albert Einstein was a renowned physicist.
+Title: Charles Darwin - Evidence
+Charles Darwin was a renowned naturalist.
 
-Historical records confirm that Albert Einstein developed the theory of relativity.
+Historical records confirm that Charles Darwin proposed the theory of evolution.
 
 This contribution significantly advanced the field.
 
 [Segment 7]
-Title: Distractor 6
-Role: distractor
-Tectonic plates float on the semi-fluid asthenosphere beneath the lithosphere.
+Title: Distractor 4
+The periodic table organizes chemical elements by their atomic number.
 
 [Segment 8]
-Title: Distr
+Title: Distractor 2
+The Pacific Ocean is the largest and deep
 ```
 
 **Analysis:**
@@ -124,7 +124,7 @@ REFUTES claims tend to show higher causal dependency. This example demonstrates 
 
 ## Case 6: FEVER SUPPORTS with Low CCS
 
-**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 4
+**Dataset:** fever | **Example ID:** `fever-synth-0000` | **K:** 2
 
 **Query:** Albert Einstein developed the theory of relativity.
 

@@ -92,7 +92,6 @@ class DeterministicChunker:
                         [
                             f"[Segment {placed_segment.order_index}]",
                             f"Title: {placed_segment.title or f'segment_{placed_segment.segment_id}'}",
-                            f"Role: {'gold-evidence' if placed_segment.is_gold else placed_segment.source_type}",
                         ]
                     )
                     rendered = f"{prefix}\n{sentence}".strip()
