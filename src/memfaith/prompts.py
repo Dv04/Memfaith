@@ -63,12 +63,7 @@ Now answer the following:
 """
 
 
-def build_prompt(
-    example: NormalizedExample,
-    context_text: str,
-    *,
-    few_shot: bool = False,
-) -> str:
+def build_prompt(example: NormalizedExample, context_text: str) -> str:
     """Build the prompt for a given example."""
     if example.task_type == "classification":
         return "\n\n".join(

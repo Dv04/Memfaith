@@ -1,0 +1,105 @@
+dataset,example_id,query,gold_answer,task_type,model,prediction_raw,prediction_normalized,is_correct,n_segments,prompt_tokens,time_seconds
+fever,cf-fever-0,Myreth Trel was a dimensional geophysics researcher.,REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Myreth Trel was a dimensional geophysics researcher."" However, the given context does not",NOT_ENOUGH_INFO,False,23,840,19.73
+fever,cf-fever-1,Myreth Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Myreth Trel was nominated for an international distinction in a related field."" However, the given",NOT_ENOUGH_INFO,True,23,862,6.54
+fever,cf-fever-2,Sorova Brek was a lattice energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Sorova Brek was a lattice energetics researcher."" However, upon examining the provided segments",NOT_ENOUGH_INFO,False,23,843,108.60
+fever,cf-fever-3,Sorova Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Sorova Brek spent a sabbatical at an undisclosed foreign institution. However, the given context does",NOT_ENOUGH_INFO,True,23,833,23.13
+fever,cf-fever-4,Kethara Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Kethara Czek spent a sabbatical at an undisclosed foreign institution."" However, the given",NOT_ENOUGH_INFO,True,23,840,12.31
+fever,cf-fever-5,"Kethara Czek was born in Quelside, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Kethara Czek was born in Quelside, Arkessa. However, upon examining the provided",NOT_ENOUGH_INFO,False,23,890,8.37
+fever,cf-fever-6,Jevel Feld spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Jevel Feld spent a sabbatical at an undisclosed foreign institution."" However, the given context does",NOT_ENOUGH_INFO,True,23,808,7.74
+fever,cf-fever-7,"Jevel Feld was born in Plyrath, Queloria.",REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Jevel Feld was born in Plyrath, Queloria."" However, upon examining the provided",NOT_ENOUGH_INFO,False,23,882,27.93
+fever,cf-fever-8,Carnax Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Carnax Trel was nominated for an international distinction in a related field."" However, the given",NOT_ENOUGH_INFO,True,23,861,17.74
+fever,cf-fever-9,Carnax Trel spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Carnax Trel spent a sabbatical at an undisclosed foreign institution. However, the provided text does",NOT_ENOUGH_INFO,True,23,824,8.81
+fever,cf-fever-10,Zaren Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Zaren Stow published a controversial paper on theoretical applications."" However, the given context does not provide",NOT_ENOUGH_INFO,True,23,822,5.36
+fever,cf-fever-11,"Zaren Stow was born in Zinthari, Brelland.",REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Zaren Stow was born in Zinthari, Brelland."" However, there is not enough",NOT_ENOUGH_INFO,False,23,884,29.30
+fever,cf-fever-12,Zaran Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Zaran Rieth was nominated for an international distinction in a related field."" However, the given context",NOT_ENOUGH_INFO,True,23,836,14.40
+fever,cf-fever-13,"Zaran Rieth was born in Velquora, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Zaran Rieth was born in Velquora, Ostovia. However, upon reviewing all the",NOT_ENOUGH_INFO,False,23,884,14.88
+fever,cf-fever-14,Dreven Wick was a subaquatic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Dreven Wick was a subaquatic topology researcher."" However, the provided context does not contain",NOT_ENOUGH_INFO,False,23,814,10.52
+fever,cf-fever-15,Dreven Wick collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Dreven Wick collaborated on a classified research initiative."" However, the given context does not provide any",NOT_ENOUGH_INFO,True,23,835,38.57
+fever,cf-fever-16,Tavara Marr was a stochastic dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Tavara Marr was a stochastic dynamics researcher."" However, the given context does not provide any information",NOT_ENOUGH_INFO,False,23,802,6.30
+fever,cf-fever-17,"Tavara Marr was born in Crosshelm, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Tavara Marr was born in Crosshelm, Hexland."" However, upon examining the provided segments",NOT_ENOUGH_INFO,False,23,857,13.78
+fever,cf-fever-18,Omion Phen was a subaquatic energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim ""Omion Phen was a subaquatic energetics researcher"" is not directly supported or refuted by the",NOT_ENOUGH_INFO,False,23,828,9.56
+fever,cf-fever-19,"Omion Phen was born in Holvaine, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Omillion Phen was born in Holvaine, Varnheim."" However, there is not enough",NOT_ENOUGH_INFO,False,23,875,218.23
+fever,cf-fever-20,Falara Ghent published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Falara Ghent published a controversial paper on theoretical applications."" However, the given context does not provide",NOT_ENOUGH_INFO,True,23,826,13.36
+fever,cf-fever-21,"Falara Ghent was born in Yendrath, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Falara Ghent was born in Yendrath, Dunmarch. However, upon reviewing all",NOT_ENOUGH_INFO,False,23,902,18.33
+fever,cf-fever-22,Luxion Brek was a harmonic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Luxion Brek was a harmonic topology researcher."" However, upon examining the provided segments, we find",NOT_ENOUGH_INFO,False,23,818,10.75
+fever,cf-fever-23,Luxion Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Luxion Brek spent a sabbatical at an undisclosed foreign institution."" However, the given context",NOT_ENOUGH_INFO,True,23,815,3.76
+fever,cf-fever-24,Kethara Graff was a chromatic optics researcher.,REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that ""Kethara Graff was a chromatic optics researcher."" However, the given context does not provide",NOT_ENOUGH_INFO,False,23,835,8.29
+fever,cf-fever-25,"Kethara Graff was born in Velquora, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-1.5B-Instruct,"NOT_ENOUGH_INFO
+
+Explanation:
+The claim states that Kethara Graff was born in Velquora, Arkessa. However, upon examining the provided",NOT_ENOUGH_INFO,False,23,884,13.47
