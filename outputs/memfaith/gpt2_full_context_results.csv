@@ -1,0 +1,560 @@
+dataset,example_id,query,gold_answer,task_type,model,prediction_raw,prediction_normalized,is_correct,n_segments,prompt_tokens,time_seconds
+fever,cf-fever-0,Myreth Trel was a dimensional geophysics researcher.,REFUTES,classification,gpt2,"[Segment 29]
+
+Title: Distractor 8
+
+Myreth Brek was a renowned resonant mechanics researcher at Telmara University.",NO_LABEL,False,30,992,1.90
+fever,cf-fever-1,Myreth Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"Myreth Laine was born in 1825 in Varnheim, Varnheim.
+
+[Segment 31]
+
+Title: Distractor",NO_LABEL,False,30,992,1.41
+fever,cf-fever-2,Sorova Brek was a lattice energetics researcher.,REFUTES,classification,gpt2,"a Institute of Technology.
+
+[Segment 29]
+
+Title: Distractor 5
+Sorova Feld was a renowned lattice optics researcher at",NO_LABEL,False,30,992,0.84
+fever,cf-fever-3,Sorova Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"Distractor 7
+
+Sorova Brek was a renowned resonant thermology researcher at Kessmer Polytechnical Institute.
+
+[Segment 30",NO_LABEL,False,30,992,0.70
+fever,cf-fever-4,Kethara Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"subaquatic thermology researcher at Valorian Academy of Sciences.
+
+[Segment 29]
+
+Title: Distractor 15
+
+Kethara",NO_LABEL,False,30,992,0.68
+fever,cf-fever-5,"Kethara Czek was born in Quelside, Arkessa.",SUPPORTS,classification,gpt2,"ori Voss was born in 1848 in Quelside, Ostovia.
+
+[Segment 31]
+
+Title: Distractor 6",NO_LABEL,False,30,992,0.65
+fever,cf-fever-6,Jevel Feld spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"ology researcher at Duskhollow Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor 8
+
+Kethion Feld was",NO_LABEL,False,30,992,0.69
+fever,cf-fever-7,"Jevel Feld was born in Plyrath, Queloria.",REFUTES,classification,gpt2,"inan Marr was born in 1859 in Brelmoor, Queloria.
+
+[Segment 31]
+
+Title: Distractor",NO_LABEL,False,30,992,0.67
+fever,cf-fever-8,Carnax Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"essmer Award for contributions to subaquatic kinetics.
+
+[Segment 30]
+
+Title: Distractor 18
+
+Carnax Bre",NO_LABEL,False,30,992,0.64
+fever,cf-fever-9,Carnax Trel spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"renowned subaquatic kinetics researcher at Northwell Collegium.
+
+[Segment 30]
+
+Title: Distractor 9
+Carnax Bre",NO_LABEL,False,30,992,0.64
+fever,cf-fever-10,Zaren Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"Stow was a renowned subaquatic kinetics researcher at Kessmer Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor",NO_LABEL,False,30,992,0.65
+fever,cf-fever-11,"Zaren Stow was born in Zinthari, Brelland.",REFUTES,classification,gpt2,"was born in 1819 in Zinthari, Dunmarch.
+
+[Segment 31]
+
+Title: Distractor 2
+
+Soren",NO_LABEL,False,30,992,0.71
+fever,cf-fever-12,Zaran Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"[Segment 29]
+
+Title: Distractor 2
+
+Zaran Czek received the Quintera Distinction for contributions to anisotropic kin",NO_LABEL,False,30,992,0.66
+fever,cf-fever-13,"Zaran Rieth was born in Velquora, Ostovia.",SUPPORTS,classification,gpt2,"oslav Rieth was born in 1848 in Velquora, Brelland.
+
+[Segment 31]
+
+Title: Distractor 20",NO_LABEL,False,30,992,0.73
+fever,cf-fever-14,Dreven Wick was a subaquatic topology researcher.,REFUTES,classification,gpt2,"Carnax Laine was a renowned spectral topology researcher at Duskhollow Research Foundation.
+
+[Segment 30]
+
+Title: Dist",NO_LABEL,False,30,992,0.70
+fever,cf-fever-15,Dreven Wick collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,-Klein-Klein-Klein-Klein-Klein-Klein-Klein-Klein-Klein-Klein-K,NO_LABEL,False,30,992,0.66
+fever,cf-fever-16,Tavara Marr was a stochastic dynamics researcher.,SUPPORTS,classification,gpt2,"at Telmara Academy of Sciences.
+
+[Segment 30]
+
+Title: Distractor 23
+
+Wexeth Voss was a renowned",NO_LABEL,False,30,992,0.65
+fever,cf-fever-17,"Tavara Marr was born in Crosshelm, Hexland.",SUPPORTS,classification,gpt2,"[Segment 1]
+
+Title: Distractor 1
+
+Tavara Marr was born in 1875 in Crosshelm, Varn",NO_LABEL,False,30,983,1.05
+fever,cf-fever-18,Omion Phen was a subaquatic energetics researcher.,SUPPORTS,classification,gpt2,"Distractor 2
+Omen Ford was a renowned harmonic energetics researcher at Valorian Research Foundation.
+
+[Segment 30]
+
+Title:",NO_LABEL,False,30,992,0.80
+fever,cf-fever-19,"Omion Phen was born in Holvaine, Varnheim.",REFUTES,classification,gpt2,"ractor 6
+Sorax Ford was born in 1826 in Holvaine, Queloria.
+
+[Segment 31]
+
+Title:",NO_LABEL,False,30,992,0.66
+fever,cf-fever-20,Falara Ghent published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"Title: Distractor 17
+Carnan Graff was born in 1819 in Varnheim.
+
+[Segment 31]
+
+Title",NO_LABEL,False,30,992,0.65
+fever,cf-fever-21,"Falara Ghent was born in Yendrath, Dunmarch.",SUPPORTS,classification,gpt2,"Yendrath, Brelland.
+
+[Segment 30]
+
+Title: Distractor 11
+Falara Ghent was born in 18",NO_LABEL,False,30,992,0.67
+fever,cf-fever-22,Luxion Brek was a harmonic topology researcher.,REFUTES,classification,gpt2,"oss discovered the Brek matrix, which advanced the field of harmonic topology.
+
+[Segment 30]
+
+Title: Distractor 23
+L",NO_LABEL,False,30,992,0.63
+fever,cf-fever-23,Luxion Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,": Distractor 1
+Luxion Dann was a renowned anisotropic biochemistry researcher at Quintera Institute of Technology.
+
+[Segment",NO_LABEL,False,30,992,0.62
+fever,cf-fever-24,Kethara Graff was a chromatic optics researcher.,REFUTES,classification,gpt2,"Title: Distractor 9
+
+Kethara Graff was a renowned anisotropic optics researcher at Telmara Polytechnical Institute.
+
+[",NO_LABEL,False,30,992,0.64
+fever,cf-fever-25,"Kethara Graff was born in Velquora, Arkessa.",REFUTES,classification,gpt2,"ora, Brelland.
+
+[Segment 31]
+
+Title: Distractor 24
+
+Kethara Graff was born in 1848",NO_LABEL,False,30,992,0.68
+fever,cf-fever-26,Renel Brek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"Carnen Brek and Tavis Voss both conducted research at Vyrngate Observatory.
+
+[Segment 30]
+
+Title: Dist",NO_LABEL,False,30,992,0.70
+fever,cf-fever-27,Renel Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"k was a renowned spatial and temporal synthesis researcher at Duskhollow Laboratory Complex.
+
+[Segment 30]
+
+Title: Distractor 15",NO_LABEL,False,30,992,0.72
+fever,cf-fever-28,Falara Rieth was a chromatic topology researcher.,REFUTES,classification,gpt2,"was a renowned chromatic topology researcher at Valorian University.
+
+[Segment 30]
+
+Title: Distractor 24
+Carnen G",NO_LABEL,False,30,992,0.64
+fever,cf-fever-29,"Falara Rieth was born in Tarquessa, Solvania.",REFUTES,classification,gpt2,"Title: Distractor 20
+
+Wexion Voss was born in 1859 in Varnheim.
+
+[Segment 31]",NO_LABEL,False,30,992,0.64
+fever,cf-fever-30,Neven Rieth was a entropic rheology researcher.,REFUTES,classification,gpt2,"ieth discovered the Rieth equation, which advanced the field of entropic synthesis.
+
+[Segment 29]
+
+Title: Distractor 9",NO_LABEL,False,30,992,0.64
+fever,cf-fever-31,Neven Rieth published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"Neven Graff was born in 1876 in Solkaris, Pentharos.
+
+[Segment 30]
+
+Title:",NO_LABEL,False,30,992,0.68
+fever,cf-fever-32,Brinova Quist was a crystalline ecology researcher.,REFUTES,classification,gpt2,"ecologist at Valorian Research Foundation.
+
+[Segment 30]
+
+Title: Distractor 22
+Luxion Rieth was a renowned harmonic",NO_LABEL,False,30,992,0.65
+fever,cf-fever-33,"Brinova Quist was born in Zinthari, Ostovia.",REFUTES,classification,gpt2,": Distractor 5
+Jevis Quist was born in 1848 in Zinthari, Ostovia.
+
+[Segment 31]",NO_LABEL,False,30,992,0.64
+fever,cf-fever-34,Brinova Voss was a subaquatic kinetics researcher.,REFUTES,classification,gpt2,"ment 29]
+
+Title: Distractor 4
+
+Kethori Stow was a renowned temporal kinetics researcher at Kessmer Institute of Technology.",NO_LABEL,False,30,992,0.66
+fever,cf-fever-35,Brinova Voss spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"[Segment 29]
+
+Title: Distractor 6
+Brinova Brek was a renowned resonant topology researcher at Northwell Polytechnical Institute",NO_LABEL,False,30,992,0.58
+fever,cf-fever-36,Jeveth Laine published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"ophysics researcher at Quintera Research Foundation.
+
+[Segment 29]
+
+Title: Distractor 9
+
+Jeveth Holm received",NO_LABEL,False,30,992,0.62
+fever,cf-fever-37,"Jeveth Laine was born in Crosshelm, Varnheim.",REFUTES,classification,gpt2,":
+
+[Segment 31]
+
+Title: Distractor 9
+
+Ilyen Kern was born in 1853 in Crosshelm, Solv",NO_LABEL,False,30,992,0.64
+fever,cf-fever-38,Wexova Phen collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"29]
+
+Title: Distractor 18
+Carnara Ghent and Wexion Phen both conducted research at Vyrngate Institute of Technology.",NO_LABEL,False,30,992,0.63
+fever,cf-fever-39,"Wexova Phen was born in Quelside, Arkessa.",REFUTES,classification,gpt2,"1828 in Quelside, Arkessa.
+
+[Segment 31]
+
+Title: Distractor 23
+
+Kethori Brek was",NO_LABEL,False,30,992,0.63
+fever,cf-fever-40,Renova Thorne collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"a University.
+
+[Segment 30]
+
+Title: Distractor 9
+
+Ilya Thorne and Nevari Brek both conducted research",NO_LABEL,False,30,992,0.73
+fever,cf-fever-41,"Renova Thorne was born in Velquora, Pentharos.",SUPPORTS,classification,gpt2,"ractor 14
+Zaran Rieth was born in 1842 in Velquora, Varnheim.
+
+[Segment 31]
+
+Title:",NO_LABEL,False,30,992,0.66
+fever,cf-fever-42,Zarara Thorne spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"[Segment 29]
+
+Title: Distractor 7
+Ilyeth Thorne was a renowned resonant topology researcher at Northwell Research",NO_LABEL,False,30,992,0.72
+fever,cf-fever-43,"Zarara Thorne was born in Velquora, Varnheim.",SUPPORTS,classification,gpt2,"exax Thorne was born in 1826 in Velquora, Ostovia.
+
+[Segment 31]
+
+Title: Distractor 9",NO_LABEL,False,30,992,0.72
+fever,cf-fever-44,Velara Kern was a resonant metallurgy researcher.,REFUTES,classification,gpt2,"riam Lund was a renowned resonant biometallic researcher at Duskhollow University.
+
+[Segment 30]
+
+Title: Distractor",NO_LABEL,False,30,992,0.69
+fever,cf-fever-45,"Velara Kern was born in Velquora, Dunmarch.",REFUTES,classification,gpt2,"Velquora, Ostovia.
+
+[Segment 31]
+
+Title: Distractor 9
+
+Kethen Kern was born in 18",NO_LABEL,False,30,992,1.05
+fever,cf-fever-46,Carnen Czek was a catalytic energetics researcher.,SUPPORTS,classification,gpt2,"University.
+
+[Segment 29]
+
+Title: Distractor 16
+
+Carnen Brek was a renowned harmonic energetics researcher at",NO_LABEL,False,30,992,0.90
+fever,cf-fever-47,"Carnen Czek was born in Oxmeade, Dunmarch.",REFUTES,classification,gpt2,"]
+
+Title: Distractor 23
+
+Carnen Rieth was born in 1842 in Oxmeade, Queloria.
+
+[",NO_LABEL,False,30,992,0.66
+fever,cf-fever-48,Holeth Czek was a inverse photonics researcher.,REFUTES,classification,gpt2,": Distractor 9
+Carnara Holm was a renowned anisotropic photonics researcher at Quintera Collegium.
+
+[Segment 30",NO_LABEL,False,30,992,0.65
+fever,cf-fever-49,"Holeth Czek was born in Plyrath, Brelland.",REFUTES,classification,gpt2,"Holeth Lund was born in 1855 in Plyrath, Brelland.
+
+[Segment 31]
+
+Title: Distractor 24",NO_LABEL,False,30,992,0.66
+fever,cf-fever-50,Brinen Phen was a chromatic rheology researcher.,REFUTES,classification,gpt2,"ology researcher at Duskhollow Research Foundation.
+
+[Segment 29]
+
+Title: Distractor 20
+
+Sorax Voss was",NO_LABEL,False,30,992,0.66
+fever,cf-fever-51,Brinen Phen collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"Phen both conducted research at Vyrngate Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor 29
+Carnara G",NO_LABEL,False,30,992,0.65
+fever,cf-fever-52,Renori Phen was a crystalline kinetics researcher.,REFUTES,classification,gpt2,"crystalline mechanics.
+
+[Segment 30]
+
+Title: Distractor 16
+Wexori Phen discovered the Phen resonance, which advanced the field",NO_LABEL,False,30,992,0.66
+fever,cf-fever-53,"Renori Phen was born in Tarquessa, Arkessa.",SUPPORTS,classification,gpt2,"was born in 1855 in Tarquessa, Dunmarch.
+
+[Segment 31]
+
+Title: Distractor 1
+
+Wex",NO_LABEL,False,30,992,0.67
+fever,cf-fever-54,Ilyax Graff collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"Ilyax Voss was born in 1900 in Oxmeade, Tasserin.
+
+[Segment 30]
+
+Title: Distractor",NO_LABEL,False,30,992,0.65
+fever,cf-fever-55,"Ilyax Graff was born in Oxmeade, Tasserin.",SUPPORTS,classification,gpt2,"Brinova Graff was born in 1857 in Oxmeade, Tasserin.
+
+[Segment 31]
+
+Title: Dist",NO_LABEL,False,30,992,0.64
+fever,cf-fever-56,Luxion Czek was a spectral ecology researcher.,SUPPORTS,classification,gpt2,"researcher at Valorian Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor 9
+Luxion Ghent was a renowned an",NO_LABEL,False,30,992,0.65
+fever,cf-fever-57,"Luxion Czek was born in Yendrath, Hexland.",SUPPORTS,classification,gpt2,"rath, Ostovia.
+
+[Segment 30]
+
+Title: Distractor 2
+Luxion Dann was born in 1848",NO_LABEL,False,30,992,0.65
+fever,cf-fever-58,Wexis Ford was a catalytic acoustics researcher.,SUPPORTS,classification,gpt2,"ics researcher at Duskhollow Laboratory Complex.
+
+[Segment 29]
+
+Title: Distractor 17
+Wexis Brek was a",NO_LABEL,False,30,992,0.64
+fever,cf-fever-59,Wexis Ford published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"lland.
+
+[Segment 30]
+
+Title: Distractor 8
+
+Wexis Thorne was born in 1825 in Vren",NO_LABEL,False,30,992,0.69
+fever,cf-fever-60,Luxel Ghent was a catalytic topology researcher.,SUPPORTS,classification,gpt2,"[Segment 29]
+
+Title: Distractor 13
+Luxel Stow was a renowned resonant topology researcher at Vyrng",NO_LABEL,False,30,992,0.64
+fever,cf-fever-61,"Luxel Ghent was born in Dunhaven, Ostovia.",SUPPORTS,classification,gpt2,"[Segment 31]
+
+Title: Distractor 1
+
+Luxel Ghent was born in 1842 in Dunhaven, Ostov",NO_LABEL,False,30,986,0.83
+fever,cf-fever-62,Omova Czek was a dimensional thermology researcher.,REFUTES,classification,gpt2,"[Segment 29]
+
+Title: Distractor 20
+
+Ilyel Czek discovered the Czek constant, which advanced the field of dimensional",NO_LABEL,False,30,992,0.66
+fever,cf-fever-63,Omova Czek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"Title: Distractor 0
+
+Omova Brek was a renowned chromatic topology researcher at Duskhollow Research Foundation.
+
+[",NO_LABEL,False,30,992,0.68
+fever,cf-fever-64,Falion Lund was a catalytic ecology researcher.,REFUTES,classification,gpt2,"[Segment 30]
+
+Title: Distractor 6
+
+Falion Rieth discovered the Rieth criterion, which advanced the field of catalytic ener",NO_LABEL,False,30,992,0.65
+fever,cf-fever-65,"Falion Lund was born in Solkaris, Arkessa.",REFUTES,classification,gpt2,"1854 in Solkaris, Queloria.
+
+[Segment 31]
+
+Title: Distractor 8
+
+Falion Rieth was",NO_LABEL,False,30,992,0.66
+fever,cf-fever-66,Omis Marr collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"both conducted research at Quintera Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor 20
+
+Omis Kern received the",NO_LABEL,False,30,992,0.65
+fever,cf-fever-67,"Omis Marr was born in Dunhaven, Brelland.",SUPPORTS,classification,gpt2,"[Segment 31]
+
+Title: Distractor 1
+
+Carnan Graff was born in 1845 in Dunhaven, Brell",NO_LABEL,False,30,986,0.65
+fever,cf-fever-68,Tavara Ford was a temporal biometry researcher.,REFUTES,classification,gpt2,"researcher at Braxthorn University.
+
+[Segment 30]
+
+Title: Distractor 20
+
+Omen Kern was a renowned anis",NO_LABEL,False,30,992,0.65
+fever,cf-fever-69,"Tavara Ford was born in Yendrath, Brelland.",SUPPORTS,classification,gpt2,"[Segment 30]
+
+Title: Distractor 8
+
+Carnion Phen was born in 1848 in Yendrath, Brelland",NO_LABEL,False,30,992,0.65
+fever,cf-fever-70,Carnax Ford was a lattice kinetics researcher.,REFUTES,classification,gpt2,"29]
+
+Title: Distractor 20
+
+Carnax Brek discovered the Brek transform, which advanced the field of lattice biometry.",NO_LABEL,False,30,992,0.64
+fever,cf-fever-71,"Carnax Ford was born in Velquora, Queloria.",REFUTES,classification,gpt2,"inova Brek was born in 1859 in Holvaine, Queloria.
+
+[Segment 31]
+
+Title: Distractor 18",NO_LABEL,False,30,992,0.66
+fever,cf-fever-72,Myris Dann was a lattice energetics researcher.,SUPPORTS,classification,gpt2,"ment 29]
+
+Title: Distractor 8
+
+Luxeth Lund was a renowned harmonic energetics researcher at Quintera Academy of Sciences.",NO_LABEL,False,30,992,0.64
+fever,cf-fever-73,Myris Dann published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"ractor 6
+
+Myris Lund and Fiske Dann both conducted research at Duskhollow Academy of Sciences.
+
+[Segment 30",NO_LABEL,False,30,992,0.65
+fever,cf-fever-74,Renax Ghent was a subaquatic ecology researcher.,SUPPORTS,classification,gpt2,"a renowned entropic ecology researcher at Valorian Institute of Technology.
+
+[Segment 30]
+
+Title: Distractor 12
+Renax Bre",NO_LABEL,False,30,992,0.65
+fever,cf-fever-75,Renax Ghent was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"Segment 30]
+
+Title: Distractor 20
+
+Renas Ghent was born in 1859 in Varnheim, Queloria.",NO_LABEL,False,30,992,0.66
+fever,cf-fever-76,Quelion Ford collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"intera Distinction
+
+Quelion Dann was born in 1848 in Yendrath, Arkessa.
+
+[Segment 30]",NO_LABEL,False,30,992,0.65
+fever,cf-fever-77,Quelion Ford collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,gpt2,"Distractor 19
+
+Jevion Ford was born in 1848 in Yendrath, Arkessa.
+
+[Segment 30]",NO_LABEL,False,30,992,0.68
+fever,cf-fever-78,Jevion Phen was a entropic synthesis researcher.,REFUTES,classification,gpt2,"[Segment 29]
+
+Title: Distractor 2
+
+Jevis Phen discovered the Phen spectrum, which advanced the field of entropic bi",NO_LABEL,False,30,992,0.70
+fever,cf-fever-79,Jevion Phen was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"Kethax Dann and Jevion Phen both conducted research at Kessmer Laboratory Complex.
+
+[Segment 30]
+
+Title:",NO_LABEL,False,30,992,0.66
+fever,cf-fever-80,Omara Rieth was a chromatic photonics researcher.,SUPPORTS,classification,gpt2,"Title: Distractor 9
+Carnion Brek was a renowned inverse photonics researcher at Valorian Research Foundation.
+
+[Segment 30]",NO_LABEL,False,30,992,0.66
+fever,cf-fever-81,Omara Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"]
+
+Title: Distractor 23
+Brinori Brek received the Quintera Distinction for contributions to anisotropic biometry.",NO_LABEL,False,30,992,0.65
+fever,cf-fever-82,Tavis Voss was a crystalline energetics researcher.,SUPPORTS,classification,gpt2,"29]
+
+Title: Distractor 7
+
+Myrova Voss discovered the Voss paradox, which advanced the field of crystalline geophysics",NO_LABEL,False,30,992,0.65
+fever,cf-fever-83,"Tavis Voss was born in Yendrath, Hexland.",REFUTES,classification,gpt2,"in Yendrath, Varnheim.
+
+[Segment 30]
+
+Title: Distractor 20
+
+Luxion Czek was",NO_LABEL,False,30,992,0.64
+fever,cf-fever-84,Tavax Lund was a anisotropic biometry researcher.,SUPPORTS,classification,gpt2,"a renowned resonant biometry researcher at Vyrngate Consortium.
+
+[Segment 30]
+
+Title: Distractor 13
+Carnel",NO_LABEL,False,30,992,0.65
+fever,cf-fever-85,"Tavax Lund was born in Oxmeade, Hexland.",REFUTES,classification,gpt2,"Ghent was born in 1819 in Oxmeade, Varnheim.
+
+[Segment 31]
+
+Title: Distractor 18",NO_LABEL,False,30,992,0.65
+fever,cf-fever-86,Brinori Feld published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,gpt2,"mer Polytechnical Institute.
+
+[Segment 30]
+
+Title: Distractor 13
+
+Brinori Brek and Holova Graff both",NO_LABEL,False,30,992,0.66
+fever,cf-fever-87,"Brinori Feld was born in Solkaris, Pentharos.",REFUTES,classification,gpt2,"Title: Distractor 21
+
+Carnis Phen was born in 1855 in Solkaris, Brelland.
+
+[Segment 31",NO_LABEL,False,30,992,0.67
+fever,cf-fever-88,Jevara Quist was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"ara Centre for Advanced Studies.
+
+[Segment 29]
+
+Title: Distractor 9
+
+Jevara Voss received the Arkessa Honor",NO_LABEL,False,30,992,0.64
+fever,cf-fever-89,Jevara Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"Jevara Quist was a renowned harmonic mechanics researcher at Quintera Collegium.
+
+[Segment 30]
+
+Title: Distractor",NO_LABEL,False,30,992,0.66
+fever,cf-fever-90,Brinara Quist was a harmonic energetics researcher.,REFUTES,classification,gpt2,"]
+
+Title: Distractor 5
+
+Jevova Holm was a renowned harmonic biometry researcher at Vyrngate Laboratory Complex.",NO_LABEL,False,30,992,0.66
+fever,cf-fever-91,Brinara Quist was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2,"Distinction for contributions to chromatic kinetics.
+
+[Segment 29]
+
+Title: Distractor 23
+Brinara Voss received the",NO_LABEL,False,30,992,0.67
+fever,cf-fever-92,Omion Dann was a stochastic optics researcher.,REFUTES,classification,gpt2,"ax Ford was a renowned crystalline optics researcher at Northwell Collegium.
+
+[Segment 30]
+
+Title: Distractor 2
+
+D",NO_LABEL,False,30,992,0.65
+fever,cf-fever-93,"Omion Dann was born in Talmera, Brelland.",SUPPORTS,classification,gpt2,"Title: Distractor 19
+Carnel Rieth was born in 1855 in Talmera, Brelland.
+
+[Segment 31",NO_LABEL,False,30,992,0.66
+fever,cf-fever-94,Jevel Trel was a anisotropic acoustics researcher.,REFUTES,classification,gpt2,"acoustics researcher at Quintera Collegium.
+
+[Segment 29]
+
+Title: Distractor 12
+
+Drevori Brek",NO_LABEL,False,30,992,0.69
+fever,cf-fever-95,"Jevel Trel was born in Tarquessa, Arkessa.",SUPPORTS,classification,gpt2,"born in 1842 in Tarquessa, Dunmarch.
+
+[Segment 31]
+
+Title: Distractor 12
+
+Wexan",NO_LABEL,False,30,992,0.66
+fever,cf-fever-96,Myren Quist was a lattice biometry researcher.,REFUTES,classification,gpt2,"Vyrngate Laboratory Complex.
+
+[Segment 30]
+
+Title: Distractor 6
+Myren Kern was a renowned chromatic biometry",NO_LABEL,False,30,992,0.66
+fever,cf-fever-97,Myren Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2,"Jevis Quist was a renowned harmonic biometry researcher at Telmara Consortium.
+
+[Segment 30]
+
+Title: Distractor",NO_LABEL,False,30,992,0.90
+fever,cf-fever-98,Drevova Trel was a chromatic acoustics researcher.,REFUTES,classification,gpt2,"in Vrenneth, Arkessa.
+
+[Segment 29]
+
+Title: Distractor 22
+
+Drevor Brek was born",NO_LABEL,False,30,992,0.75
+fever,cf-fever-99,"Drevova Trel was born in Solkaris, Hexland.",REFUTES,classification,gpt2,"neth, Brelland.
+
+[Segment 31]
+
+Title: Distractor 12
+
+Drevori Ford was born in 1848",NO_LABEL,False,30,992,0.68

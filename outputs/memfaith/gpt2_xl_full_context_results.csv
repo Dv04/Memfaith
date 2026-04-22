@@ -1,0 +1,59 @@
+dataset,example_id,query,gold_answer,task_type,model,prediction_raw,prediction_normalized,is_correct,n_segments,prompt_tokens,time_seconds
+fever,cf-fever-0,Myreth Trel was a dimensional geophysics researcher.,REFUTES,classification,gpt2-xl,"[Segment 29]
+
+Title: Distractor 15
+Luxori Czek was a renowned crystalline geophysics researcher at Valorian Laboratory Complex",NO_LABEL,False,30,992,20.26
+fever,cf-fever-1,Myreth Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2-xl,"Myreth Laine was a renowned resonant optics researcher at Northwell Observatory.
+
+[Segment 31]
+
+Title: Distractor 14",NO_LABEL,False,30,992,13.85
+fever,cf-fever-2,Sorova Brek was a lattice energetics researcher.,REFUTES,classification,gpt2-xl,"a Institute of Technology.
+
+[Segment 29]
+
+Title: Distractor 15
+
+Sorva Brek was a renowned crystalline kin",NO_LABEL,False,30,992,15.27
+fever,cf-fever-3,Sorova Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2-xl,"Distractor 21
+Sorova Brek was a renowned crystalline kinetics researcher at Kessmer University.
+
+[Segment 30]",NO_LABEL,False,30,992,13.40
+fever,cf-fever-4,Kethara Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2-xl,"subaquatic kinetics researcher at Telmara Collegium.
+
+[Segment 29]
+
+Title: Distractor 17
+
+Kethara",NO_LABEL,False,30,992,13.49
+fever,cf-fever-5,"Kethara Czek was born in Quelside, Arkessa.",SUPPORTS,classification,gpt2-xl,"ori Brek was born in 1937 in Quelside, Arkessa.
+
+[Segment 31]
+
+Title: Distractor 20
+
+K",NO_LABEL,False,30,992,12.80
+fever,cf-fever-6,Jevel Feld spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2-xl,"ology researcher at Kessmer Observatory.
+
+[Segment 30]
+
+Title: Distractor 25
+Carnis Feld was a renowned stoch",NO_LABEL,False,30,992,10.65
+fever,cf-fever-7,"Jevel Feld was born in Plyrath, Queloria.",REFUTES,classification,gpt2-xl,"inor Feld was born in 1858 in Holvaine, Queloria.
+
+[Segment 31]
+
+Title: Distractor 27",NO_LABEL,False,30,992,17.05
+fever,cf-fever-8,Carnax Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,gpt2-xl,"essmer Recognition for contributions to lattice acoustics.
+
+[Segment 30]
+
+Title: Distractor 20
+Carnax Feld",NO_LABEL,False,30,992,12.59
+fever,cf-fever-9,Carnax Trel spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,gpt2-xl,"renowned temporal dynamics researcher at Telmara University.
+
+[Segment 30]
+
+Title: Distractor 16
+
+Carnax Feld was a",NO_LABEL,False,30,992,15.49
