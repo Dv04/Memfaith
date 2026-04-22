@@ -123,7 +123,9 @@ class VLLMBackend:
         tensor_parallel_size: int = 1,
         max_new_tokens: int = 32,
         name: Optional[str] = None,
-        gpu_memory_utilization: float = 0.90,
+        gpu_memory_utilization: float = 0.85,
+        max_num_seqs: int = 32,
+        enforce_eager: bool = True,
     ) -> None:
         try:
             from vllm import LLM, SamplingParams
@@ -143,6 +145,8 @@ class VLLMBackend:
             model=model_name_or_path,
             tensor_parallel_size=tensor_parallel_size,
             gpu_memory_utilization=gpu_memory_utilization,
+            max_num_seqs=max_num_seqs,
+            enforce_eager=enforce_eager,
         )
 
     def predict(

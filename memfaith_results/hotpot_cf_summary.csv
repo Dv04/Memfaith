@@ -1,0 +1,5 @@
+dataset,k,backend,num_examples,avg_ccs,full_accuracy,total_ablations,flip_rate_over_ablations
+hotpotqa,0,heuristic-backend,300,,1.0,0,
+hotpotqa,2,heuristic-backend,300,0.985,1.0,600,0.985
+hotpotqa,4,heuristic-backend,300,0.733333,1.0,1200,0.733333
+hotpotqa,8,heuristic-backend,300,0.479167,1.0,2400,0.479167

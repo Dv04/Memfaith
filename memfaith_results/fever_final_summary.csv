@@ -1,0 +1,6 @@
+dataset,k,backend,num_examples,avg_ccs,full_accuracy,total_ablations,flip_rate_over_ablations
+fever,0,vllm:models/gpt2-xl,3,,0.0,0,
+fever,2,vllm:models/gpt2-xl,3,0.666667,0.0,6,0.666667
+fever,4,vllm:models/gpt2-xl,3,0.666667,0.0,10,0.7
+fever,8,vllm:models/gpt2-xl,3,0.666667,0.0,10,0.7
+fever,16,vllm:models/gpt2-xl,3,0.666667,0.0,10,0.7
