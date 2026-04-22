@@ -48,9 +48,28 @@ _FEVER_LABEL_PATTERNS = [
 ]
 
 
+def extract_json_field(raw_text: str, field_name: str) -> str | None:
+    """Attempt to parse a JSON object from the raw text and extract a specific field."""
+    # Try to find something that looks like JSON
+    match = re.search(r"\{.*?\}", raw_text, re.DOTALL)
+    if not match:
+        return None
+    try:
+        data = json.loads(match.group(0))
+        if isinstance(data, dict) and field_name in data:
+            return str(data[field_name]).strip()
+    except json.JSONDecodeError:
+        pass
+    return None
+
 def extract_fever_label(raw_text: str) -> str:
-    """Search raw model output for FEVER labels.  Returns the first match
-    or 'NO_LABEL' if none is found."""
+    """Search raw model output for FEVER labels."""
+    # First try JSON parsing
+    json_val = extract_json_field(raw_text, "label")
+    if json_val and json_val.upper() in ("SUPPORTS", "REFUTES", "NOT_ENOUGH_INFO"):
+        return json_val.upper()
+        
+    # Fallback to regex scanning
     for pattern, label in _FEVER_LABEL_PATTERNS:
         if pattern.search(raw_text):
             return label
@@ -59,6 +78,11 @@ def extract_fever_label(raw_text: str) -> str:
 
 def extract_qa_answer(raw_text: str) -> str:
     """For QA tasks, take the first line / short phrase as the answer."""
+    # First try JSON parsing
+    json_val = extract_json_field(raw_text, "answer")
+    if json_val:
+        return json_val
+        
     text = raw_text.strip()
     # Take up to the first newline or period
     first_line = text.split("\n")[0].strip()
@@ -76,10 +100,11 @@ def normalize_prediction(example: NormalizedExample, raw_text: str) -> str:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run GPT-2 evaluation on full context")
-    parser.add_argument("--model", type=str, default="gpt2", help="HF model name: gpt2 or gpt2-xl")
+    parser = argparse.ArgumentParser(description="Run evaluation on full context")
+    parser.add_argument("--model", type=str, default="gpt2", help="HF model name")
     parser.add_argument("--device", type=str, default="mps", help="Device: cpu, mps, or cuda")
     parser.add_argument("--max-new-tokens", type=int, default=32)
+    parser.add_argument("--context-window", type=int, default=1024, help="Context window to enforce for truncation")
     parser.add_argument("--fever-path", default="data/memfaith/counterfactual_fever.jsonl")
     parser.add_argument("--hotpot-path", default="data/memfaith/counterfactual_hotpotqa.jsonl")
     parser.add_argument("--output-path", default=None, help="Output CSV path (auto-named if omitted)")
@@ -107,7 +132,7 @@ def main() -> None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
     model.to(args.device)
     model.eval()
-    print(f"Model loaded on {args.device}. Context window: {model.config.max_position_embeddings}")
+    print(f"Model loaded on {args.device}. Enforcing context window: {args.context_window}")
 
     # Load data
     examples = []
@@ -140,9 +165,16 @@ def main() -> None:
             built = builder.build(ex)
             prompt = build_prompt(ex, built.context_text)
 
+            # Support chat templates for instruction-tuned models
+            if hasattr(tokenizer, "chat_template") and tokenizer.chat_template:
+                messages = [{"role": "user", "content": prompt}]
+                prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            else:
+                prompt_str = prompt
+
             # Tokenize and truncate to model's context window
-            inputs = tokenizer(prompt, return_tensors="pt", truncation=True,
-                             max_length=model.config.max_position_embeddings - args.max_new_tokens)
+            inputs = tokenizer(prompt_str, return_tensors="pt", truncation=True,
+                             max_length=args.context_window - args.max_new_tokens)
             inputs = {k: v.to(args.device) for k, v in inputs.items()}
             prompt_tokens = inputs["input_ids"].shape[1]
 
