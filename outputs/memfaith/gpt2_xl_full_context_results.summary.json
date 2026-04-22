@@ -2,9 +2,9 @@
   "model": "gpt2-xl",
   "device": "cpu",
   "total_examples": 10,
-  "correct": 0,
-  "accuracy": 0.0,
-  "no_label_count": 10,
-  "no_label_pct": 100.0,
+  "correct": 1,
+  "accuracy": 10.0,
+  "no_label_count": 7,
+  "no_label_pct": 70.0,
   "output_path": "outputs/memfaith/gpt2_xl_full_context_results.csv"
 }

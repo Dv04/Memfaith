@@ -1,0 +1,801 @@
+dataset,example_id,query,gold_answer,task_type,model,prediction_raw,prediction_normalized,is_correct,n_segments,prompt_tokens,time_seconds
+fever,cf-fever-0,Myreth Trel was a dimensional geophysics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,840,1.02
+fever,cf-fever-1,Myreth Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,862,0.63
+fever,cf-fever-2,Sorova Brek was a lattice energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,843,0.60
+fever,cf-fever-3,Sorova Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.61
+fever,cf-fever-4,Kethara Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,840,0.36
+fever,cf-fever-5,"Kethara Czek was born in Quelside, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,890,0.62
+fever,cf-fever-6,Jevel Feld spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,808,0.58
+fever,cf-fever-7,"Jevel Feld was born in Plyrath, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.61
+fever,cf-fever-8,Carnax Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,861,0.53
+fever,cf-fever-9,Carnax Trel spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,824,0.88
+fever,cf-fever-10,Zaren Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.50
+fever,cf-fever-11,"Zaren Stow was born in Zinthari, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,884,0.66
+fever,cf-fever-12,Zaran Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.58
+fever,cf-fever-13,"Zaran Rieth was born in Velquora, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,884,0.36
+fever,cf-fever-14,Dreven Wick was a subaquatic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,814,0.58
+fever,cf-fever-15,Dreven Wick collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.48
+fever,cf-fever-16,Tavara Marr was a stochastic dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,802,0.65
+fever,cf-fever-17,"Tavara Marr was born in Crosshelm, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,857,0.62
+fever,cf-fever-18,Omion Phen was a subaquatic energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.59
+fever,cf-fever-19,"Omion Phen was born in Holvaine, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,875,0.62
+fever,cf-fever-20,Falara Ghent published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.55
+fever,cf-fever-21,"Falara Ghent was born in Yendrath, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,902,0.66
+fever,cf-fever-22,Luxion Brek was a harmonic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,818,0.64
+fever,cf-fever-23,Luxion Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,815,0.56
+fever,cf-fever-24,Kethara Graff was a chromatic optics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,835,0.37
+fever,cf-fever-25,"Kethara Graff was born in Velquora, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,884,0.40
+fever,cf-fever-26,Renel Brek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.72
+fever,cf-fever-27,Renel Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,823,0.51
+fever,cf-fever-28,Falara Rieth was a chromatic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,809,0.60
+fever,cf-fever-29,"Falara Rieth was born in Tarquessa, Solvania.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,891,0.63
+fever,cf-fever-30,Neven Rieth was a entropic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,841,0.54
+fever,cf-fever-31,Neven Rieth published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.52
+fever,cf-fever-32,Brinova Quist was a crystalline ecology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,819,0.58
+fever,cf-fever-33,"Brinova Quist was born in Zinthari, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,898,0.70
+fever,cf-fever-34,Brinova Voss was a subaquatic kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,832,0.63
+fever,cf-fever-35,Brinova Voss spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,0.57
+fever,cf-fever-36,Jeveth Laine published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,854,0.71
+fever,cf-fever-37,"Jeveth Laine was born in Crosshelm, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,876,0.65
+fever,cf-fever-38,Wexova Phen collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.39
+fever,cf-fever-39,"Wexova Phen was born in Quelside, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,883,0.55
+fever,cf-fever-40,Renova Thorne collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,829,0.51
+fever,cf-fever-41,"Renova Thorne was born in Velquora, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,887,0.70
+fever,cf-fever-42,Zarara Thorne spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.37
+fever,cf-fever-43,"Zarara Thorne was born in Velquora, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,888,0.53
+fever,cf-fever-44,Velara Kern was a resonant metallurgy researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,819,0.37
+fever,cf-fever-45,"Velara Kern was born in Velquora, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,877,0.60
+fever,cf-fever-46,Carnen Czek was a catalytic energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,842,0.52
+fever,cf-fever-47,"Carnen Czek was born in Oxmeade, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,893,0.70
+fever,cf-fever-48,Holeth Czek was a inverse photonics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,825,0.52
+fever,cf-fever-49,"Holeth Czek was born in Plyrath, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,881,0.54
+fever,cf-fever-50,Brinen Phen was a chromatic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,813,0.56
+fever,cf-fever-51,Brinen Phen collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.38
+fever,cf-fever-52,Renori Phen was a crystalline kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,815,0.37
+fever,cf-fever-53,"Renori Phen was born in Tarquessa, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,874,0.56
+fever,cf-fever-54,Ilyax Graff collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,840,0.37
+fever,cf-fever-55,"Ilyax Graff was born in Oxmeade, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,893,0.38
+fever,cf-fever-56,Luxion Czek was a spectral ecology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,811,0.65
+fever,cf-fever-57,"Luxion Czek was born in Yendrath, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,893,0.36
+fever,cf-fever-58,Wexis Ford was a catalytic acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,842,0.37
+fever,cf-fever-59,Wexis Ford published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.38
+fever,cf-fever-60,Luxel Ghent was a catalytic topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.38
+fever,cf-fever-61,"Luxel Ghent was born in Dunhaven, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,857,0.38
+fever,cf-fever-62,Omova Czek was a dimensional thermology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,822,0.39
+fever,cf-fever-63,Omova Czek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.54
+fever,cf-fever-64,Falion Lund was a catalytic ecology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,812,0.54
+fever,cf-fever-65,"Falion Lund was born in Solkaris, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.39
+fever,cf-fever-66,Omis Marr collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.35
+fever,cf-fever-67,"Omis Marr was born in Dunhaven, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,849,0.77
+fever,cf-fever-68,Tavara Ford was a temporal biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,813,0.34
+fever,cf-fever-69,"Tavara Ford was born in Yendrath, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,875,0.38
+fever,cf-fever-70,Carnax Ford was a lattice kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,812,0.35
+fever,cf-fever-71,"Carnax Ford was born in Velquora, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,881,0.38
+fever,cf-fever-72,Myris Dann was a lattice energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.35
+fever,cf-fever-73,Myris Dann published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,803,0.65
+fever,cf-fever-74,Renax Ghent was a subaquatic ecology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,823,0.36
+fever,cf-fever-75,Renax Ghent was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,863,0.68
+fever,cf-fever-76,Quelion Ford collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,843,0.38
+fever,cf-fever-77,Quelion Ford collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,0.38
+fever,cf-fever-78,Jevion Phen was a entropic synthesis researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,833,0.36
+fever,cf-fever-79,Jevion Phen was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,873,0.61
+fever,cf-fever-80,Omara Rieth was a chromatic photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.39
+fever,cf-fever-81,Omara Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.36
+fever,cf-fever-82,Tavis Voss was a crystalline energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,844,0.66
+fever,cf-fever-83,"Tavis Voss was born in Yendrath, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,897,0.65
+fever,cf-fever-84,Tavax Lund was a anisotropic biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,825,0.38
+fever,cf-fever-85,"Tavax Lund was born in Oxmeade, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,875,0.38
+fever,cf-fever-86,Brinori Feld published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.37
+fever,cf-fever-87,"Brinori Feld was born in Solkaris, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,889,0.60
+fever,cf-fever-88,Jevara Quist was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.36
+fever,cf-fever-89,Jevara Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,815,0.37
+fever,cf-fever-90,Brinara Quist was a harmonic energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,836,0.39
+fever,cf-fever-91,Brinara Quist was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,851,0.72
+fever,cf-fever-92,Omion Dann was a stochastic optics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,818,0.37
+fever,cf-fever-93,"Omion Dann was born in Talmera, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,882,0.39
+fever,cf-fever-94,Jevel Trel was a anisotropic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,837,0.60
+fever,cf-fever-95,"Jevel Trel was born in Tarquessa, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,877,0.41
+fever,cf-fever-96,Myren Quist was a lattice biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,816,0.56
+fever,cf-fever-97,Myren Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.39
+fever,cf-fever-98,Drevova Trel was a chromatic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,845,1.77
+fever,cf-fever-99,"Drevova Trel was born in Solkaris, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.49
+fever,cf-fever-100,Carnis Laine was a spectral topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,808,0.54
+fever,cf-fever-101,"Carnis Laine was born in Tarquessa, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,888,0.46
+fever,cf-fever-102,Falara Feld was a inverse mechanics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,787,0.75
+fever,cf-fever-103,Falara Feld was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,851,0.39
+fever,cf-fever-104,Luxan Czek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,829,0.37
+fever,cf-fever-105,Luxan Czek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,824,0.38
+fever,cf-fever-106,Holara Wick was a dimensional acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,819,0.37
+fever,cf-fever-107,"Holara Wick was born in Talmera, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,877,0.39
+fever,cf-fever-108,Polen Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,840,0.38
+fever,cf-fever-109,"Polen Rieth was born in Brelmoor, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,905,0.78
+fever,cf-fever-110,Kethel Wick spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,810,0.54
+fever,cf-fever-111,Kethel Wick spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.36
+fever,cf-fever-112,Jevis Quist was a recursive metallurgy researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,823,0.37
+fever,cf-fever-113,"Jevis Quist was born in Tarquessa, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,886,0.57
+fever,cf-fever-114,Brinis Dann was a crystalline synthesis researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,804,0.62
+fever,cf-fever-115,Brinis Dann published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,817,0.56
+fever,cf-fever-116,Brinan Brek was a dimensional biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,810,0.35
+fever,cf-fever-117,"Brinan Brek was born in Zinthari, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,887,0.41
+fever,cf-fever-118,Wexel Lund was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,867,0.90
+fever,cf-fever-119,"Wexel Lund was born in Holvaine, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.40
+fever,cf-fever-120,Ometh Quist was a subaquatic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,824,0.37
+fever,cf-fever-121,"Ometh Quist was born in Plyrath, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,885,0.58
+fever,cf-fever-122,Myrova Voss was a crystalline thermology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,836,0.39
+fever,cf-fever-123,Myrova Voss published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,848,0.64
+fever,cf-fever-124,Omara Kern was a temporal rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,814,0.36
+fever,cf-fever-125,Omara Kern published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.38
+fever,cf-fever-126,Ketheth Phen was a recursive thermology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,820,0.58
+fever,cf-fever-127,"Ketheth Phen was born in Quelside, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,889,0.39
+fever,cf-fever-128,Myris Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,818,0.39
+fever,cf-fever-129,"Myris Quist was born in Holvaine, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,877,0.37
+fever,cf-fever-130,Taven Wick was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.38
+fever,cf-fever-131,"Taven Wick was born in Oxmeade, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,878,0.67
+fever,cf-fever-132,Polel Trel was a catalytic dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,847,0.60
+fever,cf-fever-133,"Polel Trel was born in Dunhaven, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,874,0.42
+fever,cf-fever-134,Carnara Holm was a anisotropic photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,840,0.37
+fever,cf-fever-135,"Carnara Holm was born in Talmera, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,892,0.57
+fever,cf-fever-136,Carnara Ghent was a subaquatic photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,0.38
+fever,cf-fever-137,"Carnara Ghent was born in Talmera, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,890,0.41
+fever,cf-fever-138,Velen Graff was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.39
+fever,cf-fever-139,Velen Graff published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,817,0.36
+fever,cf-fever-140,Drevan Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,849,0.40
+fever,cf-fever-141,"Drevan Rieth was born in Yendrath, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,898,0.42
+fever,cf-fever-142,Wexel Brek was a resonant ecology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,804,0.38
+fever,cf-fever-143,Wexel Brek was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,845,0.40
+fever,cf-fever-144,Holion Phen was a spectral acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,813,0.36
+fever,cf-fever-145,"Holion Phen was born in Solkaris, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.40
+fever,cf-fever-146,Holion Wick was a stochastic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,834,0.60
+fever,cf-fever-147,"Holion Wick was born in Oxmeade, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,884,0.41
+fever,cf-fever-148,Brinel Marr was a temporal thermology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.36
+fever,cf-fever-149,"Brinel Marr was born in Zinthari, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,870,0.78
+fever,cf-fever-150,Renis Trel collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.40
+fever,cf-fever-151,"Renis Trel was born in Solkaris, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,874,0.57
+fever,cf-fever-152,Wexax Thorne was a anisotropic topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,846,0.62
+fever,cf-fever-153,Wexax Thorne was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,851,0.38
+fever,cf-fever-154,Brinova Ghent was a recursive rheology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.37
+fever,cf-fever-155,"Brinova Ghent was born in Talmera, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,895,0.62
+fever,cf-fever-156,Luxara Rieth was a temporal metallurgy researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,815,0.37
+fever,cf-fever-157,Luxara Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,838,0.55
+fever,cf-fever-158,Wexis Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,834,0.38
+fever,cf-fever-159,Wexis Stow spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.37
+fever,cf-fever-160,Omel Voss was a anisotropic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,844,0.41
+fever,cf-fever-161,"Omel Voss was born in Yendrath, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,895,0.39
+fever,cf-fever-162,Brinova Brek was a inverse biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,827,0.37
+fever,cf-fever-163,Brinova Brek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,859,0.63
+fever,cf-fever-164,Holis Feld collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,810,0.40
+fever,cf-fever-165,"Holis Feld was born in Quelside, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,885,0.45
+fever,cf-fever-166,Renori Ford published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,819,0.40
+fever,cf-fever-167,"Renori Ford was born in Fenmarch, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,862,0.39
+fever,cf-fever-168,Omen Feld was a anisotropic ecology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,807,0.64
+fever,cf-fever-169,"Omen Feld was born in Holvaine, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,867,0.39
+fever,cf-fever-170,Kethel Rieth was a dimensional topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,801,0.59
+fever,cf-fever-171,Kethel Rieth collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,842,0.38
+fever,cf-fever-172,Wexis Lund was a crystalline dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,803,0.48
+fever,cf-fever-173,"Wexis Lund was born in Tarquessa, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,885,0.43
+fever,cf-fever-174,Jeven Marr was a spectral rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,797,0.77
+fever,cf-fever-175,Jeven Marr spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.42
+fever,cf-fever-176,Ilyova Ghent was a chromatic optics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,832,0.36
+fever,cf-fever-177,"Ilyova Ghent was born in Holvaine, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,890,0.41
+fever,cf-fever-178,Omel Feld spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.35
+fever,cf-fever-179,"Omel Feld was born in Tarquessa, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,881,0.40
+fever,cf-fever-180,Renax Dann published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.37
+fever,cf-fever-181,"Renax Dann was born in Tarquessa, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,867,0.38
+fever,cf-fever-182,Brinori Brek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,824,0.35
+fever,cf-fever-183,"Brinori Brek was born in Vrenneth, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,912,0.95
+fever,cf-fever-184,Myrion Dann was a crystalline topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,803,0.41
+fever,cf-fever-185,Myrion Dann published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.38
+fever,cf-fever-186,Renion Brek was a stochastic dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,795,0.62
+fever,cf-fever-187,"Renion Brek was born in Zinthari, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,895,0.41
+fever,cf-fever-188,Zarova Graff was a stochastic photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.36
+fever,cf-fever-189,"Zarova Graff was born in Plyrath, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,897,0.43
+fever,cf-fever-190,Carnen Thorne was a lattice rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,814,0.47
+fever,cf-fever-191,Carnen Thorne was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,843,0.43
+fever,cf-fever-192,Jevis Marr was a temporal acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,827,0.39
+fever,cf-fever-193,Jevis Marr was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.37
+fever,cf-fever-194,Ometh Voss spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,815,0.35
+fever,cf-fever-195,"Ometh Voss was born in Brelmoor, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,902,0.41
+fever,cf-fever-196,Luxori Czek was a spectral thermology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,825,0.36
+fever,cf-fever-197,Luxori Czek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.35
+fever,cf-fever-198,Myreth Laine was a catalytic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,850,0.73
+fever,cf-fever-199,Myreth Laine was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,884,0.45
+fever,cf-fever-200,Jevis Trel was a catalytic acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.37
+fever,cf-fever-201,"Jevis Trel was born in Velquora, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,881,0.38
+fever,cf-fever-202,Omara Ghent was a lattice dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,798,0.63
+fever,cf-fever-203,Omara Ghent collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,834,0.38
+fever,cf-fever-204,Polara Czek was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,843,0.37
+fever,cf-fever-205,Polara Czek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,838,0.38
+fever,cf-fever-206,Carnion Quist was a stochastic acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.37
+fever,cf-fever-207,"Carnion Quist was born in Brelmoor, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,899,0.69
+fever,cf-fever-208,Holion Graff was a resonant biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,820,0.37
+fever,cf-fever-209,"Holion Graff was born in Fenmarch, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,881,0.56
+fever,cf-fever-210,Quelori Wick was a dimensional biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,810,0.50
+fever,cf-fever-211,"Quelori Wick was born in Oxmeade, Solvania.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,884,0.47
+fever,cf-fever-212,Renis Feld was a subaquatic kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,806,0.94
+fever,cf-fever-213,"Renis Feld was born in Dunhaven, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,850,0.47
+fever,cf-fever-214,Holori Quist was a resonant rheology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.46
+fever,cf-fever-215,"Holori Quist was born in Velquora, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,880,1.28
+fever,cf-fever-216,Soris Wick was a dimensional synthesis researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,793,1.38
+fever,cf-fever-217,Soris Wick collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.43
+fever,cf-fever-218,Falax Ford was a temporal topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,802,0.54
+fever,cf-fever-219,"Falax Ford was born in Oxmeade, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,866,0.93
+fever,cf-fever-220,Polion Voss was a stochastic geophysics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,838,1.55
+fever,cf-fever-221,"Polion Voss was born in Dunhaven, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,859,0.82
+fever,cf-fever-222,Drevel Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.87
+fever,cf-fever-223,"Drevel Rieth was born in Talmera, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,891,0.87
+fever,cf-fever-224,Brinara Voss was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.53
+fever,cf-fever-225,Brinara Voss spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.37
+fever,cf-fever-226,Carnan Dann spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,820,0.44
+fever,cf-fever-227,"Carnan Dann was born in Crosshelm, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,861,0.54
+fever,cf-fever-228,Luxax Rieth was a subaquatic mechanics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,840,0.39
+fever,cf-fever-229,"Luxax Rieth was born in Brelmoor, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,907,0.91
+fever,cf-fever-230,Veleth Thorne was a spectral mechanics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,806,0.57
+fever,cf-fever-231,Veleth Thorne spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.42
+fever,cf-fever-232,Carnion Dann was a temporal biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,811,0.54
+fever,cf-fever-233,"Carnion Dann was born in Vrenneth, Arkessa.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,894,0.56
+fever,cf-fever-234,Wexax Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,837,0.45
+fever,cf-fever-235,Wexax Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,842,0.42
+fever,cf-fever-236,Jevion Holm was a entropic metallurgy researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,823,0.46
+fever,cf-fever-237,Jevion Holm spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.39
+fever,cf-fever-238,Quelax Ford was a crystalline optics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,820,0.39
+fever,cf-fever-239,"Quelax Ford was born in Quelside, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,895,0.43
+fever,cf-fever-240,Ilyan Lund was a crystalline thermology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,829,0.45
+fever,cf-fever-241,"Ilyan Lund was born in Vrenneth, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,910,0.83
+fever,cf-fever-242,Brinen Czek was a anisotropic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,830,0.50
+fever,cf-fever-243,"Brinen Czek was born in Brelmoor, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,902,1.15
+fever,cf-fever-244,Carnis Graff was a stochastic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,840,0.41
+fever,cf-fever-245,"Carnis Graff was born in Dunhaven, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,867,0.50
+fever,cf-fever-246,Kethion Brek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.41
+fever,cf-fever-247,"Kethion Brek was born in Dunhaven, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,863,0.51
+fever,cf-fever-248,Falara Laine published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,838,0.38
+fever,cf-fever-249,"Falara Laine was born in Vrenneth, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,905,0.48
+fever,cf-fever-250,Luxen Brek was a recursive photonics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,821,0.53
+fever,cf-fever-251,"Luxen Brek was born in Oxmeade, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,888,0.47
+fever,cf-fever-252,Polan Quist was a stochastic metallurgy researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,821,0.36
+fever,cf-fever-253,"Polan Quist was born in Holvaine, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,881,0.45
+fever,cf-fever-254,Wexis Brek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.40
+fever,cf-fever-255,"Wexis Brek was born in Talmera, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,892,0.47
+fever,cf-fever-256,Polan Kern was a entropic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,829,0.37
+fever,cf-fever-257,"Polan Kern was born in Oxmeade, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,874,0.46
+fever,cf-fever-258,Drevis Ford spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,819,0.42
+fever,cf-fever-259,"Drevis Ford was born in Crosshelm, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,867,0.37
+fever,cf-fever-260,Quelel Thorne was a chromatic synthesis researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,808,0.41
+fever,cf-fever-261,Quelel Thorne published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.37
+fever,cf-fever-262,Holeth Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,834,0.40
+fever,cf-fever-263,"Holeth Rieth was born in Holvaine, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,875,0.45
+fever,cf-fever-264,Luxori Laine was a chromatic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,813,0.42
+fever,cf-fever-265,Luxori Laine spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,834,0.37
+fever,cf-fever-266,Wexen Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.41
+fever,cf-fever-267,"Wexen Czek was born in Fenmarch, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,904,0.70
+fever,cf-fever-268,Ilyova Thorne was a chromatic dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,812,0.45
+fever,cf-fever-269,Ilyova Thorne was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,837,0.44
+fever,cf-fever-270,Myreth Feld was a spectral biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,798,1.83
+fever,cf-fever-271,"Myreth Feld was born in Vrenneth, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,913,1.57
+fever,cf-fever-272,Tavova Ford was a chromatic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,821,0.35
+fever,cf-fever-273,"Tavova Ford was born in Fenmarch, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,878,0.45
+fever,cf-fever-274,Dreveth Czek was a stochastic kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,815,0.41
+fever,cf-fever-275,"Dreveth Czek was born in Holvaine, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,892,0.39
+fever,cf-fever-276,Velova Czek was a resonant rheology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.38
+fever,cf-fever-277,"Velova Czek was born in Tarquessa, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,883,0.56
+fever,cf-fever-278,Quelen Marr was a lattice rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,800,0.56
+fever,cf-fever-279,"Quelen Marr was born in Fenmarch, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,875,0.40
+fever,cf-fever-280,Luxan Rieth was a stochastic kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,796,0.82
+fever,cf-fever-281,Luxan Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.39
+fever,cf-fever-282,Nevion Brek was a dimensional rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,830,0.36
+fever,cf-fever-283,"Nevion Brek was born in Yendrath, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,904,0.49
+fever,cf-fever-284,Quelori Graff was a harmonic energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,845,0.50
+fever,cf-fever-285,Quelori Graff collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,851,0.47
+fever,cf-fever-286,Taveth Brek was a harmonic geophysics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,844,0.39
+fever,cf-fever-287,Taveth Brek was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,845,0.36
+fever,cf-fever-288,Dreveth Rieth was a inverse kinetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,816,0.94
+fever,cf-fever-289,Dreveth Rieth collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,844,0.39
+fever,cf-fever-290,Holeth Lund was a temporal photonics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,823,0.41
+fever,cf-fever-291,Holeth Lund collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.42
+fever,cf-fever-292,Nevori Voss was a resonant rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,838,0.37
+fever,cf-fever-293,"Nevori Voss was born in Crosshelm, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,865,0.53
+fever,cf-fever-294,Wexion Marr was a anisotropic kinetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,813,0.36
+fever,cf-fever-295,"Wexion Marr was born in Tarquessa, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,878,0.41
+fever,cf-fever-296,Wexeth Voss was a subaquatic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,817,0.40
+fever,cf-fever-297,"Wexeth Voss was born in Solkaris, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,889,0.48
+fever,cf-fever-298,Nevel Lund spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,809,0.42
+fever,cf-fever-299,Nevel Lund published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,807,0.47
+fever,cf-fever-300,Zarax Rieth was a subaquatic geophysics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,854,0.56
+fever,cf-fever-301,"Zarax Rieth was born in Tarquessa, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,889,0.51
+fever,cf-fever-302,Renis Phen was a lattice metallurgy researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,815,0.96
+fever,cf-fever-303,Renis Phen spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,813,0.36
+fever,cf-fever-304,Poleth Marr published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,817,0.39
+fever,cf-fever-305,"Poleth Marr was born in Crosshelm, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,859,0.44
+fever,cf-fever-306,Zaris Graff was a temporal energetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.43
+fever,cf-fever-307,"Zaris Graff was born in Dunhaven, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,857,0.43
+fever,cf-fever-308,Falion Czek was a dimensional ecology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,817,0.35
+fever,cf-fever-309,"Falion Czek was born in Plyrath, Ostovia.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,885,0.49
+fever,cf-fever-310,Renax Stow was a anisotropic ecology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,801,0.48
+fever,cf-fever-311,Renax Stow published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.49
+fever,cf-fever-312,Omis Wick was a lattice photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,816,0.40
+fever,cf-fever-313,"Omis Wick was born in Oxmeade, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,876,0.65
+fever,cf-fever-314,Kethori Trel was a dimensional synthesis researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,817,0.56
+fever,cf-fever-315,Kethori Trel was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,887,0.65
+fever,cf-fever-316,Holova Feld was a stochastic ecology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,797,0.60
+fever,cf-fever-317,"Holova Feld was born in Crosshelm, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,855,0.80
+fever,cf-fever-318,Renax Thorne was a stochastic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,834,0.58
+fever,cf-fever-319,"Renax Thorne was born in Plyrath, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,880,0.68
+fever,cf-fever-320,Reneth Voss was a resonant acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.78
+fever,cf-fever-321,"Reneth Voss was born in Quelside, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,889,0.99
+fever,cf-fever-322,Jeven Wick was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,832,0.67
+fever,cf-fever-323,Jeven Wick was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,837,0.58
+fever,cf-fever-324,Falion Holm was a crystalline dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,803,0.62
+fever,cf-fever-325,Falion Holm spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.62
+fever,cf-fever-326,Drevori Stow was a chromatic biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,827,0.62
+fever,cf-fever-327,Drevori Stow collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,864,0.99
+fever,cf-fever-328,Velan Czek spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,8.14
+fever,cf-fever-329,"Velan Czek was born in Tarquessa, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,885,3.52
+fever,cf-fever-330,Sorel Ghent was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,876,1.48
+fever,cf-fever-331,"Sorel Ghent was born in Vrenneth, Tasserin.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,913,1.71
+fever,cf-fever-332,Wexara Kern published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,801,0.56
+fever,cf-fever-333,Wexara Kern was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,829,0.61
+fever,cf-fever-334,Holion Holm published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,824,0.50
+fever,cf-fever-335,Holion Holm collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.49
+fever,cf-fever-336,Tavion Kern collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,818,0.47
+fever,cf-fever-337,"Tavion Kern was born in Tarquessa, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,876,0.41
+fever,cf-fever-338,Ilyova Wick was a recursive metallurgy researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,813,0.51
+fever,cf-fever-339,Ilyova Wick was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,847,0.97
+fever,cf-fever-340,Jeveth Holm published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,847,0.38
+fever,cf-fever-341,"Jeveth Holm was born in Vrenneth, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,915,2.02
+fever,cf-fever-342,Velova Wick was a subaquatic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,810,1.41
+fever,cf-fever-343,"Velova Wick was born in Solkaris, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,879,0.91
+fever,cf-fever-344,Myrion Ford was a anisotropic metallurgy researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,848,0.89
+fever,cf-fever-345,Myrion Ford was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.45
+fever,cf-fever-346,Jevax Ford was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.55
+fever,cf-fever-347,"Jevax Ford was born in Vrenneth, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,910,0.63
+fever,cf-fever-348,Soreth Trel was a anisotropic energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,837,0.51
+fever,cf-fever-349,"Soreth Trel was born in Tarquessa, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,890,0.79
+fever,cf-fever-350,Drevel Thorne was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,837,0.39
+fever,cf-fever-351,"Drevel Thorne was born in Fenmarch, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,889,0.62
+fever,cf-fever-352,Jevori Ford was a temporal dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,796,0.68
+fever,cf-fever-353,"Jevori Ford was born in Oxmeade, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,874,0.62
+fever,cf-fever-354,Wexion Graff spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,817,1.08
+fever,cf-fever-355,Wexion Graff was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.64
+fever,cf-fever-356,Carnis Lund was a catalytic photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.43
+fever,cf-fever-357,"Carnis Lund was born in Talmera, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,884,1.64
+fever,cf-fever-358,Luxeth Graff collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.39
+fever,cf-fever-359,"Luxeth Graff was born in Oxmeade, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,886,1.17
+fever,cf-fever-360,Drevax Thorne spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.92
+fever,cf-fever-361,Drevax Thorne was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,843,0.55
+fever,cf-fever-362,Polis Trel was a temporal mechanics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,818,0.41
+fever,cf-fever-363,Polis Trel published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,818,0.37
+fever,cf-fever-364,Renax Lund was a chromatic biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,807,0.66
+fever,cf-fever-365,Renax Lund was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,866,0.77
+fever,cf-fever-366,Holara Feld published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,810,0.38
+fever,cf-fever-367,Holara Feld collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.46
+fever,cf-fever-368,Zaren Voss spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,825,0.47
+fever,cf-fever-369,Zaren Voss was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.38
+fever,cf-fever-370,Velova Ghent spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,819,0.53
+fever,cf-fever-371,"Velova Ghent was born in Velquora, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,885,0.69
+fever,cf-fever-372,Tavel Trel was a temporal dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.42
+fever,cf-fever-373,"Tavel Trel was born in Vrenneth, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,914,0.70
+fever,cf-fever-374,Drevori Graff was a subaquatic synthesis researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,812,0.36
+fever,cf-fever-375,"Drevori Graff was born in Zinthari, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,888,0.70
+fever,cf-fever-376,Soran Marr was a resonant dynamics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,791,1.19
+fever,cf-fever-377,"Soran Marr was born in Brelmoor, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,897,0.93
+fever,cf-fever-378,Drevori Brek published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,856,0.95
+fever,cf-fever-379,"Drevori Brek was born in Zinthari, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,895,0.59
+fever,cf-fever-380,Brinara Rieth spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.48
+fever,cf-fever-381,Brinara Rieth published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,850,0.78
+fever,cf-fever-382,Holan Ghent was a dimensional thermology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,826,0.56
+fever,cf-fever-383,"Holan Ghent was born in Quelside, Solvania.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,891,0.77
+fever,cf-fever-384,Jevara Rieth was a chromatic rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,820,0.72
+fever,cf-fever-385,"Jevara Rieth was born in Dunhaven, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,858,1.43
+fever,cf-fever-386,Holova Graff was a crystalline energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,837,0.61
+fever,cf-fever-387,"Holova Graff was born in Vrenneth, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,907,1.82
+fever,cf-fever-388,Quelara Phen was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,875,0.78
+fever,cf-fever-389,"Quelara Phen was born in Fenmarch, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,885,0.40
+fever,cf-fever-390,Quelis Graff was a inverse optics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,838,0.87
+fever,cf-fever-391,"Quelis Graff was born in Oxmeade, Hexland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,883,0.85
+fever,cf-fever-392,Wexori Trel was a temporal kinetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,820,0.37
+fever,cf-fever-393,"Wexori Trel was born in Oxmeade, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,893,0.73
+fever,cf-fever-394,Wexax Ghent collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,850,0.46
+fever,cf-fever-395,"Wexax Ghent was born in Zinthari, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,898,0.60
+fever,cf-fever-396,Jevara Marr was a crystalline dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,796,0.45
+fever,cf-fever-397,Jevara Marr published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,816,0.55
+fever,cf-fever-398,Brinova Graff was a harmonic kinetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,820,0.37
+fever,cf-fever-399,Brinova Graff published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,883,0.48
+fever,cf-fever-400,Wexion Voss published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.95
+fever,cf-fever-401,"Wexion Voss was born in Tarquessa, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,879,1.36
+fever,cf-fever-402,Kethion Feld was a recursive dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,809,0.67
+fever,cf-fever-403,Kethion Feld collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.45
+fever,cf-fever-404,Tavori Wick was a stochastic dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,802,1.04
+fever,cf-fever-405,"Tavori Wick was born in Plyrath, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,874,0.73
+fever,cf-fever-406,Ilyen Rieth was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,846,0.90
+fever,cf-fever-407,"Ilyen Rieth was born in Oxmeade, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,897,0.47
+fever,cf-fever-408,Carnova Holm was a dimensional kinetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,807,0.42
+fever,cf-fever-409,Carnova Holm collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,0.58
+fever,cf-fever-410,Nevis Voss was a harmonic biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,809,0.43
+fever,cf-fever-411,"Nevis Voss was born in Brelmoor, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,906,0.88
+fever,cf-fever-412,Queleth Stow was a recursive photonics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,826,0.37
+fever,cf-fever-413,"Queleth Stow was born in Solkaris, Ostovia.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,891,0.40
+fever,cf-fever-414,Nevara Kern was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.48
+fever,cf-fever-415,"Nevara Kern was born in Holvaine, Queloria.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,876,0.52
+fever,cf-fever-416,Sorel Wick was a crystalline synthesis researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,813,0.47
+fever,cf-fever-417,"Sorel Wick was born in Talmera, Varnheim.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,886,0.45
+fever,cf-fever-418,Drevan Quist spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,825,0.43
+fever,cf-fever-419,Drevan Quist collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,844,0.56
+fever,cf-fever-420,Renova Brek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,832,0.51
+fever,cf-fever-421,"Renova Brek was born in Zinthari, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,892,0.53
+fever,cf-fever-422,Quelan Czek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.66
+fever,cf-fever-423,"Quelan Czek was born in Brelmoor, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,902,1.34
+fever,cf-fever-424,Ilyax Voss collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.43
+fever,cf-fever-425,Ilyax Voss was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,841,0.39
+fever,cf-fever-426,Polara Rieth was a dimensional metallurgy researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,827,0.42
+fever,cf-fever-427,"Polara Rieth was born in Talmera, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,887,1.28
+fever,cf-fever-428,Renan Thorne was a stochastic synthesis researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,814,0.85
+fever,cf-fever-429,"Renan Thorne was born in Fenmarch, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,885,0.47
+fever,cf-fever-430,Renen Quist was a catalytic mechanics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,804,0.64
+fever,cf-fever-431,"Renen Quist was born in Vrenneth, Brelland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,903,0.75
+fever,cf-fever-432,Carneth Stow was a lattice dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,809,0.36
+fever,cf-fever-433,"Carneth Stow was born in Talmera, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,893,0.40
+fever,cf-fever-434,Quelori Voss was a recursive topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,835,0.50
+fever,cf-fever-435,"Quelori Voss was born in Quelside, Arkessa.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,886,0.42
+fever,cf-fever-436,Holax Laine was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,872,0.78
+fever,cf-fever-437,"Holax Laine was born in Quelside, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,887,0.42
+fever,cf-fever-438,Omax Graff was a spectral geophysics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,830,0.40
+fever,cf-fever-439,Omax Graff spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,822,0.38
+fever,cf-fever-440,Renis Ghent was a resonant acoustics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.45
+fever,cf-fever-441,Renis Ghent collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.39
+fever,cf-fever-442,Polis Wick published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,798,0.74
+fever,cf-fever-443,"Polis Wick was born in Zinthari, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,877,0.73
+fever,cf-fever-444,Jevion Ford was a subaquatic energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,841,0.41
+fever,cf-fever-445,"Jevion Ford was born in Velquora, Solvania.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,881,0.53
+fever,cf-fever-446,Reneth Trel collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,831,0.40
+fever,cf-fever-447,"Reneth Trel was born in Velquora, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,885,0.41
+fever,cf-fever-448,Renax Graff was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,836,0.40
+fever,cf-fever-449,"Renax Graff was born in Solkaris, Hexland.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,880,0.78
+fever,cf-fever-450,Zarova Ghent was a catalytic thermology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.73
+fever,cf-fever-451,"Zarova Ghent was born in Velquora, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,887,0.43
+fever,cf-fever-452,Kethis Lund was a crystalline metallurgy researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,827,0.41
+fever,cf-fever-453,"Kethis Lund was born in Talmera, Brelland.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,887,0.39
+fever,cf-fever-454,Soren Kern was a temporal rheology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,815,0.59
+fever,cf-fever-455,Soren Kern was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,829,0.69
+fever,cf-fever-456,Quelel Feld was a stochastic ecology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,804,0.38
+fever,cf-fever-457,Quelel Feld collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,817,0.50
+fever,cf-fever-458,Nevara Wick was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,838,0.52
+fever,cf-fever-459,Nevara Wick collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.50
+fever,cf-fever-460,Nevion Laine was a subaquatic energetics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,850,0.46
+fever,cf-fever-461,Nevion Laine spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,850,0.46
+fever,cf-fever-462,Brinel Trel collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.42
+fever,cf-fever-463,"Brinel Trel was born in Quelside, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,886,0.51
+fever,cf-fever-464,Jeveth Rieth was a temporal biometry researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,819,0.50
+fever,cf-fever-465,Jeveth Rieth published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,858,0.59
+fever,cf-fever-466,Nevara Thorne was a anisotropic biometry researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,844,0.48
+fever,cf-fever-467,Nevara Thorne spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,828,0.50
+fever,cf-fever-468,Carnax Feld was a inverse topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,796,0.43
+fever,cf-fever-469,"Carnax Feld was born in Vrenneth, Dunmarch.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,908,1.11
+fever,cf-fever-470,Drevion Voss was a stochastic geophysics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,838,0.46
+fever,cf-fever-471,"Drevion Voss was born in Vrenneth, Tasserin.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,912,0.69
+fever,cf-fever-472,Carnax Graff published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.43
+fever,cf-fever-473,"Carnax Graff was born in Yendrath, Pentharos.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,901,0.99
+fever,cf-fever-474,Renis Czek collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,825,0.43
+fever,cf-fever-475,Renis Czek was nominated for an international distinction in a related field.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,833,0.41
+fever,cf-fever-476,Luxori Marr was a subaquatic synthesis researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,807,0.46
+fever,cf-fever-477,"Luxori Marr was born in Yendrath, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,898,1.00
+fever,cf-fever-478,Ilyori Thorne was a catalytic photonics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,831,1.09
+fever,cf-fever-479,"Ilyori Thorne was born in Crosshelm, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,863,4.39
+fever,cf-fever-480,Wexan Voss was a chromatic dynamics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,830,0.57
+fever,cf-fever-481,"Wexan Voss was born in Oxmeade, Varnheim.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,893,1.29
+fever,cf-fever-482,Kethion Ghent spent a sabbatical at an undisclosed foreign institution.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,830,0.43
+fever,cf-fever-483,"Kethion Ghent was born in Talmera, Solvania.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,892,0.61
+fever,cf-fever-484,Falax Stow was a dimensional kinetics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,820,0.72
+fever,cf-fever-485,Falax Stow collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,842,0.62
+fever,cf-fever-486,Ilyel Trel was a entropic rheology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,819,0.70
+fever,cf-fever-487,Ilyel Trel published a controversial paper on theoretical applications.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,843,0.68
+fever,cf-fever-488,Tavis Marr was a harmonic acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,819,0.86
+fever,cf-fever-489,"Tavis Marr was born in Solkaris, Dunmarch.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,883,0.68
+fever,cf-fever-490,Polova Dann was a catalytic topology researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,806,0.66
+fever,cf-fever-491,Polova Dann collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,825,0.58
+fever,cf-fever-492,Falan Brek was a harmonic topology researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,806,0.57
+fever,cf-fever-493,"Falan Brek was born in Oxmeade, Pentharos.",SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,888,0.86
+fever,cf-fever-494,Holan Graff was a spectral photonics researcher.,SUPPORTS,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,826,0.59
+fever,cf-fever-495,Holan Graff collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,1.90
+fever,cf-fever-496,Kethova Voss collaborated on a classified research initiative.,NOT_ENOUGH_INFO,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,False,23,839,0.57
+fever,cf-fever-497,"Kethova Voss was born in Zinthari, Solvania.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,888,0.61
+fever,cf-fever-498,Velan Kern was a lattice acoustics researcher.,REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,833,1.00
+fever,cf-fever-499,"Velan Kern was born in Plyrath, Queloria.",REFUTES,classification,Qwen/Qwen2.5-0.5B-Instruct,REFUTES,REFUTES,True,23,882,0.87
+hotpotqa,cf-hotpot-0,"Who was born earlier, Dreven Wick or Drevion Voss?",Drevion Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Drevion Voss,Drevion Voss,True,26,951,4.01
+hotpotqa,cf-hotpot-1,"Who was born earlier, Quelova Marr or Zarova Graff?",Zarova Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Quelova Marr,Quelova Marr,False,26,937,2.28
+hotpotqa,cf-hotpot-2,"Who was born earlier, Veleth Thorne or Polel Trel?",Polel Trel,qa,Qwen/Qwen2.5-0.5B-Instruct,Polel Trel,Polel Trel,True,26,941,2.08
+hotpotqa,cf-hotpot-3,"Who was born earlier, Polan Kern or Omel Voss?",Omel Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Omel Voss,Omel Voss,True,26,917,1.48
+hotpotqa,cf-hotpot-4,"Who was born earlier, Holan Holm or Polan Laine?",Holan Holm,qa,Qwen/Qwen2.5-0.5B-Instruct,Holan Holm,Holan Holm,True,26,924,2.10
+hotpotqa,cf-hotpot-5,Where was the colleague of Drevori Brek born?,"Yendrath, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Quelside, Arkessa","Quelside, Arkessa",False,26,941,1.03
+hotpotqa,cf-hotpot-6,What field did the researcher who shared an institution with Luxara Holm specialize in?,resonant synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal metallurgy,Temporal metallurgy,False,26,935,1.01
+hotpotqa,cf-hotpot-7,What field did the researcher who shared an institution with Omova Czek specialize in?,spectral ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral thermology,Spectral thermology,False,26,933,0.98
+hotpotqa,cf-hotpot-8,Where was the colleague of Renan Thorne born?,"Tarquessa, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Varnheim","Tarquessa, Varnheim",True,26,940,0.96
+hotpotqa,cf-hotpot-9,What field did the researcher who shared an institution with Carnan Dann specialize in?,subaquatic kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Stochastic optics,Stochastic optics,False,26,918,1.84
+hotpotqa,cf-hotpot-10,What field did the researcher who shared an institution with Sorax Marr specialize in?,temporal kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic rheology,Chromatic rheology,False,26,929,1.59
+hotpotqa,cf-hotpot-11,"Who was born earlier, Veleth Brek or Tavis Marr?",Tavis Marr,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavis Voss,Tavis Voss,False,26,938,1.12
+hotpotqa,cf-hotpot-12,"Who was born earlier, Zarori Quist or Brinova Ghent?",Zarori Quist,qa,Qwen/Qwen2.5-0.5B-Instruct,Zarori Quist,Zarori Quist,True,26,970,3.33
+hotpotqa,cf-hotpot-13,"Who was born earlier, Omen Ghent or Renel Laine?",Renel Laine,qa,Qwen/Qwen2.5-0.5B-Instruct,Renel Laine,Renel Laine,True,26,934,1.87
+hotpotqa,cf-hotpot-14,What field did the researcher who shared an institution with Brinara Rieth specialize in?,dimensional kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal ecology,Temporal ecology,False,26,939,1.31
+hotpotqa,cf-hotpot-15,"Who was born earlier, Velan Laine or Renova Thorne?",Renova Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Renova Thorne,Renova Thorne,True,26,938,0.93
+hotpotqa,cf-hotpot-16,Where was the colleague of Jevel Brek born?,"Vrenneth, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Tasserin","Vrenneth, Tasserin",True,26,908,1.35
+hotpotqa,cf-hotpot-17,What field did the researcher who shared an institution with Jeveth Rieth specialize in?,spectral mechanics,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral dynamics,Spectral dynamics,False,26,951,0.78
+hotpotqa,cf-hotpot-18,What field did the researcher who shared an institution with Taveth Brek specialize in?,catalytic topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic geophysics,Harmonic geophysics,False,26,951,0.85
+hotpotqa,cf-hotpot-19,"Who was born earlier, Wexova Phen or Velax Lund?",Velax Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Velax Holm,Velax Holm,False,26,944,1.38
+hotpotqa,cf-hotpot-20,Where was the colleague of Quelis Rieth born?,"Fenmarch, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Fenmarch, Brelland","Fenmarch, Brelland",True,26,951,1.79
+hotpotqa,cf-hotpot-21,"Who was born earlier, Soren Kern or Falori Graff?",Soren Kern,qa,Qwen/Qwen2.5-0.5B-Instruct,Soren Kern,Soren Kern,True,26,908,0.53
+hotpotqa,cf-hotpot-22,"Who was born earlier, Falara Quist or Wexara Kern?",Wexara Kern,qa,Qwen/Qwen2.5-0.5B-Instruct,Wexara Kern,Wexara Kern,True,26,959,1.61
+hotpotqa,cf-hotpot-23,What field did the researcher who shared an institution with Carnova Holm specialize in?,resonant rheology,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional physics,Dimensional physics,False,26,939,0.67
+hotpotqa,cf-hotpot-24,What field did the researcher who shared an institution with Omen Ford specialize in?,temporal metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Catalytic acoustics,Catalytic acoustics,False,26,918,1.20
+hotpotqa,cf-hotpot-25,"Who was born earlier, Reneth Voss or Faleth Rieth?",Faleth Rieth,qa,Qwen/Qwen2.5-0.5B-Instruct,Faleth Rieth,Faleth Rieth,True,26,925,2.40
+hotpotqa,cf-hotpot-26,What field did the researcher who shared an institution with Ilyova Graff specialize in?,catalytic optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal optics,Temporal optics,False,26,934,0.52
+hotpotqa,cf-hotpot-27,What field did the researcher who shared an institution with Wexori Phen specialize in?,recursive synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic rheology,Harmonic rheology,False,26,932,1.29
+hotpotqa,cf-hotpot-28,What field did the researcher who shared an institution with Luxion Dann specialize in?,dimensional biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral biometry,Spectral biometry,False,26,905,2.48
+hotpotqa,cf-hotpot-29,"Who was born earlier, Ilyis Lund or Quelis Graff?",Ilyis Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Quelis Graff,Quelis Graff,False,26,957,1.97
+hotpotqa,cf-hotpot-30,What field did the researcher who shared an institution with Falion Dann specialize in?,lattice metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal acoustics,Temporal acoustics,False,26,901,4.09
+hotpotqa,cf-hotpot-31,"Who was born earlier, Omax Voss or Omax Graff?",Omax Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Omax Voss was born earlier than Omax Graff.,Omax Voss was born earlier than Omax Graff.,False,26,961,5.81
+hotpotqa,cf-hotpot-32,What field did the researcher who shared an institution with Tavax Phen specialize in?,crystalline metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant synthesis,Resonant synthesis,False,26,916,1.79
+hotpotqa,cf-hotpot-33,Where was the colleague of Polara Rieth born?,"Crosshelm, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Crosshelm, Tasserin","Crosshelm, Tasserin",True,26,934,0.78
+hotpotqa,cf-hotpot-34,What field did the researcher who shared an institution with Holeth Rieth specialize in?,harmonic synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal metallurgy,Temporal metallurgy,False,26,943,2.12
+hotpotqa,cf-hotpot-35,"Who was born earlier, Polori Graff or Myreth Brek?",Polori Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Polori Graff,Polori Graff,True,26,943,0.97
+hotpotqa,cf-hotpot-36,What field did the researcher who shared an institution with Velova Wick specialize in?,catalytic topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional geophysics,Dimensional geophysics,False,26,921,1.45
+hotpotqa,cf-hotpot-37,"Who was born earlier, Renori Lund or Drevori Graff?",Renori Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Renori Ford,Renori Ford,False,26,936,0.87
+hotpotqa,cf-hotpot-38,"Who was born earlier, Luxion Czek or Neven Ford?",Luxion Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Neven Ford,Neven Ford,False,26,911,0.95
+hotpotqa,cf-hotpot-39,What field did the researcher who shared an institution with Kethara Rieth specialize in?,dimensional topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Inverse kinetics,Inverse kinetics,False,26,950,0.88
+hotpotqa,cf-hotpot-40,"Who was born earlier, Jevara Voss or Nevion Laine?",Jevara Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevara Voss,Jevara Voss,True,26,919,0.90
+hotpotqa,cf-hotpot-41,What field did the researcher who shared an institution with Wexis Trel specialize in?,inverse dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Catalytic acoustics,Catalytic acoustics,False,26,946,1.72
+hotpotqa,cf-hotpot-42,Where was the colleague of Polion Graff born?,"Oxmeade, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Dunhaven, Arkessa","Dunhaven, Arkessa",False,26,916,1.12
+hotpotqa,cf-hotpot-43,"Who was born earlier, Jeveth Trel or Renis Feld?",Jeveth Trel,qa,Qwen/Qwen2.5-0.5B-Instruct,Renis Trel,Renis Trel,False,26,948,1.24
+hotpotqa,cf-hotpot-44,"Who was born earlier, Myreth Trel or Holel Dann?",Holel Dann,qa,Qwen/Qwen2.5-0.5B-Instruct,Myreth Trel was born earlier than Holel Dann.,Myreth Trel was born earlier than Holel Dann.,False,26,960,2.76
+hotpotqa,cf-hotpot-45,"Who was born earlier, Brinara Voss or Wexis Stow?",Wexis Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Wexis Stow,Wexis Stow,True,26,939,1.05
+hotpotqa,cf-hotpot-46,"Who was born earlier, Kethion Feld or Poleth Voss?",Kethion Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Kethion Feld,Kethion Feld,True,26,935,0.86
+hotpotqa,cf-hotpot-47,Where was the colleague of Ometh Quist born?,"Solkaris, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Queloria","Holvaine, Queloria",False,26,914,1.10
+hotpotqa,cf-hotpot-48,Where was the colleague of Luxan Czek born?,"Dunhaven, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Dunhaven, Dunmarch","Dunhaven, Dunmarch",True,26,931,1.89
+hotpotqa,cf-hotpot-49,What field did the researcher who shared an institution with Sorel Stow specialize in?,anisotropic metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Crystaline synthesis,Crystaline synthesis,False,26,950,0.71
+hotpotqa,cf-hotpot-50,"Who was born earlier, Tavara Ford or Wexion Voss?",Tavara Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavara Ford,Tavara Ford,True,26,929,0.82
+hotpotqa,cf-hotpot-51,"Who was born earlier, Soreth Marr or Myreth Wick?",Myreth Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Soreth Trel,Soreth Trel,False,26,931,0.62
+hotpotqa,cf-hotpot-52,Where was the colleague of Renova Brek born?,"Holvaine, Queloria",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Ostovia","Yendrath, Ostovia",False,26,916,0.88
+hotpotqa,cf-hotpot-53,What field did the researcher who shared an institution with Polax Rieth specialize in?,lattice mechanics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice mechanics,Lattice mechanics,True,26,943,0.57
+hotpotqa,cf-hotpot-54,Where was the colleague of Holara Feld born?,"Tarquessa, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Arkessa","Velquora, Arkessa",False,26,900,1.30
+hotpotqa,cf-hotpot-55,Where was the colleague of Jeven Marr born?,"Talmera, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Pentharos","Yendrath, Pentharos",False,26,903,0.94
+hotpotqa,cf-hotpot-56,What field did the researcher who shared an institution with Drevova Trel specialize in?,anisotropic synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal mechanics,Temporal mechanics,False,26,950,0.43
+hotpotqa,cf-hotpot-57,"Who was born earlier, Drevori Ford or Zarax Rieth?",Drevori Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Drevori Ford,Drevori Ford,True,26,945,1.63
+hotpotqa,cf-hotpot-58,"Who was born earlier, Ilyova Kern or Omen Voss?",Omen Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Ilyeva Kern,Ilyeva Kern,False,26,921,0.93
+hotpotqa,cf-hotpot-59,Where was the colleague of Carnax Brek born?,"Oxmeade, Ostovia",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Dunmarch","Brelmoor, Dunmarch",False,26,933,1.14
+hotpotqa,cf-hotpot-60,Where was the colleague of Zaren Stow born?,"Solkaris, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Quelside, Ostovia","Quelside, Ostovia",False,26,937,1.06
+hotpotqa,cf-hotpot-61,Where was the colleague of Renax Ghent born?,"Velquora, Ostovia",qa,Qwen/Qwen2.5-0.5B-Instruct,"Zinthari, Arkessa","Zinthari, Arkessa",False,26,939,0.87
+hotpotqa,cf-hotpot-62,What field did the researcher who shared an institution with Ilyeth Czek specialize in?,spectral topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral topology,Spectral topology,True,26,931,0.89
+hotpotqa,cf-hotpot-63,What field did the researcher who shared an institution with Tavara Quist specialize in?,catalytic kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Stochastic dynamics,Stochastic dynamics,False,26,939,0.97
+hotpotqa,cf-hotpot-64,Where was the colleague of Omis Graff born?,"Holvaine, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Hexland","Holvaine, Hexland",True,26,934,1.02
+hotpotqa,cf-hotpot-65,"Who was born earlier, Myrova Brek or Tavis Voss?",Myrova Brek,qa,Qwen/Qwen2.5-0.5B-Instruct,Myrova Brek,Myrova Brek,True,26,932,1.09
+hotpotqa,cf-hotpot-66,"Who was born earlier, Ilyova Thorne or Falion Graff?",Falion Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Falion Graff,Falion Graff,True,26,950,6.00
+hotpotqa,cf-hotpot-67,What field did the researcher who shared an institution with Luxion Brek specialize in?,dimensional energetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal kinetics,Temporal kinetics,False,26,921,1.20
+hotpotqa,cf-hotpot-68,What field did the researcher who shared an institution with Drevis Ford specialize in?,anisotropic optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant thermology,Resonant thermology,False,26,931,1.45
+hotpotqa,cf-hotpot-69,"Who was born earlier, Luxeth Thorne or Polova Rieth?",Luxeth Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxeth Thorne,Luxeth Thorne,True,26,924,0.77
+hotpotqa,cf-hotpot-70,What field did the researcher who shared an institution with Zarion Holm specialize in?,harmonic dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic Dynamics,Harmonic Dynamics,True,26,924,0.54
+hotpotqa,cf-hotpot-71,"Who was born earlier, Luxen Brek or Brinax Czek?",Luxen Brek,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxen Brek,Luxen Brek,True,26,950,0.58
+hotpotqa,cf-hotpot-72,Where was the colleague of Holen Stow born?,"Velquora, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Zinthari, Dunmarch","Zinthari, Dunmarch",False,26,924,0.97
+hotpotqa,cf-hotpot-73,What field did the researcher who shared an institution with Jevan Kern specialize in?,catalytic rheology,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice acoustics,Lattice acoustics,False,26,911,1.01
+hotpotqa,cf-hotpot-74,Where was the colleague of Luxan Rieth born?,"Crosshelm, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Crosshelm, Solvania","Crosshelm, Solvania",True,26,934,0.77
+hotpotqa,cf-hotpot-75,What field did the researcher who shared an institution with Polis Trel specialize in?,harmonic dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal mechanics,Temporal mechanics,False,26,932,0.54
+hotpotqa,cf-hotpot-76,What field did the researcher who shared an institution with Wexis Brek specialize in?,dimensional ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional energetics,Dimensional energetics,False,26,953,3.84
+hotpotqa,cf-hotpot-77,Where was the colleague of Jevion Feld born?,"Holvaine, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Zinthari, Pentharos","Zinthari, Pentharos",False,26,912,2.04
+hotpotqa,cf-hotpot-78,Where was the colleague of Renen Brek born?,"Plyrath, Queloria",qa,Qwen/Qwen2.5-0.5B-Instruct,Quintera Institute of Technology,Quintera Institute of Technology,False,26,921,0.72
+hotpotqa,cf-hotpot-79,What field did the researcher who shared an institution with Holova Graff specialize in?,inverse biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral optics,Spectral optics,False,26,915,0.94
+hotpotqa,cf-hotpot-80,Where was the colleague of Carneth Rieth born?,"Oxmeade, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Talmera, Dunmarch","Talmera, Dunmarch",False,26,927,1.39
+hotpotqa,cf-hotpot-81,"Who was born earlier, Kethen Brek or Carnax Trel?",Kethen Brek,qa,Qwen/Qwen2.5-0.5B-Instruct,Kethen Brek,Kethen Brek,True,26,938,0.99
+hotpotqa,cf-hotpot-82,"Who was born earlier, Omion Phen or Myren Quist?",Myren Quist,qa,Qwen/Qwen2.5-0.5B-Instruct,Myren Quist,Myren Quist,True,26,922,1.10
+hotpotqa,cf-hotpot-83,Where was the colleague of Ilyen Brek born?,"Solkaris, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Ostovia","Velquora, Ostovia",False,26,942,1.28
+hotpotqa,cf-hotpot-84,"Who was born earlier, Carnel Quist or Holara Wick?",Carnel Quist,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnel Quist,Carnel Quist,True,26,930,1.38
+hotpotqa,cf-hotpot-85,"Who was born earlier, Myrion Dann or Myren Kern?",Myrion Dann,qa,Qwen/Qwen2.5-0.5B-Instruct,Myren Kern,Myren Kern,False,26,938,0.99
+hotpotqa,cf-hotpot-86,"Who was born earlier, Wexan Voss or Velan Czek?",Velan Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Velan Czek,Velan Czek,True,26,947,1.01
+hotpotqa,cf-hotpot-87,What field did the researcher who shared an institution with Zarel Trel specialize in?,anisotropic optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Inverse metallurgy,Inverse metallurgy,False,26,938,0.53
+hotpotqa,cf-hotpot-88,"Who was born earlier, Quelax Stow or Sorova Brek?",Quelax Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Sorova Brek,Sorova Brek,False,26,953,0.73
+hotpotqa,cf-hotpot-89,"Who was born earlier, Omion Dann or Tavan Phen?",Tavan Phen,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavan Phen,Tavan Phen,True,26,935,0.60
+hotpotqa,cf-hotpot-90,Where was the colleague of Holeth Lund born?,"Brelmoor, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Brelland, Hexworth Research Foundation","Brelmoor, Brelland, Hexworth Research Foundation",False,26,890,1.77
+hotpotqa,cf-hotpot-91,"Who was born earlier, Queleth Stow or Jevis Trel?",Queleth Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevis Trel,Jevis Trel,False,26,921,0.59
+hotpotqa,cf-hotpot-92,What field did the researcher who shared an institution with Brinen Phen specialize in?,stochastic metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant mechanics,Resonant mechanics,False,26,913,0.72
+hotpotqa,cf-hotpot-93,What field did the researcher who shared an institution with Luxori Czek specialize in?,crystalline metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Subaquatic synthesis,Subaquatic synthesis,False,26,928,0.98
+hotpotqa,cf-hotpot-94,Where was the colleague of Oman Graff born?,"Solkaris, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Brelland","Plyrath, Brelland",False,26,905,1.17
+hotpotqa,cf-hotpot-95,What field did the researcher who shared an institution with Falion Kern specialize in?,inverse geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant biometry,Resonant biometry,False,26,904,0.91
+hotpotqa,cf-hotpot-96,What field did the researcher who shared an institution with Drevan Quist specialize in?,lattice metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic synthesis,Chromatic synthesis,False,26,940,0.88
+hotpotqa,cf-hotpot-97,"Who was born earlier, Carnion Phen or Myrel Dann?",Myrel Dann,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnion Phen,Carnion Phen,False,26,943,1.07
+hotpotqa,cf-hotpot-98,"Who was born earlier, Drevax Thorne or Dreveth Rieth?",Dreveth Rieth,qa,Qwen/Qwen2.5-0.5B-Instruct,Dreveth Rieth,Dreveth Rieth,True,26,952,2.17
+hotpotqa,cf-hotpot-99,What field did the researcher who shared an institution with Quelion Dann specialize in?,recursive ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal acoustics,Temporal acoustics,False,26,929,0.70
+hotpotqa,cf-hotpot-100,Where was the colleague of Renis Phen born?,"Yendrath, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarqessa, Hexland","Tarqessa, Hexland",False,26,917,0.85
+hotpotqa,cf-hotpot-101,Where was the colleague of Quelara Phen born?,"Holvaine, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Brelland","Holvaine, Brelland",True,26,914,0.80
+hotpotqa,cf-hotpot-102,"Who was born earlier, Jevel Feld or Zarara Thorne?",Jevel Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevel Thorne,Jevel Thorne,False,26,931,0.64
+hotpotqa,cf-hotpot-103,What field did the researcher who shared an institution with Sorel Ghent specialize in?,temporal photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal mechanics,Temporal mechanics,False,26,946,0.63
+hotpotqa,cf-hotpot-104,"Who was born earlier, Quelan Czek or Poleth Marr?",Quelan Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Quelan Rieth,Quelan Rieth,False,26,920,1.24
+hotpotqa,cf-hotpot-105,Where was the colleague of Brinis Dann born?,"Tarquessa, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Dunmarch","Brelmoor, Dunmarch",False,26,901,0.99
+hotpotqa,cf-hotpot-106,What field did the researcher who shared an institution with Veleth Wick specialize in?,resonant metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional optics,Dimensional optics,False,26,916,0.58
+hotpotqa,cf-hotpot-107,"Who was born earlier, Carnis Graff or Jevel Lund?",Jevel Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevel Lund,Jevel Lund,True,26,939,0.63
+hotpotqa,cf-hotpot-108,"Who was born earlier, Luxax Rieth or Renax Graff?",Luxax Rieth,qa,Qwen/Qwen2.5-0.5B-Instruct,Renax Graff,Renax Graff,False,26,917,0.54
+hotpotqa,cf-hotpot-109,Where was the colleague of Velel Laine born?,"Quelside, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,Quintera University,Quintera University,False,26,933,0.71
+hotpotqa,cf-hotpot-110,"Who was born earlier, Soris Wick or Soran Trel?",Soran Trel,qa,Qwen/Qwen2.5-0.5B-Instruct,Soran Holm,Soran Holm,False,26,902,0.72
+hotpotqa,cf-hotpot-111,Where was the colleague of Queleth Thorne born?,"Plyrath, Ostovia",qa,Qwen/Qwen2.5-0.5B-Instruct,"Northwell Observatory, Solkaris, Ostovia","Northwell Observatory, Solkaris, Ostovia",False,26,927,1.08
+hotpotqa,cf-hotpot-112,Where was the colleague of Wexion Phen born?,"Oxmeade, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Fenmarch, Brelland","Fenmarch, Brelland",False,26,910,0.98
+hotpotqa,cf-hotpot-113,What field did the researcher who shared an institution with Wexel Lund specialize in?,harmonic geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lund,Lund,False,26,923,1.02
+hotpotqa,cf-hotpot-114,What field did the researcher who shared an institution with Velova Ghent specialize in?,dimensional rheology,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal physics,Temporal physics,False,26,935,0.64
+hotpotqa,cf-hotpot-115,"Who was born earlier, Falax Ford or Luxel Wick?",Luxel Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Falax Ford,Falax Ford,False,26,924,0.48
+hotpotqa,cf-hotpot-116,Where was the colleague of Carnion Quist born?,"Dunhaven, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Arkessa","Vrenneth, Arkessa",False,26,924,0.78
+hotpotqa,cf-hotpot-117,Where was the colleague of Zarova Ghent born?,"Dunhaven, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Dunhaven, Arkessa","Dunhaven, Arkessa",False,26,926,1.78
+hotpotqa,cf-hotpot-118,What field did the researcher who shared an institution with Brinova Quist specialize in?,recursive metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal kinetics,Temporal kinetics,False,26,957,3.55
+hotpotqa,cf-hotpot-119,What field did the researcher who shared an institution with Wexori Marr specialize in?,entropic optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic dynamics,Harmonic dynamics,False,26,918,0.87
+hotpotqa,cf-hotpot-120,Where was the colleague of Ilyax Voss born?,"Holvaine, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,Northwell Consortium,Northwell Consortium,False,26,941,1.11
+hotpotqa,cf-hotpot-121,What field did the researcher who shared an institution with Jevion Phen specialize in?,harmonic ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Crystaline thermology,Crystaline thermology,False,26,926,0.60
+hotpotqa,cf-hotpot-122,"Who was born earlier, Polel Quist or Sorara Ford?",Sorara Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Sorara Ford,Sorara Ford,True,26,973,1.77
+hotpotqa,cf-hotpot-123,Where was the colleague of Brinara Quist born?,"Oxmeade, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Talmera, Ostovia","Talmera, Ostovia",False,26,935,1.73
+hotpotqa,cf-hotpot-124,What field did the researcher who shared an institution with Holion Phen specialize in?,chromatic synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Recursive ecology,Recursive ecology,False,26,912,0.71
+hotpotqa,cf-hotpot-125,"Who was born earlier, Kethori Trel or Ilyeth Wick?",Ilyeth Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Kethori Trel,Kethori Trel,False,26,949,1.21
+hotpotqa,cf-hotpot-126,Where was the colleague of Brinova Brek born?,"Quelside, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Queloria","Brelmoor, Queloria",False,26,958,1.21
+hotpotqa,cf-hotpot-127,"Who was born earlier, Brinel Rieth or Renori Trel?",Brinel Rieth,qa,Qwen/Qwen2.5-0.5B-Instruct,Renori Trel,Renori Trel,False,26,916,0.62
+hotpotqa,cf-hotpot-128,"Who was born earlier, Brinel Trel or Zarori Laine?",Zarori Laine,qa,Qwen/Qwen2.5-0.5B-Instruct,Zarori Laine,Zarori Laine,True,26,937,1.02
+hotpotqa,cf-hotpot-129,Where was the colleague of Drevax Quist born?,"Plyrath, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Ostovia","Holvaine, Ostovia",False,26,919,0.83
+hotpotqa,cf-hotpot-130,"Who was born earlier, Myreth Feld or Velan Kern?",Velan Kern,qa,Qwen/Qwen2.5-0.5B-Instruct,Velan Kern,Velan Kern,True,26,949,0.54
+hotpotqa,cf-hotpot-131,What field did the researcher who shared an institution with Ilyion Kern specialize in?,crystalline dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal optics,Temporal optics,False,26,917,0.58
+hotpotqa,cf-hotpot-132,What field did the researcher who shared an institution with Carnori Kern specialize in?,temporal photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal photonics,Temporal photonics,True,26,909,7.71
+hotpotqa,cf-hotpot-133,What field did the researcher who shared an institution with Ometh Dann specialize in?,lattice acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral topology,Spectral topology,False,26,902,1.67
+hotpotqa,cf-hotpot-134,"Who was born earlier, Velori Holm or Zareth Laine?",Velori Holm,qa,Qwen/Qwen2.5-0.5B-Instruct,Velori Holm was born earlier than Zareth Laine.,Velori Holm was born earlier than Zareth Laine.,False,26,960,4.53
+hotpotqa,cf-hotpot-135,What field did the researcher who shared an institution with Luxion Wick specialize in?,spectral dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Anisotropic dynamics,Anisotropic dynamics,False,26,922,0.82
+hotpotqa,cf-hotpot-136,"Who was born earlier, Holion Holm or Drevion Marr?",Drevion Marr,qa,Qwen/Qwen2.5-0.5B-Instruct,Drevion Marr,Drevion Marr,True,26,938,0.74
+hotpotqa,cf-hotpot-137,What field did the researcher who shared an institution with Luxax Voss specialize in?,dimensional kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Stochastic optics,Stochastic optics,False,26,929,0.77
+hotpotqa,cf-hotpot-138,Where was the colleague of Quelori Voss born?,"Dunhaven, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Drevion Voss, born in 1871 in Dunhaven, Arkessa.","Drevion Voss, born in 1871 in Dunhaven, Arkessa.",False,26,935,1.74
+hotpotqa,cf-hotpot-139,"Who was born earlier, Holori Quist or Jevel Ford?",Holori Quist,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevel Ford,Jevel Ford,False,26,924,0.59
+hotpotqa,cf-hotpot-140,"Who was born earlier, Wexeth Ghent or Drevori Thorne?",Drevori Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Drevori Thorne,Drevori Thorne,True,26,947,0.66
+hotpotqa,cf-hotpot-141,What field did the researcher who shared an institution with Velen Holm specialize in?,resonant kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal geophysics,Temporal geophysics,False,26,932,0.62
+hotpotqa,cf-hotpot-142,Where was the colleague of Carnan Graff born?,"Velquora, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Dunmarch","Tarquessa, Dunmarch",False,26,932,0.60
+hotpotqa,cf-hotpot-143,What field did the researcher who shared an institution with Brinax Marr specialize in?,resonant mechanics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant Dynamics,Resonant Dynamics,False,26,905,0.69
+hotpotqa,cf-hotpot-144,What field did the researcher who shared an institution with Zaran Czek specialize in?,crystalline dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic physics,Chromatic physics,False,26,940,0.62
+hotpotqa,cf-hotpot-145,Where was the colleague of Zarori Kern born?,"Zinthari, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,Northwell Observatory,Northwell Observatory,False,26,925,0.62
+hotpotqa,cf-hotpot-146,Where was the colleague of Omel Feld born?,"Tarquessa, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Queloria","Tarquessa, Queloria",False,26,913,0.89
+hotpotqa,cf-hotpot-147,What field did the researcher who shared an institution with Tavara Phen specialize in?,catalytic thermology,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant acoustics,Resonant acoustics,False,26,929,0.55
+hotpotqa,cf-hotpot-148,Where was the colleague of Jeven Voss born?,"Crosshelm, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Solkaris, Varnheim","Solkaris, Varnheim",False,26,902,0.61
+hotpotqa,cf-hotpot-149,What field did the researcher who shared an institution with Myrara Stow specialize in?,inverse biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic energetics,Chromatic energetics,False,26,945,0.64
+hotpotqa,cf-hotpot-150,"Who was born earlier, Brinan Voss or Luxen Phen?",Brinan Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxen Brek,Luxen Brek,False,26,916,0.55
+hotpotqa,cf-hotpot-151,What field did the researcher who shared an institution with Zarion Marr specialize in?,harmonic geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Inverse optics,Inverse optics,False,26,902,0.41
+hotpotqa,cf-hotpot-152,"Who was born earlier, Carnen Thorne or Polax Wick?",Polax Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnen Thorne,Carnen Thorne,False,26,936,0.80
+hotpotqa,cf-hotpot-153,What field did the researcher who shared an institution with Myrion Rieth specialize in?,stochastic geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional topology,Dimensional topology,False,26,937,0.50
+hotpotqa,cf-hotpot-154,Where was the colleague of Holova Feld born?,"Velquora, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Varnheim","Plyrath, Varnheim",False,26,900,0.94
+hotpotqa,cf-hotpot-155,"Who was born earlier, Jevori Dann or Carnori Ghent?",Jevori Dann,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevori Dann,Jevori Dann,True,26,929,0.58
+hotpotqa,cf-hotpot-156,Where was the colleague of Wexis Ford born?,"Oxmeade, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Ostovia","Tarquessa, Ostovia",False,26,940,0.74
+hotpotqa,cf-hotpot-157,"Who was born earlier, Falova Phen or Polori Kern?",Falova Phen,qa,Qwen/Qwen2.5-0.5B-Instruct,Falova Phen,Falova Phen,True,26,948,0.59
+hotpotqa,cf-hotpot-158,"Who was born earlier, Holax Laine or Reneth Ford?",Reneth Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Holax Laine,Holax Laine,False,26,932,1.14
+hotpotqa,cf-hotpot-159,What field did the researcher who shared an institution with Kethova Voss specialize in?,recursive ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal kinetics,Temporal kinetics,False,26,930,0.65
+hotpotqa,cf-hotpot-160,What field did the researcher who shared an institution with Omova Brek specialize in?,harmonic thermology,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic topology,Harmonic topology,False,26,933,0.72
+hotpotqa,cf-hotpot-161,What field did the researcher who shared an institution with Falion Rieth specialize in?,temporal energetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal synthesis,Temporal synthesis,False,26,910,0.84
+hotpotqa,cf-hotpot-162,What field did the researcher who shared an institution with Polori Trel specialize in?,temporal acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice kinetics,Lattice kinetics,False,26,945,0.78
+hotpotqa,cf-hotpot-163,Where was the colleague of Falara Phen born?,"Zinthari, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,Arkessa,Arkessa,True,26,916,0.65
+hotpotqa,cf-hotpot-164,What field did the researcher who shared an institution with Brinion Quist specialize in?,anisotropic optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice optics,Lattice optics,False,26,940,0.75
+hotpotqa,cf-hotpot-165,What field did the researcher who shared an institution with Carnis Marr specialize in?,spectral photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant dynamics,Resonant dynamics,False,26,918,0.84
+hotpotqa,cf-hotpot-166,"Who was born earlier, Falion Lund or Brineth Lund?",Falion Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Falion Lund was born earlier than Brineth Lund.,Falion Lund was born earlier than Brineth Lund.,False,26,944,1.92
+hotpotqa,cf-hotpot-167,Where was the colleague of Sorax Ford born?,"Oxmeade, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Dunmarch","Yendrath, Dunmarch",False,26,934,1.00
+hotpotqa,cf-hotpot-168,Where was the colleague of Omax Laine born?,"Yendrath, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Solvania","Holvaine, Solvania",False,26,931,0.74
+hotpotqa,cf-hotpot-169,"Who was born earlier, Velara Quist or Quelax Trel?",Velara Quist,qa,Qwen/Qwen2.5-0.5B-Instruct,Velara Quist,Velara Quist,True,26,927,0.63
+hotpotqa,cf-hotpot-170,"Who was born earlier, Myris Lund or Falori Feld?",Falori Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Falori Feld,Falori Feld,True,26,916,0.51
+hotpotqa,cf-hotpot-171,What field did the researcher who shared an institution with Soris Quist specialize in?,spectral optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal kinetics,Temporal kinetics,False,26,922,0.64
+hotpotqa,cf-hotpot-172,Where was the colleague of Kethel Lund born?,"Quelside, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,Solvania,Solvania,False,26,910,0.50
+hotpotqa,cf-hotpot-173,What field did the researcher who shared an institution with Brinel Brek specialize in?,stochastic mechanics,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic topology,Harmonic topology,False,26,913,0.59
+hotpotqa,cf-hotpot-174,"Who was born earlier, Luxax Ghent or Omis Marr?",Omis Marr,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxax Ghent was born earlier than Omis Marr.,Luxax Ghent was born earlier than Omis Marr.,False,26,902,1.24
+hotpotqa,cf-hotpot-175,What field did the researcher who shared an institution with Holan Graff specialize in?,temporal geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal mechanics,Temporal mechanics,False,26,937,0.47
+hotpotqa,cf-hotpot-176,Where was the colleague of Carnax Graff born?,"Plyrath, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Dunmarch","Brelmoor, Dunmarch",False,26,926,0.98
+hotpotqa,cf-hotpot-177,What field did the researcher who shared an institution with Brinori Feld specialize in?,chromatic topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Inverse biometry,Inverse biometry,False,26,910,0.51
+hotpotqa,cf-hotpot-178,Where was the colleague of Drevara Feld born?,"Zinthari, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Zinthari, Solvania","Zinthari, Solvania",True,26,890,1.41
+hotpotqa,cf-hotpot-179,What field did the researcher who shared an institution with Renara Kern specialize in?,dimensional photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional physics,Dimensional physics,False,26,902,0.59
+hotpotqa,cf-hotpot-180,What field did the researcher who shared an institution with Renen Thorne specialize in?,stochastic ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional ecology,Dimensional ecology,False,26,921,0.78
+hotpotqa,cf-hotpot-181,Where was the colleague of Luxax Holm born?,"Fenmarch, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Crosshelm, Queloria","Crosshelm, Queloria",False,26,920,1.01
+hotpotqa,cf-hotpot-182,Where was the colleague of Quelan Lund born?,"Talmera, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,Solvania,Solvania,False,26,899,1.28
+hotpotqa,cf-hotpot-183,Where was the colleague of Ilyen Phen born?,"Velquora, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Varnheim","Velquora, Varnheim",True,26,929,1.00
+hotpotqa,cf-hotpot-184,What field did the researcher who shared an institution with Drevan Kern specialize in?,entropic photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice acoustics,Lattice acoustics,False,26,933,0.74
+hotpotqa,cf-hotpot-185,What field did the researcher who shared an institution with Myrova Graff specialize in?,anisotropic synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional energetics,Dimensional energetics,False,26,938,0.69
+hotpotqa,cf-hotpot-186,What field did the researcher who shared an institution with Polen Czek specialize in?,temporal metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice metallurgy,Lattice metallurgy,False,26,924,0.62
+hotpotqa,cf-hotpot-187,"Who was born earlier, Myrova Lund or Holen Kern?",Myrova Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Holen Kern,Holen Kern,False,26,933,0.55
+hotpotqa,cf-hotpot-188,What field did the researcher who shared an institution with Quelax Quist specialize in?,entropic metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional kinetics,Dimensional kinetics,False,26,941,0.66
+hotpotqa,cf-hotpot-189,Where was the colleague of Velel Holm born?,"Yendrath, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Pentharos","Yendrath, Pentharos",True,26,925,0.85
+hotpotqa,cf-hotpot-190,Where was the colleague of Falara Rieth born?,"Zinthari, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Arkessa","Brelmoor, Arkessa",False,26,913,0.77
+hotpotqa,cf-hotpot-191,Where was the colleague of Jevel Trel born?,"Yendrath, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Tasserin","Vrenneth, Tasserin",False,26,926,0.91
+hotpotqa,cf-hotpot-192,What field did the researcher who shared an institution with Brinen Trel specialize in?,resonant ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant mechanics,Resonant mechanics,False,26,939,0.67
+hotpotqa,cf-hotpot-193,Where was the colleague of Carnis Lund born?,"Zinthari, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,Zanthar Lund,Zanthar Lund,False,26,889,1.74
+hotpotqa,cf-hotpot-194,Where was the colleague of Brinel Marr born?,"Yendrath, Ostovia",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Brelland","Velquora, Brelland",False,26,910,1.42
+hotpotqa,cf-hotpot-195,"Who was born earlier, Zaris Lund or Falori Ghent?",Falori Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Falori Ghent,Falori Ghent,True,26,928,1.87
+hotpotqa,cf-hotpot-196,"Who was born earlier, Falova Thorne or Kethion Ghent?",Kethion Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Falova Thorne,Falova Thorne,False,26,935,1.67
+hotpotqa,cf-hotpot-197,Where was the colleague of Wexion Rieth born?,"Holvaine, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Solkaris, Ostovia","Solkaris, Ostovia",False,26,908,2.52
+hotpotqa,cf-hotpot-198,"Who was born earlier, Kethion Wick or Renis Ghent?",Renis Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Renis Ghent,Renis Ghent,True,26,933,1.25
+hotpotqa,cf-hotpot-199,"Who was born earlier, Holeth Stow or Omova Ghent?",Holeth Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Holeth Stow,Holeth Stow,True,26,953,5.77
+hotpotqa,cf-hotpot-200,Where was the colleague of Drevan Rieth born?,"Zinthari, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Brelland","Plyrath, Brelland",False,26,941,1.94
+hotpotqa,cf-hotpot-201,What field did the researcher who shared an institution with Myrara Czek specialize in?,anisotropic ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic physics,Chromatic physics,False,26,940,0.95
+hotpotqa,cf-hotpot-202,What field did the researcher who shared an institution with Carnen Brek specialize in?,temporal acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional topology,Dimensional topology,False,26,938,0.58
+hotpotqa,cf-hotpot-203,Where was the colleague of Ometh Graff born?,"Brelmoor, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,Northwell,Northwell,False,26,910,0.95
+hotpotqa,cf-hotpot-204,What field did the researcher who shared an institution with Falax Stow specialize in?,recursive acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Catalytic rheology,Catalytic rheology,False,26,950,2.24
+hotpotqa,cf-hotpot-205,"Who was born earlier, Luxori Holm or Wexori Trel?",Luxori Holm,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxori Laine,Luxori Laine,False,26,937,1.24
+hotpotqa,cf-hotpot-206,Where was the colleague of Wexen Trel born?,"Holvaine, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Solvania","Brelmoor, Solvania",False,26,935,1.08
+hotpotqa,cf-hotpot-207,What field did the researcher who shared an institution with Polori Quist specialize in?,entropic metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice kinetics,Lattice kinetics,False,26,948,0.73
+hotpotqa,cf-hotpot-208,What field did the researcher who shared an institution with Renax Marr specialize in?,subaquatic geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,crystalline energetics,crystalline energetics,False,26,924,0.86
+hotpotqa,cf-hotpot-209,"Who was born earlier, Luxis Graff or Carnax Marr?",Carnax Marr,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxis Trel was born earlier than Carnax Marr.,Luxis Trel was born earlier than Carnax Marr.,False,26,936,1.19
+hotpotqa,cf-hotpot-210,Where was the colleague of Neveth Dann born?,"Crosshelm, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Dunmarch","Plyrath, Dunmarch",False,26,904,1.56
+hotpotqa,cf-hotpot-211,Where was the colleague of Soran Marr born?,"Tarquessa, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Solkaris, Pentharos","Solkaris, Pentharos",False,26,889,1.57
+hotpotqa,cf-hotpot-212,"Who was born earlier, Polen Holm or Kethara Graff?",Kethara Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Kethara Graff,Kethara Graff,True,26,948,0.85
+hotpotqa,cf-hotpot-213,Where was the colleague of Ilyel Graff born?,"Yendrath, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Brelland","Yendrath, Brelland",True,26,934,2.02
+hotpotqa,cf-hotpot-214,Where was the colleague of Drevax Rieth born?,"Solkaris, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Quantside, Arkessa","Quantside, Arkessa",False,26,941,7.68
+hotpotqa,cf-hotpot-215,"Who was born earlier, Omara Rieth or Carnax Feld?",Carnax Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnax Feld,Carnax Feld,True,26,925,3.01
+hotpotqa,cf-hotpot-216,"Who was born earlier, Renel Brek or Carnen Czek?",Carnen Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Renel Brek,Renel Brek,False,26,927,1.08
+hotpotqa,cf-hotpot-217,What field did the researcher who shared an institution with Wexion Marr specialize in?,recursive metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal geophysics,Temporal geophysics,False,26,923,4.76
+hotpotqa,cf-hotpot-218,Where was the colleague of Renen Trel born?,"Plyrath, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Hexland","Holvaine, Hexland",False,26,934,4.07
+hotpotqa,cf-hotpot-219,"Who was born earlier, Omova Holm or Tavori Wick?",Tavori Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavori Wick,Tavori Wick,True,26,946,5.13
+hotpotqa,cf-hotpot-220,What field did the researcher who shared an institution with Ilyel Czek specialize in?,subaquatic biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Spectral metallurgy,Spectral metallurgy,False,26,946,0.63
+hotpotqa,cf-hotpot-221,Where was the colleague of Neveth Wick born?,"Quelside, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Dunmarch","Plyrath, Dunmarch",False,26,908,4.16
+hotpotqa,cf-hotpot-222,What field did the researcher who shared an institution with Sorel Wick specialize in?,temporal acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional acoustics,Dimensional acoustics,False,26,939,1.46
+hotpotqa,cf-hotpot-223,"Who was born earlier, Ilyen Rieth or Wexeth Quist?",Ilyen Rieth,qa,Qwen/Qwen2.5-0.5B-Instruct,Wexeth Quist,Wexeth Quist,False,26,955,9.05
+hotpotqa,cf-hotpot-224,Where was the colleague of Wexion Wick born?,"Plyrath, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Talmera, Hexland","Talmera, Hexland",False,26,912,1.91
+hotpotqa,cf-hotpot-225,What field did the researcher who shared an institution with Myrax Wick specialize in?,subaquatic kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional kinetics,Dimensional kinetics,False,26,906,1.53
+hotpotqa,cf-hotpot-226,"Who was born earlier, Holeth Marr or Velen Kern?",Velen Kern,qa,Qwen/Qwen2.5-0.5B-Instruct,Velen Kern,Velen Kern,True,26,918,0.65
+hotpotqa,cf-hotpot-227,"Who was born earlier, Polova Dann or Ilyel Laine?",Polova Dann,qa,Qwen/Qwen2.5-0.5B-Instruct,Ilyel Laine,Ilyel Laine,False,26,944,0.81
+hotpotqa,cf-hotpot-228,"Who was born earlier, Quelori Quist or Queleth Ford?",Queleth Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Queleth Ford,Queleth Ford,True,26,939,0.53
+hotpotqa,cf-hotpot-229,"Who was born earlier, Wexis Thorne or Faleth Trel?",Wexis Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Faleth Trel,Faleth Trel,False,26,942,0.74
+hotpotqa,cf-hotpot-230,"Who was born earlier, Wexan Stow or Zaran Lund?",Wexan Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Zaran Lund,Zaran Lund,False,26,936,0.79
+hotpotqa,cf-hotpot-231,"Who was born earlier, Holis Feld or Falara Laine?",Holis Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Falara Laine,Falara Laine,False,26,924,2.64
+hotpotqa,cf-hotpot-232,"Who was born earlier, Nevara Thorne or Kethova Feld?",Kethova Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Kethova Thorne,Kethova Thorne,False,26,929,5.43
+hotpotqa,cf-hotpot-233,What field did the researcher who shared an institution with Omis Wick specialize in?,harmonic acoustics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice photonics,Lattice photonics,False,26,901,3.90
+hotpotqa,cf-hotpot-234,Where was the colleague of Brinan Brek born?,"Quelside, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Quelside, Brelland","Quelside, Brelland",True,26,917,5.96
+hotpotqa,cf-hotpot-235,Where was the colleague of Soreth Trel born?,"Oxmeade, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,Ostvale Institute of Technology,Ostvale Institute of Technology,False,26,938,3.19
+hotpotqa,cf-hotpot-236,What field did the researcher who shared an institution with Wexion Graff specialize in?,dimensional geophysics,qa,Qwen/Qwen2.5-0.5B-Instruct,Stochastic dynamics,Stochastic dynamics,False,26,911,2.20
+hotpotqa,cf-hotpot-237,"Who was born earlier, Jevion Holm or Velara Kern?",Velara Kern,qa,Qwen/Qwen2.5-0.5B-Instruct,Velara Kern,Velara Kern,True,26,950,2.89
+hotpotqa,cf-hotpot-238,Where was the colleague of Wexan Kern born?,"Plyrath, Queloria",qa,Qwen/Qwen2.5-0.5B-Instruct,"Dunhaven, Tasserin","Dunhaven, Tasserin",False,26,924,1.28
+hotpotqa,cf-hotpot-239,"Who was born earlier, Carnen Ghent or Velion Ford?",Carnen Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnen Thorne,Carnen Thorne,False,26,951,1.20
+hotpotqa,cf-hotpot-240,Where was the colleague of Neveth Ghent born?,"Crosshelm, Queloria",qa,Qwen/Qwen2.5-0.5B-Instruct,"Crosshelm, Pentharos","Crosshelm, Pentharos",False,26,921,1.82
+hotpotqa,cf-hotpot-241,"Who was born earlier, Jeven Feld or Nevion Brek?",Jeven Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Nevion Brek,Nevion Brek,False,26,925,2.29
+hotpotqa,cf-hotpot-242,What field did the researcher who shared an institution with Luxori Laine specialize in?,entropic biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Stochastic ecology,Stochastic ecology,False,26,943,1.45
+hotpotqa,cf-hotpot-243,"Who was born earlier, Omara Kern or Polara Czek?",Polara Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Polara Czek,Polara Czek,True,26,926,1.70
+hotpotqa,cf-hotpot-244,Where was the colleague of Quelara Laine born?,"Oxmeade, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Omax Laine discovered the Laine invariant, which advanced the field of catalytic dynamics.","Omax Laine discovered the Laine invariant, which advanced the field of catalytic dynamics.",False,26,941,7.78
+hotpotqa,cf-hotpot-245,"Who was born earlier, Brinel Graff or Tavara Stow?",Tavara Stow,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavara Stow,Tavara Stow,True,26,930,1.20
+hotpotqa,cf-hotpot-246,Where was the colleague of Drevel Thorne born?,"Vrenneth, Tasserin",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Varnheim","Velquora, Varnheim",False,26,943,0.72
+hotpotqa,cf-hotpot-247,"Who was born earlier, Ketheth Phen or Wexen Czek?",Ketheth Phen,qa,Qwen/Qwen2.5-0.5B-Instruct,Ketheth Stow,Ketheth Stow,False,26,949,1.09
+hotpotqa,cf-hotpot-248,Where was the colleague of Carnis Phen born?,"Fenmarch, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Tasserin","Yendrath, Tasserin",False,26,921,0.99
+hotpotqa,cf-hotpot-249,Where was the colleague of Ilyax Graff born?,"Solkaris, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Solkaris, Varnheim","Solkaris, Varnheim",True,26,942,0.86
+hotpotqa,cf-hotpot-250,Where was the colleague of Brinova Graff born?,"Vrenneth, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,Northwell Polytechnical Institute,Northwell Polytechnical Institute,False,26,961,2.35
+hotpotqa,cf-hotpot-251,"Who was born earlier, Drevis Marr or Myrax Graff?",Myrax Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Drevis Marr,Drevis Marr,False,26,925,0.73
+hotpotqa,cf-hotpot-252,Where was the colleague of Jevori Ford born?,"Dunhaven, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Fenmarch, Queloria","Fenmarch, Queloria",False,26,915,2.04
+hotpotqa,cf-hotpot-253,"Who was born earlier, Renen Quist or Ometh Voss?",Ometh Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Renen Quist,Renen Quist,False,26,908,0.92
+hotpotqa,cf-hotpot-254,What field did the researcher who shared an institution with Luxeth Voss specialize in?,resonant optics,qa,Qwen/Qwen2.5-0.5B-Instruct,Chromatic kinetics,Chromatic kinetics,False,26,924,0.54
+hotpotqa,cf-hotpot-255,What field did the researcher who shared an institution with Carnax Ford specialize in?,lattice kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Inverse topology,Inverse topology,False,26,925,0.38
+hotpotqa,cf-hotpot-256,Where was the colleague of Velis Kern born?,"Yendrath, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Hexland","Vrenneth, Hexland",False,26,909,1.21
+hotpotqa,cf-hotpot-257,"Who was born earlier, Velori Czek or Polara Thorne?",Polara Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Polara Thorne,Polara Thorne,True,26,926,1.19
+hotpotqa,cf-hotpot-258,Where was the colleague of Carnis Brek born?,"Talmera, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,"Solkaris, Arkessa","Solkaris, Arkessa",False,26,938,2.13
+hotpotqa,cf-hotpot-259,"Who was born earlier, Carnis Thorne or Zarel Dann?",Carnis Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Zarel Dann,Zarel Dann,False,26,948,0.69
+hotpotqa,cf-hotpot-260,"Who was born earlier, Holori Dann or Renan Czek?",Renan Czek,qa,Qwen/Qwen2.5-0.5B-Instruct,Renan Czek,Renan Czek,True,26,935,0.83
+hotpotqa,cf-hotpot-261,What field did the researcher who shared an institution with Renax Stow specialize in?,resonant dynamics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant Ecology,Resonant Ecology,False,26,935,0.53
+hotpotqa,cf-hotpot-262,"Who was born earlier, Ometh Ghent or Polion Holm?",Ometh Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Polion Voss,Polion Voss,False,26,917,0.88
+hotpotqa,cf-hotpot-263,"Who was born earlier, Falis Thorne or Wexen Holm?",Falis Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Falis Thorne,Falis Thorne,True,26,936,1.05
+hotpotqa,cf-hotpot-264,Where was the colleague of Taveth Graff born?,"Oxmeade, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Holvaine, Dunmarch","Holvaine, Dunmarch",False,26,949,1.22
+hotpotqa,cf-hotpot-265,Where was the colleague of Tavan Voss born?,"Tarquessa, Arkessa",qa,Qwen/Qwen2.5-0.5B-Instruct,Northwell Academy of Sciences,Northwell Academy of Sciences,False,26,920,1.26
+hotpotqa,cf-hotpot-266,"Who was born earlier, Falax Ghent or Holori Ford?",Holori Ford,qa,Qwen/Qwen2.5-0.5B-Instruct,Falax Ford,Falax Ford,False,26,918,0.81
+hotpotqa,cf-hotpot-267,What field did the researcher who shared an institution with Zaris Graff specialize in?,resonant kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal mechanics,Temporal mechanics,False,26,938,0.42
+hotpotqa,cf-hotpot-268,Where was the colleague of Quelax Czek born?,"Velquora, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Tasserin","Vrenneth, Tasserin",False,26,936,0.74
+hotpotqa,cf-hotpot-269,Where was the colleague of Myris Dann born?,"Velquora, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Plyrath, Varnheim","Plyrath, Varnheim",False,26,896,5.27
+hotpotqa,cf-hotpot-270,What field did the researcher who shared an institution with Drevori Stow specialize in?,dimensional kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice metallurgy,Lattice metallurgy,False,26,950,0.74
+hotpotqa,cf-hotpot-271,Where was the colleague of Oman Ford born?,"Plyrath, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,Pentharos,Pentharos,True,26,910,0.64
+hotpotqa,cf-hotpot-272,"Who was born earlier, Myrova Voss or Polis Kern?",Myrova Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Polis Kern,Polis Kern,False,26,929,0.64
+hotpotqa,cf-hotpot-273,"Who was born earlier, Neven Graff or Renis Kern?",Neven Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Renis Kern,Renis Kern,False,26,913,0.66
+hotpotqa,cf-hotpot-274,"Who was born earlier, Tavel Trel or Renori Phen?",Renori Phen,qa,Qwen/Qwen2.5-0.5B-Instruct,Renori Trel,Renori Trel,False,26,937,1.18
+hotpotqa,cf-hotpot-275,Where was the colleague of Wexel Laine born?,"Brelmoor, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Varnheim","Tarquessa, Varnheim",False,26,939,1.38
+hotpotqa,cf-hotpot-276,Where was the colleague of Kethova Marr born?,"Plyrath, Brelland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Pentharos","Vrenneth, Pentharos",False,26,908,1.19
+hotpotqa,cf-hotpot-277,Where was the colleague of Jevax Ford born?,"Crosshelm, Solvania",qa,Qwen/Qwen2.5-0.5B-Instruct,"Crosshelm, Solvania","Crosshelm, Solvania",True,26,923,0.78
+hotpotqa,cf-hotpot-278,Where was the colleague of Nevel Marr born?,"Solkaris, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Tarquessa, Solvania","Tarquessa, Solvania",False,26,894,0.91
+hotpotqa,cf-hotpot-279,"Who was born earlier, Myrara Wick or Carnion Feld?",Myrara Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Carnion Feld,Carnion Feld,False,26,935,0.49
+hotpotqa,cf-hotpot-280,What field did the researcher who shared an institution with Soren Ford specialize in?,lattice kinetics,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice metallurgy,Lattice metallurgy,False,26,918,0.53
+hotpotqa,cf-hotpot-281,"Who was born earlier, Nevori Voss or Jevel Thorne?",Jevel Thorne,qa,Qwen/Qwen2.5-0.5B-Instruct,Jevel Thorne,Jevel Thorne,True,26,928,0.67
+hotpotqa,cf-hotpot-282,Where was the colleague of Holeth Brek born?,"Velquora, Hexland",qa,Qwen/Qwen2.5-0.5B-Instruct,"Velquora, Hexland","Velquora, Hexland",True,26,943,0.77
+hotpotqa,cf-hotpot-283,"Who was born earlier, Polis Wick or Oman Wick?",Polis Wick,qa,Qwen/Qwen2.5-0.5B-Instruct,Oman Wick,Oman Wick,False,26,940,0.73
+hotpotqa,cf-hotpot-284,What field did the researcher who shared an institution with Soran Kern specialize in?,inverse photonics,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional mechanics,Dimensional mechanics,False,26,886,0.90
+hotpotqa,cf-hotpot-285,"Who was born earlier, Sorion Voss or Renara Ghent?",Renara Ghent,qa,Qwen/Qwen2.5-0.5B-Instruct,Renara Ghent,Renara Ghent,True,26,949,0.55
+hotpotqa,cf-hotpot-286,What field did the researcher who shared an institution with Ilyion Ford specialize in?,subaquatic metallurgy,qa,Qwen/Qwen2.5-0.5B-Instruct,Lattice metallurgy,Lattice metallurgy,False,26,919,0.74
+hotpotqa,cf-hotpot-287,Where was the colleague of Wexax Laine born?,"Zinthari, Dunmarch",qa,Qwen/Qwen2.5-0.5B-Instruct,"Yendrath, Dunmarch","Yendrath, Dunmarch",False,26,957,1.28
+hotpotqa,cf-hotpot-288,"Who was born earlier, Omen Wick or Luxova Voss?",Luxova Voss,qa,Qwen/Qwen2.5-0.5B-Instruct,Luxova Voss,Luxova Voss,True,26,923,0.64
+hotpotqa,cf-hotpot-289,"Who was born earlier, Luxeth Lund or Falan Brek?",Luxeth Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Falan Brek,Falan Brek,False,26,939,0.58
+hotpotqa,cf-hotpot-290,"Who was born earlier, Holion Feld or Wexax Thorne?",Holion Feld,qa,Qwen/Qwen2.5-0.5B-Instruct,Wexax Thorne,Wexax Thorne,False,26,946,0.67
+hotpotqa,cf-hotpot-291,"Who was born earlier, Tavax Lund or Brineth Graff?",Tavax Lund,qa,Qwen/Qwen2.5-0.5B-Instruct,Tavax Lund,Tavax Lund,True,26,930,0.54
+hotpotqa,cf-hotpot-292,Where was the colleague of Dreveth Czek born?,"Vrenneth, Pentharos",qa,Qwen/Qwen2.5-0.5B-Instruct,"Vrenneth, Pentharos","Vrenneth, Pentharos",True,26,939,0.66
+hotpotqa,cf-hotpot-293,What field did the researcher who shared an institution with Falion Czek specialize in?,harmonic synthesis,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic synthesis,Harmonic synthesis,True,26,945,0.62
+hotpotqa,cf-hotpot-294,What field did the researcher who shared an institution with Zaren Voss specialize in?,harmonic ecology,qa,Qwen/Qwen2.5-0.5B-Instruct,Harmonic biometry,Harmonic biometry,False,26,925,0.52
+hotpotqa,cf-hotpot-295,"Who was born earlier, Nevax Graff or Holara Voss?",Nevax Graff,qa,Qwen/Qwen2.5-0.5B-Instruct,Holara Voss,Holara Voss,False,26,932,0.65
+hotpotqa,cf-hotpot-296,Where was the colleague of Jevara Quist born?,"Brelmoor, Varnheim",qa,Qwen/Qwen2.5-0.5B-Instruct,"Brelmoor, Queloria","Brelmoor, Queloria",False,26,917,0.93
+hotpotqa,cf-hotpot-297,What field did the researcher who shared an institution with Jevori Kern specialize in?,temporal topology,qa,Qwen/Qwen2.5-0.5B-Instruct,Temporal ecology,Temporal ecology,False,26,910,0.43
+hotpotqa,cf-hotpot-298,What field did the researcher who shared an institution with Ilyara Feld specialize in?,subaquatic mechanics,qa,Qwen/Qwen2.5-0.5B-Instruct,Resonant kinetics,Resonant kinetics,False,26,927,0.70
+hotpotqa,cf-hotpot-299,What field did the researcher who shared an institution with Tavori Kern specialize in?,harmonic biometry,qa,Qwen/Qwen2.5-0.5B-Instruct,Dimensional mechanics,Dimensional mechanics,False,26,909,0.47

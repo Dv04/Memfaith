@@ -1,10 +1,10 @@
 {
   "model": "gpt2",
-  "device": "mps",
-  "total_examples": 100,
+  "device": "cpu",
+  "total_examples": 5,
   "correct": 0,
   "accuracy": 0.0,
-  "no_label_count": 100,
-  "no_label_pct": 100.0,
+  "no_label_count": 2,
+  "no_label_pct": 40.0,
   "output_path": "outputs/memfaith/gpt2_full_context_results.csv"
 }

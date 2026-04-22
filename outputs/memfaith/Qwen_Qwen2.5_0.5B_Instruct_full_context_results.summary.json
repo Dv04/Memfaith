@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "device": "mps",
+  "total_examples": 800,
+  "correct": 265,
+  "accuracy": 33.125,
+  "no_label_count": 0,
+  "no_label_pct": 0.0,
+  "output_path": "outputs/memfaith/Qwen_Qwen2.5_0.5B_Instruct_full_context_results.csv"
+}
