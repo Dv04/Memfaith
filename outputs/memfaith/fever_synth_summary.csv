@@ -1,0 +1,5 @@
+dataset,k,backend,num_examples,avg_ccs,full_accuracy,total_ablations,flip_rate_over_ablations
+fever,0,transformers:Qwen/Qwen2.5-0.5B-Instruct,20,,0.0,0,
+fever,2,transformers:Qwen/Qwen2.5-0.5B-Instruct,20,1.0,0.0,40,1.0
+fever,4,transformers:Qwen/Qwen2.5-0.5B-Instruct,20,1.0,0.0,80,1.0
+fever,8,transformers:Qwen/Qwen2.5-0.5B-Instruct,20,0.98125,0.0,146,0.979452

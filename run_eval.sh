@@ -23,6 +23,8 @@ python3 scripts/run_fever_ccs.py \
   --output-path outputs/memfaith/fever_synth_ccs.jsonl \
   --summary-path outputs/memfaith/fever_synth_summary.csv \
   --cache-path outputs/memfaith/fever_synth_cache.sqlite \
+  --backend transformers \
+  --model Qwen/Qwen2.5-0.5B-Instruct \
   --k-values "0,2,4,8" \
   --max-examples 20
 
@@ -32,6 +34,8 @@ python3 scripts/run_hotpotqa_ccs.py \
   --output-path outputs/memfaith/hotpot_synth_ccs.jsonl \
   --summary-path outputs/memfaith/hotpot_synth_summary.csv \
   --cache-path outputs/memfaith/hotpot_synth_cache.sqlite \
+  --backend transformers \
+  --model Qwen/Qwen2.5-0.5B-Instruct \
   --k-values "0,2,4,8" \
   --max-examples 20
 
